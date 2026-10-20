@@ -31,6 +31,7 @@ Dirigida principalmente a desarrolladores, tech leads, CTOs y responsables de py
 ## Documentación de trabajo
 
 - [Glosario de términos](docs/glosario.md): definiciones breves y distinciones clave; se ampliará a medida que avance el guion.
+- [Protección de datos y RGPD en el desarrollo agéntico](docs/proteccion-datos-rgpd-ia-agentica.md): criterios prácticos, anonimización y fuentes oficiales; incluye una propuesta de slide.
 
 ## Qué se almacenará en este repositorio
 
