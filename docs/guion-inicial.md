@@ -58,23 +58,25 @@ Usar IA agéntica para desarrollar software sin convertir la confidencialidad de
 **Slide prevista (1):** tres capas: contrato, protección de datos y controles técnicos.
 
 ### 5. Controles que sí ayudan — 10 min
-Organizar las recomendaciones en tres grupos, evitando una diapositiva por cada práctica:
+Tomar como referencia principal la [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html), que ofrece un marco específico para agentes. Seleccionar sus principios relevantes para el desarrollo cotidiano, sin intentar resumir toda la guía.
 
-1. **Limita el alcance:** secretos fuera del repositorio y del contexto; separación de desarrollo, pruebas y producción; cuentas y permisos mínimos; acceso controlado a sistemas de clientes.
-2. **Controla entradas y acciones:** revisar archivos y logs antes de compartirlos; usar datos sintéticos; configurar exclusiones sin tratarlas como barreras de seguridad; limitar terminal, red e integraciones; revisar comandos y acciones sensibles.
-3. **Revisa antes de integrar:** trabajar con Git, inspeccionar el diff, ejecutar pruebas y análisis disponibles y exigir revisión humana para cambios críticos y despliegues.
+Organizar las recomendaciones en tres grupos:
+
+1. **Limita el alcance:** herramientas y permisos mínimos, secretos fuera del repositorio y del contexto, separación de desarrollo/pruebas/producción y acceso de solo lectura cuando sea suficiente.
+2. **Controla entradas y acciones:** tratar archivos y resultados externos como datos no confiables; reducir y sanear contexto y logs; limitar terminal e integraciones; requerir aprobación para acciones de impacto.
+3. **Verifica y responde:** revisar el diff, ejecutar pruebas, registrar acciones relevantes sin secretos y contar con un procedimiento ante exposiciones.
 
 Puntos que conviene verbalizar:
 - Un archivo `.env` no es un gestor de secretos; `.gitignore` no impide que el agente lea un archivo.
 - Una VPN no impide por sí sola que se transmitan datos accesibles desde el equipo.
 - Las instrucciones en `AGENTS.md`, `CLAUDE.md` u otros archivos orientan al agente, pero no sustituyen permisos, aislamiento y controles técnicos.
 - Revisar dependencias, extensiones y servidores MCP antes de concederles acceso.
-- No compartir logs completos por defecto: pueden contener tokens, datos personales o información confidencial.
+- Una confirmación humana debe referirse a la acción concreta; no sustituye la validación de permisos en el componente que la ejecuta.
 
 **Slides previstas (3):**
-1. Limita el alcance: secretos, entornos y accesos.
-2. Controla entradas y acciones: contexto, logs y terminal.
-3. Revisa antes de integrar: Git, pruebas y aprobación humana.
+1. **Limita el alcance:** permisos, herramientas, secretos y entornos.
+2. **Controla entradas y acciones:** prompt injection, contexto, logs y terminal.
+3. **Verifica y responde:** aprobación humana, revisión, pruebas y trazabilidad.
 
 Documento de apoyo: [Entorno de desarrollo seguro con IA agéntica](entorno-desarrollo-seguro-ia-agentica.md).
 
@@ -104,7 +106,7 @@ Objetivo inicial: **11 slides aproximadamente**, con margen para reducirlas:
 6. NDA, protección de datos y controles.
 7. Limita el alcance.
 8. Controla entradas y acciones.
-9. Revisa antes de integrar.
+9. Verifica y responde.
 10. Respuesta ante una exposición.
 11. Lista de comprobación y cierre.
 
