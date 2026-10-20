@@ -152,3 +152,51 @@ La investigación extensa servirá de respaldo. Para las diapositivas se extraer
 6. Qué comprobar en el contrato y qué controles técnicos aplicar en el equipo.
 
 **Nota:** este documento es una recopilación inicial, no un dictamen jurídico ni una certificación de cumplimiento. Las condiciones pueden cambiar; comprobar los términos vigentes y el contrato aplicable antes de tomar decisiones o presentar conclusiones definitivas.
+
+
+## Primera verificación de fuentes (20-10-2026)
+
+Se han abierto y comprobado las siguientes páginas oficiales. Los puntos de abajo son observaciones preliminares para orientar la matriz, no sustituyen la lectura de los términos aplicables al plan concreto.
+
+### OpenAI / ChatGPT
+- La página oficial de controles de datos indica que desactivar **Improve the model for everyone** impide que las nuevas conversaciones se usen para entrenar, pero no elimina el historial guardado.
+- El chat temporal no aparece en el historial, no crea ni actualiza memoria y no se usa para mejorar modelos; puede conservarse hasta 30 días por motivos de seguridad.
+- La documentación separa memoria y entrenamiento como controles diferentes. También señala que las conversaciones asociadas a feedback pueden tratarse de forma distinta.
+- Las condiciones por defecto para espacios de trabajo Business, Enterprise y Edu se describen separadamente de las cuentas personales.
+- Fuente revisada: [Controles de datos en ChatGPT](https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt).
+
+### Anthropic / Claude
+- La política de privacidad abierta durante esta revisión indica como fecha de entrada en vigor el **10 de septiembre de 2026**.
+- Para servicios de consumo, la política señala que Inputs y Outputs pueden usarse para entrenar y mejorar modelos salvo que el usuario opte por no participar; recoge excepciones para contenido marcado para revisión de seguridad o enviado explícitamente como feedback.
+- La política explica que las conversaciones eliminadas desaparecen inmediatamente del historial y se eliminan del backend en un plazo de hasta 30 días, sujeto a excepciones.
+- La política de consumo no cubre el contenido tratado en nombre de clientes de servicios empresariales; remite a los acuerdos con esos clientes.
+- Fuente revisada: [Política de privacidad de Anthropic](https://www.anthropic.com/legal/privacy).
+
+### Google / Gemini de consumo
+- La documentación de Gemini Apps consultada se actualizó el **19 de octubre de 2026**.
+- La actividad puede configurarse para borrado automático a los 3, 18 o 36 meses, o mantenerse indefinidamente. La documentación indica que los chats revisados por personas y datos asociados pueden conservarse hasta tres años, incluso después de borrar la actividad.
+- Los chats temporales y los chats con Keep Activity desactivado se conservan asociados a la cuenta durante 72 horas para responder y proteger el servicio; los chats temporales no se usan para entrenar modelos. Si Keep Activity está desactivado, el uso para mejorar modelos también depende, entre otras cosas, de que no se envíe feedback.
+- Estas condiciones corresponden a Gemini Apps de consumo; no deben extrapolarse a Workspace ni a Gemini API.
+- Fuente revisada: [Gemini Apps Privacy Hub](https://support.google.com/gemini/answer/13594961).
+
+### Google / Gemini API: alcance de ZDR
+- La documentación oficial de Gemini Developer API indica que los servicios de pago no usan prompts y respuestas para mejorar productos, pero la retención cero requiere revisar funciones concretas.
+- La propia documentación enumera excepciones/condiciones para supervisión de abusos, grounding con Google Search o Maps, estado de conversaciones, Live API, almacenamiento de archivos y caché de contexto.
+- En particular, indica que Grounding con Google Search y con Google Maps almacena prompts, contexto y resultados durante 30 días y que ese almacenamiento no puede desactivarse al usar esas funciones. Para necesidades de ZDR garantizada o acuerdos empresariales de tratamiento, remite a Vertex AI.
+- La página consultada figura como actualizada el **14 de septiembre de 2026**.
+- Fuente revisada: [Zero data retention in the Gemini Developer API](https://ai.google.dev/gemini-api/docs/zdr).
+
+### GitHub Copilot
+- La documentación oficial localizada distingue los planes individuales de Business y Enterprise. Indica que desde el **24 de abril de 2026** las interacciones de Free, Pro, Pro+ y Max pueden utilizarse para entrenamiento/mejora, con opción de exclusión en la configuración personal; los datos de clientes Business y Enterprise están sujetos a condiciones distintas.
+- La política exacta debe confirmarse por tipo de cuenta y configuración antes de citarla en diapositivas.
+- Fuente revisada: [Administrar las políticas de Copilot como suscriptor individual](https://docs.github.com/es/copilot/how-tos/manage-your-account/managing-copilot-policies-as-an-individual-subscriber).
+
+### Cursor
+- La documentación oficial describe Privacy Mode como un control para impedir el uso de datos del cliente para entrenamiento por Cursor y sus proveedores de modelos, y afirma disponer de acuerdos ZDR con los proveedores.
+- La documentación también menciona excepciones para la detección e investigación de posibles abusos. Deben comprobarse el modo activado, las condiciones vigentes y los acuerdos del plan contratado.
+- Fuentes revisadas: [Resumen de uso de datos y privacidad](https://cursor.com/data-use) y [Política de privacidad](https://cursor.com/privacy).
+
+### Límites de esta primera pasada
+- Se ha comprobado que las páginas enlazadas se resuelven y que las fuentes consultadas son documentación oficial de los respectivos proveedores.
+- Esta revisión no confirma todavía todos los enlaces de la lista ni completa una comparación contractual plan por plan.
+- En la siguiente iteración se deben revisar los términos de API y los contratos empresariales (incluidos DPA), las opciones de administración y las políticas de retención de cada herramienta de programación.
