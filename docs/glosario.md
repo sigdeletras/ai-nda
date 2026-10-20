@@ -14,7 +14,7 @@ Definiciones breves para mantener un vocabulario coherente en el guion y las dia
 
 **Autorización.** Permiso concedido a una identidad, aplicación o proceso para realizar una acción concreta. La autenticación identifica; la autorización determina qué puede hacer.
 
-**Aprobación humana (human-in-the-loop).** Revisión y autorización por una persona antes de ejecutar determinadas acciones del agente. Debe vincularse a la acción concreta y su alcance; una confirmación genérica no sustituye la validación de permisos.
+**Aprobación humana / Human-in-the-loop (HITL).** Revisión y autorización por una persona antes de ejecutar determinadas acciones del agente. Debe vincularse a la acción concreta y su alcance; una confirmación genérica no sustituye la validación de permisos.
 
 **Contenedor (container).** Entorno aislado que empaqueta una aplicación y sus dependencias. Puede reducir el acceso al sistema anfitrión, pero la protección depende de su configuración y no equivale a aislamiento absoluto.
 
@@ -30,7 +30,7 @@ Definiciones breves para mantener un vocabulario coherente en el guion y las dia
 
 **Encargado del tratamiento.** Persona u organización que trata datos personales por cuenta del responsable del tratamiento y siguiendo sus instrucciones, conforme al RGPD.
 
-**Entorno de desarrollo, pruebas y producción.** Entornos separados para construir cambios, validarlos y prestar el servicio real. La separación reduce riesgos si se acompaña de permisos, datos y credenciales diferenciados.
+**Due Diligence (diligencia debida).** Proceso de evaluación previa y periódica de un proveedor, producto o servicio para identificar riesgos y comprobar sus condiciones, garantías y controles. En el uso de IA de terceros puede incluir tratamiento y retención de datos, uso para entrenamiento, condiciones contractuales, subencargados, controles de acceso y respuesta ante incidentes. El alcance debe ser proporcional al riesgo.**\n\n**Entorno de desarrollo, pruebas y producción.** Entornos separados para construir cambios, validarlos y prestar el servicio real. La separación reduce riesgos si se acompaña de permisos, datos y credenciales diferenciados.
 
 **Exfiltración de datos.** Transferencia no autorizada de información desde un sistema hacia otro destino, ya sea de forma deliberada o accidental.
 
@@ -44,7 +44,7 @@ Definiciones breves para mantener un vocabulario coherente en el guion y las dia
 
 **Log o registro.** Registro de eventos de una aplicación, sistema o herramienta. Puede ayudar a diagnosticar problemas e investigar incidentes, pero también contener credenciales, datos personales o información confidencial.
 
-**LOPDGDD (Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales).** Ley española que adapta y complementa el marco europeo de protección de datos e incorpora garantías de derechos digitales. Se aplica junto con el RGPD. [Texto consolidado en el BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673).
+**ISO/IEC 42001.** Norma internacional que especifica requisitos y ofrece orientación para establecer, mantener y mejorar un Sistema de Gestión de Inteligencia Artificial (SGIA) en una organización. Se aplica a organizaciones que proporcionan o utilizan productos o servicios basados en IA; tomarla como referencia no implica implantar la norma completa ni estar certificado. [Página oficial de ISO](https://www.iso.org/es/norma/42001).\n\n**LOPDGDD (Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales).** Ley española que adapta y complementa el marco europeo de protección de datos e incorpora garantías de derechos digitales. Se aplica junto con el RGPD. [Texto consolidado en el BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673).
 
 **MFA (Multi-Factor Authentication, autenticación multifactor).** Método que exige dos o más factores distintos para comprobar una identidad, dificultando el acceso indebido si se compromete una contraseña.
 
