@@ -78,7 +78,7 @@ Puntos que conviene verbalizar:
 2. **Controla entradas y acciones:** prompt injection, contexto, logs y terminal.
 3. **Verifica y responde:** aprobación humana, revisión, pruebas y trazabilidad.
 
-Documento de apoyo: [Entorno de desarrollo seguro con IA agéntica](entorno-desarrollo-seguro-ia-agentica.md).
+Documentos de apoyo: [Entorno de desarrollo seguro con IA agéntica](entorno-desarrollo-seguro-ia-agentica.md) y [Gobernanza del uso de IA de terceros](gobernanza-uso-ia-terceros-iso-42001.md).
 
 ### 6. Incidentes: prevenir y responder — 4 min
 - Ejemplo hipotético y no atribuible: una credencial aparece en el contexto o se envía a un servicio no autorizado.
@@ -114,7 +114,7 @@ Una slide debe comunicar una idea principal. Preferir esquemas, flujos y listas 
 
 ## Criterios para mantener el guion
 - La duración total objetivo es 40 minutos; reservar los 5 minutos restantes del hueco de 45 para transiciones, preguntas o desviaciones.
-- No añadir una slide por cada término o normativa.
+- No añadir una slide por cada término o normativa. La ISO/IEC 42001 debe funcionar como marco de referencia, no como un bloque normativo extenso.
 - Contrastar con fuentes oficiales las afirmaciones sobre proveedores, normativa y fechas de aplicación antes de cerrar las diapositivas.
 - Usar ejemplos hipotéticos o debidamente anonimizados; no divulgar información de clientes ni resultados de auditorías.
 - Mantener el enfoque independiente de proveedores y aplicable a equipos con recursos limitados.
