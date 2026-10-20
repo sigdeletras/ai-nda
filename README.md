@@ -32,6 +32,7 @@ Dirigida principalmente a desarrolladores, tech leads, CTOs y responsables de py
 
 - [Glosario de términos](docs/glosario.md): definiciones breves y distinciones clave; se ampliará a medida que avance el guion.
 - [Protección de datos y RGPD en el desarrollo agéntico](docs/proteccion-datos-rgpd-ia-agentica.md): criterios prácticos, anonimización y fuentes oficiales; incluye una propuesta de slide.
+- [AI Act y desarrollo agéntico](docs/ai-act-ia-agentica.md): encaje en la charla, propuesta de diapositiva, notas para el ponente y fuentes oficiales.
 
 ## Qué se almacenará en este repositorio
 
