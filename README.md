@@ -28,6 +28,10 @@ Dirigida principalmente a desarrolladores, tech leads, CTOs y responsables de py
 5. **Prevención y respuesta:** reducir la probabilidad de exposición accidental, reconocer un incidente, contenerlo y escalarlo.
 6. **Criterios para el equipo:** una pauta de decisión proporcionada al riesgo, aplicable sin depender de un proveedor concreto.
 
+## Documentación de trabajo
+
+- [Glosario de términos](docs/glosario.md): definiciones breves y distinciones clave; se ampliará a medida que avance el guion.
+
 ## Qué se almacenará en este repositorio
 
 - Estructura y guion de la charla, narrativa, tiempos y transiciones.
