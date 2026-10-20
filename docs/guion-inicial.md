@@ -58,20 +58,25 @@ Usar IA agéntica para desarrollar software sin convertir la confidencialidad de
 **Slide prevista (1):** tres capas: contrato, protección de datos y controles técnicos.
 
 ### 5. Controles que sí ayudan — 10 min
-Presentar medidas realistas que no exigen infraestructura propia ni modelos locales:
-- **Mínimo privilegio:** conceder solo los permisos necesarios y separar cuentas o entornos.
-- **Secretos:** evitar claves en prompts, código, archivos de contexto o repositorios; usar gestores de secretos y credenciales temporales cuando sea posible.
-- **Entornos:** desarrollar y probar con datos sintéticos o anonimizados y servicios de prueba.
-- **Reglas de agente:** delimitar archivos, comandos y acciones; pedir confirmación para operaciones sensibles.
-- **Revisión:** inspeccionar diffs, dependencias y comandos antes de integrar o desplegar.
-- **Equipo:** acordar qué herramientas están autorizadas, qué datos se pueden compartir y cómo pedir ayuda.
+Organizar las recomendaciones en tres grupos, evitando una diapositiva por cada práctica:
 
-Aclarar que las reglas del agente son una capa de orientación. Los permisos del sistema, la gestión de credenciales, el aislamiento y las revisiones aportan controles efectivos.
+1. **Limita el alcance:** secretos fuera del repositorio y del contexto; separación de desarrollo, pruebas y producción; cuentas y permisos mínimos; acceso controlado a sistemas de clientes.
+2. **Controla entradas y acciones:** revisar archivos y logs antes de compartirlos; usar datos sintéticos; configurar exclusiones sin tratarlas como barreras de seguridad; limitar terminal, red e integraciones; revisar comandos y acciones sensibles.
+3. **Revisa antes de integrar:** trabajar con Git, inspeccionar el diff, ejecutar pruebas y análisis disponibles y exigir revisión humana para cambios críticos y despliegues.
+
+Puntos que conviene verbalizar:
+- Un archivo `.env` no es un gestor de secretos; `.gitignore` no impide que el agente lea un archivo.
+- Una VPN no impide por sí sola que se transmitan datos accesibles desde el equipo.
+- Las instrucciones en `AGENTS.md`, `CLAUDE.md` u otros archivos orientan al agente, pero no sustituyen permisos, aislamiento y controles técnicos.
+- Revisar dependencias, extensiones y servidores MCP antes de concederles acceso.
+- No compartir logs completos por defecto: pueden contener tokens, datos personales o información confidencial.
 
 **Slides previstas (3):**
-1. Antes de empezar: datos y accesos.
-2. Durante el trabajo: límites y confirmaciones.
-3. Antes de integrar: revisión humana y pruebas.
+1. Limita el alcance: secretos, entornos y accesos.
+2. Controla entradas y acciones: contexto, logs y terminal.
+3. Revisa antes de integrar: Git, pruebas y aprobación humana.
+
+Documento de apoyo: [Entorno de desarrollo seguro con IA agéntica](entorno-desarrollo-seguro-ia-agentica.md).
 
 ### 6. Incidentes: prevenir y responder — 4 min
 - Ejemplo hipotético y no atribuible: una credencial aparece en el contexto o se envía a un servicio no autorizado.
@@ -87,7 +92,7 @@ Aclarar que las reglas del agente son una capa de orientación. Los permisos del
 - Proponer una lista breve para equipos: herramienta autorizada, datos permitidos, credenciales, permisos, revisión y respuesta ante incidentes.
 - Cerrar volviendo a la pregunta inicial: no se trata de confiar ciegamente ni de prohibir por defecto, sino de decidir qué acceso se concede y con qué límites.
 
-**Slide prevista (1):** lista de comprobación final.
+**Slide prevista (1):** lista de comprobación y cierre.
 
 ## Presupuesto de diapositivas
 Objetivo inicial: **11 slides aproximadamente**, con margen para reducirlas:
@@ -97,9 +102,9 @@ Objetivo inicial: **11 slides aproximadamente**, con margen para reducirlas:
 4. Recorrido de los datos.
 5. Pago, entrenamiento, retención y ZDR.
 6. NDA, protección de datos y controles.
-7. Antes de empezar.
-8. Durante el trabajo.
-9. Antes de integrar.
+7. Limita el alcance.
+8. Controla entradas y acciones.
+9. Revisa antes de integrar.
 10. Respuesta ante una exposición.
 11. Lista de comprobación y cierre.
 
