@@ -46,13 +46,22 @@ Distinguir:
 
 ### 5. Terminal, herramientas y aislamiento
 
+- Conceder al agente solo las herramientas y operaciones necesarias; distinguir lectura de escritura y limitar recursos y rutas.
 - Revisar qué puede ejecutar el agente y qué acciones requieren confirmación.
 - No conceder privilegios de administrador por comodidad.
 - Inspeccionar comandos destructivos, scripts de instalación, migraciones, despliegues y operaciones sobre datos antes de ejecutarlos.
 - Aislar tareas de riesgo mediante contenedores o entornos desechables bien configurados. Un contenedor mal configurado no garantiza aislamiento.
+- Tratar archivos, páginas, resultados de API y otros contenidos externos como datos no confiables: pueden contener instrucciones maliciosas (*prompt injection*).
 - Revisar extensiones, servidores MCP, dependencias y otras integraciones por su procedencia, permisos y acceso a red o archivos.
 
-### 6. Código y cambios
+### 6. Aprobación humana y acciones de impacto
+
+- Definir niveles de riesgo para las acciones del agente.
+- Exigir revisión explícita para borrar datos, cambiar permisos, enviar información a terceros, operar sobre sistemas productivos o desplegar.
+- Mostrar la acción y su alcance antes de aprobarla; una aprobación genérica no debería autorizar operaciones distintas de la revisada.
+- Siempre que sea posible, separar la propuesta del agente de la ejecución técnica que valida permisos y autorizaciones.
+
+### 7. Código y cambios
 
 - Trabajar con control de versiones y ramas de trabajo.
 - Revisar el `diff` generado por el agente antes de integrarlo.
@@ -60,7 +69,7 @@ Distinguir:
 - Exigir revisión humana para cambios de autenticación, autorización, gestión de secretos, migraciones y despliegues.
 - Las instrucciones en `AGENTS.md`, `CLAUDE.md` u otros archivos ayudan a orientar al agente, pero no imponen por sí mismas restricciones técnicas.
 
-### 7. Logs y trazas
+### 8. Logs y trazas
 
 Antes de compartir registros con un agente o un servicio externo:
 
@@ -69,9 +78,9 @@ Antes de compartir registros con un agente o un servicio externo:
 3. Revisar texto libre, consultas, rutas, identificadores y respuestas que puedan revelar información de cliente.
 4. Aplicar controles de acceso y retención al lugar donde se almacenan los logs.
 
-Los logs son otra posible fuente de exposición, no una fuente segura por defecto.
+Los logs son otra posible fuente de exposición, no una fuente segura por defecto. Registrar acciones relevantes ayuda a investigar incidentes, pero el propio registro debe sanearse y protegerse.
 
-### 8. Respuesta ante una exposición
+### 9. Respuesta ante una exposición
 
 1. **Contener:** detener la acción y evitar nuevas transmisiones.
 2. **Revocar:** invalidar o rotar las credenciales afectadas.
@@ -81,32 +90,27 @@ Los logs son otra posible fuente de exposición, no una fuente segura por defect
 
 No afirmar que un dato se ha eliminado por completo sin conocer las capacidades y condiciones del servicio.
 
-## Checklist para el equipo
-
-- [ ] La herramienta y el uso están autorizados para el proyecto.
-- [ ] No hay secretos innecesarios accesibles al agente.
-- [ ] Desarrollo y producción están separados.
-- [ ] Se utilizan datos sintéticos o minimizados siempre que sea posible.
-- [ ] Los permisos de archivos, terminal, red e integraciones están limitados.
-- [ ] Logs y contexto se revisan antes de compartirlos.
-- [ ] Los cambios se inspeccionan y prueban antes de integrarlos.
-- [ ] Existe un procedimiento para contener y comunicar exposiciones.
-
 ## Propuesta para las diapositivas
 
-No dedicar una diapositiva a cada control. Agrupar el contenido en tres ideas:
+Usar como marco principal la [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html). Es una guía específica para agentes que organiza los controles en torno a herramientas y mínimo privilegio, entradas no confiables y *prompt injection*, seguridad del contexto, aprobación humana, validación, monitorización, privacidad y pruebas.
 
-1. **Limita el alcance:** secretos, entornos, permisos y accesos de cliente.
-2. **Controla entradas y acciones:** contexto, logs, terminal, herramientas y confirmaciones.
-3. **Revisa y responde:** Git, pruebas, revisión humana y procedimiento ante exposiciones.
+Para la charla, sintetizarla en tres slides, seleccionando solo controles aplicables al entorno de desarrollo:
+
+1. **Limita el alcance:** herramientas y permisos mínimos, secretos, entornos separados y acceso de solo lectura cuando sea suficiente.
+2. **Controla entradas y acciones:** contexto y logs saneados, contenidos externos no confiables, terminal limitada y aprobación de operaciones de impacto.
+3. **Verifica y responde:** revisión del diff, pruebas, trazabilidad sin secretos y procedimiento de contención ante exposiciones.
+
+No intentar trasladar toda la cheat sheet a las slides. Es una referencia de trabajo, no una lista que deba leerse íntegramente durante la charla.
 
 Mensaje de cierre: **limitar accesos, minimizar datos y controlar acciones**.
 
 ## Fuentes de referencia
 
+- [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) — referencia principal para estructurar las slides sobre seguridad agéntica.
 - [OWASP Cheat Sheet Series: Secrets Management](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html)
 - [OWASP Cheat Sheet Series: Logging](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
 - [OWASP Cheat Sheet Series: Authorization](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
+- [OWASP Cheat Sheet Series: Prompt Injection Prevention](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
 - [GitHub Docs: About secret scanning](https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning)
 - [AEPD: Seguridad de los tratamientos](https://www.aepd.es/derechos-y-deberes/cumple-tus-deberes/medidas-de-cumplimiento/seguridad-de-los-tratamientos)
 
