@@ -1,6 +1,6 @@
 # ¿Le puedo dar las claves? IA agéntica, código y secretos de cliente
 
-Repositorio de trabajo para preparar la charla del **DevFest Córdoba 2026**, de **45 minutos**.
+Repositorio de trabajo para preparar la charla del **DevFest Córdoba 2026**, con una duración objetivo de **40 minutos** dentro de un espacio de 45.
 
 ## Objetivo
 
@@ -30,7 +30,9 @@ Dirigida principalmente a desarrolladores, tech leads, CTOs y responsables de py
 
 ## Documentación de trabajo
 
+- [Guion inicial](docs/guion-inicial.md): estructura, tiempos, slides previstas y decisiones pendientes.
 - [Glosario de términos](docs/glosario.md): definiciones breves y distinciones clave; se ampliará a medida que avance el guion.
+- [Entorno de desarrollo seguro con IA agéntica](docs/entorno-desarrollo-seguro-ia-agentica.md): secretos, entornos, accesos, contexto, terminal, revisión y respuesta ante exposiciones.
 - [Protección de datos y RGPD en el desarrollo agéntico](docs/proteccion-datos-rgpd-ia-agentica.md): criterios prácticos, anonimización y fuentes oficiales; incluye una propuesta de slide.
 - [AI Act y desarrollo agéntico](docs/ai-act-ia-agentica.md): encaje en la charla, propuesta de diapositiva, notas para el ponente y fuentes oficiales.
 
@@ -57,4 +59,4 @@ El trabajo se organizará progresivamente por fases: **estructura → narrativa 
 
 ## Estado
 
-Repositorio de preparación en evolución. Este README define su propósito y los tipos de materiales que contendrá; la estructura detallada y los contenidos se incorporarán según avance el trabajo.
+Repositorio de preparación en evolución. El guion y los documentos de apoyo se actualizarán conforme se acepten decisiones de contenido.
