@@ -51,8 +51,17 @@ No confundir **no usar los datos para entrenar**, **retención limitada o nula (
 
 ## Marco normativo y fuentes oficiales
 
+### Qué significa cada referencia
+
+- **RGPD:** Reglamento General de Protección de Datos de la Unión Europea. Establece las reglas comunes sobre el tratamiento de datos personales, los derechos de las personas y las obligaciones de responsables y encargados.
+- **LOPDGDD:** Ley Orgánica española que adapta y complementa el marco del RGPD en España e incorpora, entre otras materias, garantías de derechos digitales. No sustituye al RGPD: ambos deben leerse conjuntamente.
+- **Guías de la AEPD:** documentos orientativos de la Agencia Española de Protección de Datos que explican cómo interpretar y aplicar la normativa en situaciones concretas, por ejemplo, anonimización, seguridad o uso de IA. Ayudan a aplicar los requisitos, pero no sustituyen la ley ni el análisis del caso concreto.
+
+### Normativa y recursos
+
 - [Reglamento General de Protección de Datos (RGPD), Reglamento (UE) 2016/679 — EUR-Lex](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32016R0679)
 - [Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD) — BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673)
+- [Agencia Española de Protección de Datos (AEPD)](https://www.aepd.es/)
 - [AEPD: ¿Qué son los datos personales?](https://www.aepd.es/preguntas-frecuentes/2-tus-obligaciones-como-responsable-del-tratamiento/2-aplicacion-de-la-normativa/FAQ-0241-que-son-los-datos-personales)
 - [AEPD: ¿Los datos anonimizados son datos personales?](https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos/FAQ-0005-sobre-los-datos-anonimizados)
 - [AEPD: ¿Y los datos seudonimizados son datos personales?](https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos/FAQ-0006-sobre-los-datos-seudonimizados)
