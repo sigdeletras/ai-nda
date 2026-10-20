@@ -14,6 +14,8 @@ Definiciones breves para mantener un vocabulario coherente en el guion y las dia
 
 **Autorización.** Permiso concedido a una identidad, aplicación o proceso para realizar una acción concreta. La autenticación identifica; la autorización determina qué puede hacer.
 
+**Aprobación humana (human-in-the-loop).** Revisión y autorización por una persona antes de ejecutar determinadas acciones del agente. Debe vincularse a la acción concreta y su alcance; una confirmación genérica no sustituye la validación de permisos.
+
 **Contenedor (container).** Entorno aislado que empaqueta una aplicación y sus dependencias. Puede reducir el acceso al sistema anfitrión, pero la protección depende de su configuración y no equivale a aislamiento absoluto.
 
 **Confidencialidad.** Obligación de evitar que información protegida se divulgue o utilice fuera de las condiciones autorizadas. Puede derivarse de contratos, NDA, normativa u otras obligaciones.
@@ -94,6 +96,7 @@ Definiciones breves para mantener un vocabulario coherente en el guion y las dia
 - **VPN no es aislamiento del agente:** protege la conexión, pero no sustituye permisos mínimos ni controles de salida.
 - **`.gitignore` no es una barrera de lectura:** evita que Git incluya ciertos archivos por defecto; no impide que una herramienta local pueda leerlos.
 - **`.env` no es un gestor de secretos:** hay que controlar su ubicación, permisos y acceso.
+- **Aprobación no es autorización técnica:** la confirmación humana debe comprobarse y aplicarse en el componente que ejecuta la acción.
 
 ## Criterio para ampliar el glosario
 
