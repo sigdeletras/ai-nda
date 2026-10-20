@@ -69,6 +69,12 @@ No confundir **no usar los datos para entrenar**, **retención limitada o nula (
 - [AEPD: Seguridad de los tratamientos](https://www.aepd.es/derechos-y-deberes/cumple-tus-deberes/medidas-de-cumplimiento/seguridad-de-los-tratamientos)
 - [AEPD: Adecuación al RGPD de tratamientos que incorporan IA (PDF)](https://www.aepd.es/guias/adecuacion-rgpd-ia.pdf)
 
+- [AEPD: Orientaciones sobre el uso de la inteligencia artificial agéntica (PDF)](https://www.aepd.es/guias/orientaciones-ia-agentica.pdf) — **Pendiente de revisión**.
+- [AEPD: Política de uso de inteligencia artificial generativa](https://www.aepd.es/documento/politica-iag-aepd.pdf) — **Pendiente de revisión**.
+- [AEPD: Guía sobre inteligencia artificial y relaciones laborales](https://www.aepd.es/guias-y-herramientas/guias) — localizar la publicación concreta y verificar su vigencia; **pendiente de revisión**.
+- [AEPD: Exactitud, idoneidad y calidad de los datos en tratamientos con IA](https://www.aepd.es/guias-y-herramientas/guias) — localizar la publicación concreta y verificar su vigencia; **pendiente de revisión**.
+- [AEPD: Decálogo «Cuidado con lo que le confIAs»](https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/aepd-publica-decalogo-recomendaciones-proteger-privacidad-al-usar-ia) — **Pendiente de revisión**.
+
 ## Propuesta para una slide
 
 ### RGPD y agentes de IA: ¿qué datos puedo enviar?
