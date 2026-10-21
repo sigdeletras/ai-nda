@@ -61,19 +61,11 @@ No confundir **no usar los datos para entrenar**, **retención limitada o nula (
 
 - [Reglamento General de Protección de Datos (RGPD), Reglamento (UE) 2016/679 — EUR-Lex](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32016R0679)
 - [Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD) — BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673)
-- [Agencia Española de Protección de Datos (AEPD)](https://www.aepd.es/)
-- [AEPD: ¿Qué son los datos personales?](https://www.aepd.es/preguntas-frecuentes/2-tus-obligaciones-como-responsable-del-tratamiento/2-aplicacion-de-la-normativa/FAQ-0241-que-son-los-datos-personales)
-- [AEPD: ¿Los datos anonimizados son datos personales?](https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos/FAQ-0005-sobre-los-datos-anonimizados)
-- [AEPD: ¿Y los datos seudonimizados son datos personales?](https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos/FAQ-0006-sobre-los-datos-seudonimizados)
-- [AEPD: Guía básica de anonimización (PDF)](https://www.aepd.es/documento/guia-basica-anonimizacion.pdf)
-- [AEPD: Seguridad de los tratamientos](https://www.aepd.es/derechos-y-deberes/cumple-tus-deberes/medidas-de-cumplimiento/seguridad-de-los-tratamientos)
-- [AEPD: Adecuación al RGPD de tratamientos que incorporan IA (PDF)](https://www.aepd.es/guias/adecuacion-rgpd-ia.pdf)
-
+- [AEPD: Adecuación al RGPD de tratamientos que incorporan IA (PDF)](https://www.aepd.es/guias/adecuacion-rgpd-ia.pdf) — **Pendiente de revisión**.
 - [AEPD: Orientaciones sobre el uso de la inteligencia artificial agéntica (PDF)](https://www.aepd.es/guias/orientaciones-ia-agentica.pdf) — **Pendiente de revisión**.
 - [AEPD: Política de uso de inteligencia artificial generativa](https://www.aepd.es/documento/politica-iag-aepd.pdf) — **Pendiente de revisión**.
-- [AEPD: Guía sobre inteligencia artificial y relaciones laborales](https://www.aepd.es/guias-y-herramientas/guias) — localizar la publicación concreta y verificar su vigencia; **pendiente de revisión**.
 - [AEPD: Exactitud, idoneidad y calidad de los datos en tratamientos con IA](https://www.aepd.es/guias-y-herramientas/guias) — localizar la publicación concreta y verificar su vigencia; **pendiente de revisión**.
-- [AEPD: Decálogo «Cuidado con lo que le confIAs»](https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/aepd-publica-decalogo-recomendaciones-proteger-privacidad-al-usar-ia) — **Pendiente de revisión**.
+- [AEPD: Guías y herramientas sobre IA](https://www.aepd.es/guias-y-herramientas/guias) — catálogo para localizar otras publicaciones de uso profesional; **pendiente de revisión**.
 
 ## Propuesta para una slide
 
