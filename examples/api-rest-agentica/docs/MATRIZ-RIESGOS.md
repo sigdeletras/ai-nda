@@ -7,7 +7,9 @@
 | Comando peligroso | Restringir ejecución y revisar cambios | Pérdida o alteración de datos | Aprobación, entorno de prueba, copias de seguridad |
 | Fallo de autorización en CRUD | Pruebas por propietario y revisión | Acceso indebido | Consultas filtradas por usuario, tests negativos |
 | Workflow modificado para exfiltrar secretos | Proteger rama y revisar workflow | Compromiso de CI/CD | Permisos mínimos, revisión obligatoria, secretos de entorno |
-| Credencial filtrada en Git | Prevención y detección de secretos | Acceso no autorizado | Escáner, rotación, análisis de historial |
+| Credencial filtrada en Git | Prevención y detección de secretos | Acceso no autorizado | Gitleaks en CI, rotación y análisis de historial |
+| Prompt injection en contenido externo | Instrucciones maliciosas en issues, archivos o webs que intentan dirigir al agente | Ejecución o divulgación no autorizada | Contenido no confiable, permisos mínimos, red restringida y revisión humana |
+| Dependencia vulnerable | Paquetes o imagen base con vulnerabilidades conocidas | Compromiso de la aplicación | pip-audit y Trivy en CI |
 | Confianza excesiva en tests | Revisar cobertura y diseño de casos | Vulnerabilidad no detectada | Revisión humana y pruebas independientes |
 
 ## Protocolo ante exposición
