@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: api_demo
+      POSTGRES_USER: api
+      POSTGRES_PASSWORD: api_dev_only
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U api -d api_demo"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    # No se publica el puerto de PostgreSQL en el host.
+
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://api:api_dev_only@db:5432/api_demo
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:?Define JWT_SECRET_KEY en el entorno}
+      JWT_EXPIRE_MINUTES: 30
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+volumes:
+  postgres_data:
