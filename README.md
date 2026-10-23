@@ -32,9 +32,24 @@ Dirigida principalmente a desarrolladores, tech leads, CTOs y responsables de py
 
 - [Guion inicial](docs/guion-inicial.md): estructura, tiempos, slides previstas y decisiones pendientes.
 - [Glosario de términos](docs/glosario.md): definiciones breves y distinciones clave; se ampliará a medida que avance el guion.
-- [Entorno de desarrollo seguro con IA agéntica](docs/entorno-desarrollo-seguro-ia-agentica.md): secretos, entornos, accesos, contexto, terminal, revisión y respuesta ante exposiciones. Usa la [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) como referencia principal para estructurar las slides de seguridad.\n- [Gobernanza del uso de IA de terceros e ISO/IEC 42001](docs/gobernanza-uso-ia-terceros-iso-42001.md): evaluación de proveedores (*Due Diligence*), gestión de riesgos, política de uso aceptable, supervisión humana (*Human-in-the-loop*) y mejora continua, adaptadas a equipos que usan herramientas comerciales.
+- [Entorno de desarrollo seguro con IA agéntica](docs/entorno-desarrollo-seguro-ia-agentica.md): secretos, entornos, accesos, contexto, terminal, revisión y respuesta ante exposiciones. Usa la [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) como referencia principal para estructurar las slides de seguridad.
+- [Gobernanza del uso de IA de terceros e ISO/IEC 42001](docs/gobernanza-uso-ia-terceros-iso-42001.md): evaluación de proveedores (*Due Diligence*), gestión de riesgos, política de uso aceptable, supervisión humana (*Human-in-the-loop*) y mejora continua, adaptadas a equipos que usan herramientas comerciales.
 - [Protección de datos y RGPD en el desarrollo agéntico](docs/proteccion-datos-rgpd-ia-agentica.md): criterios prácticos, anonimización y fuentes oficiales; incluye una propuesta de slide.
 - [AI Act y desarrollo agéntico](docs/ai-act-ia-agentica.md): encaje en la charla, propuesta de diapositiva, notas para el ponente y fuentes oficiales.
+
+## Proyecto práctico: API REST con IA agéntica
+
+Se incorpora una demo reproducible en [examples/api-rest-agentica](examples/api-rest-agentica/README.md). Incluye FastAPI, JWT Bearer, CRUD con autorización por propietario, Swagger, SQLAlchemy/PostgreSQL, tests, Ruff, Bandit, Docker, reglas de Claude Code y CI con GitHub Actions.
+
+Documentación de la demo:
+- [Guía de ejecución](examples/api-rest-agentica/README.md)
+- [Seguridad de la IA agéntica](examples/api-rest-agentica/docs/SEGURIDAD-IA-AGENTICA.md)
+- [Configuración de VS Code y Claude Code](examples/api-rest-agentica/docs/CONFIGURACION-VSCODE-CLAUDE.md)
+- [Guion de la demostración](examples/api-rest-agentica/docs/GUIA-DEMO.md)
+- [Matriz de riesgos y respuesta](examples/api-rest-agentica/docs/MATRIZ-RIESGOS.md)
+- [Despliegue en VPS](examples/api-rest-agentica/docs/DESPLIEGUE-VPS.md)
+
+La CI está definida en [api-rest-agentica.yml](.github/workflows/api-rest-agentica.yml). El despliegue remoto no queda habilitado por defecto: requiere adaptar la infraestructura y configurar secretos y aprobaciones. La demo es educativa y no está certificada para producción.
 
 ## Qué se almacenará en este repositorio
 
