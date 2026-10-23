@@ -2,6 +2,7 @@
 
 | Riesgo | Probabilidad a reducir mediante | Impacto | Controles |
 |---|---|---|---|
+| Uso de IA incompatible con obligaciones del cliente | Revisar NDA, contrato y condiciones del proveedor antes de compartir | Incumplimiento contractual o exposición de información | Lista de comprobación, aprobación y registro de decisión |
 | Código sensible enviado al proveedor | Clasificación previa y revisión del contexto | Confidencialidad contractual | Política de uso, proveedor aprobado, datos sintéticos |
 | Secreto leído por el agente | No dejarlo disponible y aplicar permisos | Compromiso de sistemas | Entorno aislado, exclusiones, mínimo privilegio |
 | Comando peligroso | Restringir ejecución y revisar cambios | Pérdida o alteración de datos | Aprobación, entorno de prueba, copias de seguridad |
@@ -11,6 +12,10 @@
 | Prompt injection en contenido externo | Instrucciones maliciosas en issues, archivos o webs que intentan dirigir al agente | Ejecución o divulgación no autorizada | Contenido no confiable, permisos mínimos, red restringida y revisión humana |
 | Dependencia vulnerable | Paquetes o imagen base con vulnerabilidades conocidas | Compromiso de la aplicación | pip-audit y Trivy en CI |
 | Confianza excesiva en tests | Revisar cobertura y diseño de casos | Vulnerabilidad no detectada | Revisión humana y pruebas independientes |
+
+## Antes de usar IA con información de un cliente
+
+Consultar [Confidencialidad contractual y uso de IA](CONTRATOS-CONFIDENCIALIDAD-IA.md) y [Clasificación de información](CLASIFICACION-INFORMACION.md). Estos documentos ayudan a tomar y registrar una decisión; no certifican cumplimiento legal.
 
 ## Protocolo ante exposición
 
