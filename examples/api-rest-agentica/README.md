@@ -16,6 +16,16 @@ Proyecto de demostración para la charla «¿Le puedo dar las claves? IA agénti
 - GitHub Actions para calidad y construcción de imagen.
 - Guía de despliegue controlado en una VPS.
 
+## Documentación para la charla
+
+- [Guion de la demo](docs/GUIA-DEMO.md)
+- [Seguridad de la IA agéntica](docs/SEGURIDAD-IA-AGENTICA.md)
+- [Confidencialidad contractual y uso de IA](docs/CONTRATOS-CONFIDENCIALIDAD-IA.md)
+- [Clasificación de información](docs/CLASIFICACION-INFORMACION.md)
+- [Matriz de riesgos y respuesta](docs/MATRIZ-RIESGOS.md)
+- [Configuración de VS Code y Claude Code](docs/CONFIGURACION-VSCODE-CLAUDE.md)
+- [Despliegue en VPS](docs/DESPLIEGUE-VPS.md)
+
 ## Inicio rápido
 
 Requiere Python 3.12+ y Docker.
@@ -30,12 +40,13 @@ También puedes ejecutar toda la aplicación con docker compose up --build.
 
 ## Despliegue en VPS
 
-Hay un workflow manual en `.github/workflows/deploy-api-rest-agentica.yml`. Antes de habilitarlo, sigue la [guía de despliegue](docs/DESPLIEGUE-VPS.md), configura el entorno protegido `production`, los secretos de SSH y el acceso de lectura a GHCR en la VPS. No lo ejecutes contra producción sin probarlo primero en una VPS desechable.
+Hay un workflow manual en .github/workflows/deploy-api-rest-agentica.yml. Antes de habilitarlo, sigue la [guía de despliegue](docs/DESPLIEGUE-VPS.md), configura el entorno protegido production, los secretos de SSH y el acceso de lectura a GHCR en la VPS. No lo ejecutes contra producción sin probarlo primero en una VPS desechable.
 
 ## Comprobaciones
 
     ruff check .
     ruff format --check .
+    pip-audit
     pytest
     bandit -r app
 
