@@ -53,9 +53,17 @@ Usar IA agéntica para desarrollar software sin convertir la confidencialidad de
 - Revisar qué información está protegida, quién puede tratarla, con qué finalidad y bajo qué condiciones.
 - Si hay datos personales, valorar también RGPD, LOPDGDD y las instrucciones aplicables de la AEPD.
 - La responsabilidad concreta depende del contrato, el tratamiento y las circunstancias; derivar las dudas jurídicas al responsable correspondiente.
-- Introducir brevemente el marco europeo de IA y la normativa española solo en la medida en que ayuden a contextualizar responsabilidades; evitar una exposición normativa extensa.
+- Un NDA no resuelve por sí solo si se puede enviar información a un proveedor: hay que concretar qué información puede tratarse, con qué herramienta y bajo qué garantías.
+- En contratos de desarrollo, acordar el uso autorizado de IA, las condiciones del proveedor (entrenamiento, retención y acceso de terceros), los permisos de agentes, la revisión humana de entregables y la respuesta ante incidentes.
+- No hace falta prohibir toda IA ni pedir autorización para cada prompt. Es más práctico fijar una regla general y exigir aprobación para datos o acciones de mayor riesgo.
+- Distinguir obligaciones contractuales y controles técnicos: una cláusula que prohíba exponer secretos no impide que el agente lea un archivo accesible o ejecute una operación.
+- El AI Act no convierte automáticamente en sistema de alto riesgo un proyecto por usar IA para programar. Analizar su aplicabilidad según la finalidad y el papel de cada parte cuando la IA forme parte del producto.
+- Incluir solo una referencia breve a alfabetización en IA, transparencia cuando sea exigible y asignación de responsabilidades. No existe una obligación general de declarar que se usó IA para escribir código.
+- Si hay datos personales, valorar también RGPD, LOPDGDD y las instrucciones aplicables de la AEPD. Derivar las dudas jurídicas al responsable correspondiente.
 
-**Slide prevista (1):** tres capas: contrato, protección de datos y controles técnicos.
+**Slide prevista (1):** tres capas: contrato, protección de datos y controles técnicos. Añadir una lista visual breve: uso permitido · datos y proveedor · permisos del agente · validación · incidentes.
+
+**Nota del ponente:** presentar las cláusulas como criterios para revisar con asesoría jurídica, no como asesoramiento legal ni como texto contractual definitivo. La empresa debe poder demostrar los controles técnicos que respaldan sus compromisos.
 
 ### 5. Controles que sí ayudan — 10 min
 Tomar como referencia principal la [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html), que ofrece un marco específico para agentes. Seleccionar sus principios relevantes para el desarrollo cotidiano, sin intentar resumir toda la guía.
