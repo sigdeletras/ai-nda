@@ -1,5 +1,6 @@
-from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 from typing import Annotated
+
+from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 
 
 Username = Annotated[str, StringConstraints(strip_whitespace=True, min_length=3, max_length=80)]
