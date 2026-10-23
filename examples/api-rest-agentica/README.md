@@ -21,7 +21,7 @@ Requiere Python 3.12+ y Docker.
 1. Copia .env.example a .env y genera un secreto aleatorio para JWT_SECRET_KEY.
 2. Arranca la base de datos: docker compose up -d db
 3. Crea el entorno e instala dependencias: pip install -e ".[dev]"
-4. Arranca la API: uvicorn app.main:app --reload
+4. Arranca la API: uvicorn app.main:app --reload --env-file .env
 5. Abre http://127.0.0.1:8000/docs
 
 También puedes ejecutar toda la aplicación con docker compose up --build.
