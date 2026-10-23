@@ -9,7 +9,9 @@ Proyecto de demostración para la charla «¿Le puedo dar las claves? IA agénti
 - CRUD de proyectos con autorización por propietario.
 - SQLAlchemy y PostgreSQL en Docker Compose.
 - Pruebas con pytest, TestClient y base SQLite temporal.
-- Ruff y Bandit.
+- Ruff, Bandit y auditoría de dependencias con pip-audit.
+- CI con Gitleaks y escaneo de imagen con Trivy.
+- Actualizaciones propuestas por Dependabot para Actions, paquetes Python e imágenes Docker.
 - Reglas de trabajo para Claude Code en CLAUDE.md y .claude/settings.json.
 - GitHub Actions para calidad y construcción de imagen.
 - Guía de despliegue controlado en una VPS.
