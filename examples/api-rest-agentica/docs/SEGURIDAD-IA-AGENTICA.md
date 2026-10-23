@@ -5,11 +5,12 @@
 | Activo | Riesgo | Control propuesto | Evidencia |
 |---|---|---|---|
 | Código fuente | Envío de código no autorizado al proveedor | Clasificar repositorio y revisar condiciones del servicio | Lista de comprobación previa |
-| .env y JWT secret | Lectura o exposición accidental | No versionar, excluir del contexto y no entregar al agente | Intento de acceso bloqueado |
+| .env y JWT secret | Lectura o exposición accidental | No versionar, excluir del contexto y no entregar al agente | Prueba guiada con archivo señuelo; no demuestra aislamiento completo |
 | Clave SSH | Acceso a VPS | No cargar claves personales en el entorno del agente | Inspección de montajes y permisos |
 | Base de datos | Acceso a datos reales | Datos sintéticos y base local aislada | Tests con base temporal |
 | GitHub Actions | Uso indebido de permisos o secretos | Mínimo privilegio y separación CI/despliegue | Revisión de permissions y environments |
 | API | Acceso a recursos de otro usuario | Consultas acotadas por propietario | Test de aislamiento entre usuarios |
+| Terminal del agente | Prompt injection en issues, documentación o webs que intenta inducir acciones | Tratar contenido externo como no confiable, permisos mínimos, revisión de comandos y red restringida | Ejercicio reproducible con fixture ficticio; observar y documentar la respuesta |
 
 ## Instrucciones frente a controles efectivos
 
@@ -26,6 +27,7 @@ Medidas adicionales:
 - No cargar claves SSH ni credenciales de producción.
 - Limitar la conectividad saliente cuando sea viable.
 - Revisar cambios y comandos antes de ejecutarlos.
+- Tratar issues, páginas web, logs, datos y archivos externos como contenido no confiable; no permitir que sus instrucciones cambien las reglas del proyecto.
 
 ## Datos y proveedor
 
@@ -41,5 +43,8 @@ La demo implementa JWT firmado, expiración, hash de contraseñas y autorizació
 - Claude Code, permisos: https://docs.anthropic.com/en/docs/claude-code/iam
 - GitHub Actions, seguridad: https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions
 - FastAPI, OAuth2 con JWT: https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/
+- Gitleaks Action: https://github.com/gitleaks/gitleaks-action
+- pip-audit: https://pypi.org/project/pip-audit/
+- Trivy Action: https://github.com/aquasecurity/trivy-action
 
 Consultar las versiones vigentes antes de la charla.
