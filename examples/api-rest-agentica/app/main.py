@@ -12,9 +12,6 @@ from app.models import Project, User
 from app.schemas import ProjectCreate, ProjectRead, ProjectUpdate, UserCreate, UserRead
 from app.security import create_access_token, decode_access_token, hash_password, verify_password
 
-DEFAULT_TEST_SECRET = "test-only-secret-change-this-before-any-real-use"
-
-
 def create_app(database_url: str | None = None, secret_key: str | None = None) -> FastAPI:
     database_url = database_url or os.getenv(
         "DATABASE_URL", "sqlite:///./api_demo.db"
