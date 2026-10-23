@@ -1,40 +1,33 @@
 # Despliegue en VPS
 
-## Principio
+## Flujo
 
-El despliegue es una operación privilegiada. Claude Code puede preparar y revisar la configuración, pero no debe disponer de la clave SSH de producción ni ejecutar despliegues sin aprobación humana.
+El workflow .github/workflows/deploy-api-rest-agentica.yml se ejecuta manualmente. Construye una imagen, la publica en GHCR y conecta por SSH para actualizar los contenedores. El entorno de GitHub llamado production debe configurarse con revisores y restricciones de rama antes de usarlo.
 
-## Preparación
+## Preparación de la VPS
 
-1. Crear una VPS actualizada y un usuario de despliegue sin acceso administrativo general.
-2. Configurar firewall, SSH por clave, TLS mediante proxy inverso y copias de seguridad.
-3. Instalar Docker desde la fuente oficial y restringir quién puede usar su socket.
-4. Configurar variables y secretos fuera del repositorio.
-5. Usar un registro de imágenes y etiquetas inmutables o digest.
-6. Proteger la rama principal y revisar los cambios de workflows.
+1. Crear una VPS actualizada y un usuario de despliegue dedicado.
+2. Instalar Docker y el plugin Compose desde fuentes oficiales.
+3. Crear una carpeta de despliegue y copiar compose.production.yml a esa carpeta.
+4. Crear allí un archivo .env protegido con permisos 600. Debe incluir POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD, DATABASE_URL y JWT_SECRET_KEY. No guardar ese archivo en Git.
+5. Configurar un token de lectura de GHCR en la VPS para que Docker pueda descargar imágenes privadas.
+6. Configurar firewall, SSH por clave, TLS mediante proxy inverso y copias de seguridad.
+7. Restringir el usuario y la clave SSH de despliegue. Docker concede privilegios elevados; un usuario con acceso al socket Docker debe tratarse como privilegiado.
+8. Configurar en el entorno GitHub production los secretos VPS_HOST, VPS_USER, VPS_SSH_PRIVATE_KEY, VPS_KNOWN_HOSTS y VPS_DEPLOY_PATH.
+9. Obtener VPS_KNOWN_HOSTS por un canal fiable y verificar la huella del servidor. No confiar ciegamente en una salida de ssh-keyscan.
+10. Proteger la rama y limitar quién puede ejecutar el workflow.
 
-## GitHub Actions
+DATABASE_URL debe apuntar al servicio db del Compose y contener credenciales correctamente codificadas para URL. JWT_SECRET_KEY debe ser aleatoria, larga y exclusiva de producción.
 
-El workflow de CI valida código y construye la imagen; no recibe secretos de producción. El despliegue debe ser un flujo separado, ligado a una versión aprobada y a un entorno de GitHub con revisores si la configuración disponible lo permite.
+## Qué hace el workflow
 
-Antes de habilitar un despliegue automático:
-- Fijar las acciones de terceros a SHA completos revisados.
-- Definir permisos mínimos para GITHUB_TOKEN.
-- Guardar credenciales en el entorno de producción.
-- No exponer secretos a código de pull requests no confiables.
-- Usar una clave SSH específica, con alcance limitado.
-- Evitar comandos remotos arbitrarios y revisar el script de despliegue.
-- Probar rollback y comprobación de salud.
+- Construye la imagen desde el código del commit seleccionado.
+- Publica la imagen con la etiqueta del SHA del commit.
+- Despliega esa etiqueta concreta en la VPS.
+- No envía las variables de la aplicación desde GitHub: los secretos de runtime permanecen en la VPS.
 
-## Limitación de esta demo
+## Límites y revisión
 
-El repositorio incluye CI y una guía operativa, pero no configura por defecto un despliegue remoto. Los nombres de host, usuarios, claves, registro y rutas dependen de la infraestructura real y deben establecerse de forma explícita. No guardar esos valores sensibles en el repositorio.
+Este workflow es una base de demostración que debe probarse en una VPS desechable antes de usarlo. Revisa el flujo remoto, los permisos de SSH, la autenticación de GHCR, las restricciones del entorno y la compatibilidad con la infraestructura. No ejecutar en producción sin revisión técnica.
 
-## Verificación posterior
-
-- La API responde en el endpoint de salud.
-- Swagger solo se expone detrás de TLS y según la política del servicio.
-- La base de datos no está publicada directamente a Internet.
-- Los logs no contienen tokens ni contraseñas.
-- La imagen se ejecuta sin root y sin capacidades Linux innecesarias.
-- Existe un procedimiento probado de recuperación.
+La API escucha en localhost:8000 en la VPS; exponerla públicamente solo mediante un proxy inverso con TLS y controles adecuados. Configurar backup, restauración y rollback antes de depender del servicio.
