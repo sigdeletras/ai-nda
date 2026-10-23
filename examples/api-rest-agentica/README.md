@@ -26,6 +26,10 @@ Requiere Python 3.12+ y Docker.
 
 También puedes ejecutar toda la aplicación con docker compose up --build.
 
+## Despliegue en VPS
+
+Hay un workflow manual en `.github/workflows/deploy-api-rest-agentica.yml`. Antes de habilitarlo, sigue la [guía de despliegue](docs/DESPLIEGUE-VPS.md), configura el entorno protegido `production`, los secretos de SSH y el acceso de lectura a GHCR en la VPS. No lo ejecutes contra producción sin probarlo primero en una VPS desechable.
+
 ## Comprobaciones
 
     ruff check .
