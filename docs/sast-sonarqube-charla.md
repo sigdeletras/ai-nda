@@ -38,6 +38,8 @@ Distinguir dos riesgos:
 
 SonarQube no limita por sí mismo lo que el agente puede leer ni evita que se envíe información al proveedor. Tampoco garantiza la ausencia de vulnerabilidades. La confidencialidad contractual y la seguridad del código requieren controles distintos y complementarios.
 
+Consultar también [CI/CD y seguridad de los agentes](ci-cd-ia-agentica.md) para el tratamiento de permisos de workflows, secretos, pull requests y controles de pipeline.
+
 ## Demostración opcional
 
 Si se decide mostrarlo, usar el repositorio educativo de FastAPI y dedicar solo unos minutos:
