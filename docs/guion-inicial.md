@@ -82,13 +82,17 @@ Puntos que conviene verbalizar:
 - Incorporar análisis estático (SAST) y detección de secretos al pipeline cuando resulte proporcionado. SonarQube puede servir como ejemplo de análisis del código; Bandit cubre patrones de riesgo en Python y Gitleaks busca secretos expuestos.
 - Distinguir estos controles: el SAST busca determinados defectos y vulnerabilidades; no limita lo que el agente puede leer ni evita que envíe información al proveedor. La CI puede bloquear la integración si se configuran condiciones de aceptación.
 - Una confirmación humana debe referirse a la acción concreta; no sustituye la validación de permisos en el componente que la ejecuta.
+- El agente puede desencadenar procesos posteriores: revisar permisos de workflows, secretos disponibles para cada job y separación entre validación y despliegue. Un cambio en el pipeline también debe revisarse.
+- Tratar el código de pull requests como no confiable; evitar que workflows que lo ejecutan dispongan de secretos o permisos de escritura innecesarios. Revisar especialmente el uso de pull_request_target.
+- La CI puede combinar tests, SAST, detección de secretos, análisis de dependencias y escaneo de imágenes. Son controles complementarios y no garantizan por sí solos la seguridad.
+- En la demo del repositorio, el workflow existente ya reúne Gitleaks, Ruff, pip-audit, pytest, Bandit y Trivy. No afirmar que SonarQube está integrado: se mantiene como ejemplo de SAST.
 
 **Slides previstas (3):**
 1. **Limita el alcance:** permisos, herramientas, secretos y entornos.
 2. **Controla entradas y acciones:** prompt injection, contexto, logs y terminal.
 3. **Verifica y responde:** revisión humana, pruebas y controles automatizados. Mostrar el flujo agente → SAST/detección de secretos/tests → CI y condiciones de aceptación → revisión antes de integrar. SonarQube es un ejemplo, no una garantía de seguridad.
 
-Dedicar 2–3 minutos a esta idea dentro de los 10 minutos del bloque, sin ampliar la duración total. Consultar [SAST y SonarQube en la charla](sast-sonarqube-charla.md) para el alcance, los matices y una posible demostración.
+Dedicar 3–4 minutos a esta idea dentro de los 10 minutos del bloque, sin ampliar la duración total. Consultar [SAST y SonarQube en la charla](sast-sonarqube-charla.md) y [CI/CD y seguridad de los agentes](ci-cd-ia-agentica.md) para el alcance, los matices y la relación con el workflow de la demo.
 
 Documentos de apoyo: [Entorno de desarrollo seguro con IA agéntica](entorno-desarrollo-seguro-ia-agentica.md) y [Gobernanza del uso de IA de terceros](gobernanza-uso-ia-terceros-iso-42001.md).
 
