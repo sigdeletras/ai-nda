@@ -36,6 +36,7 @@ Dirigida principalmente a desarrolladores, tech leads, CTOs y responsables de py
 - [SAST y SonarQube en la charla](docs/sast-sonarqube-charla.md): papel del análisis estático y encaje con CI, secretos y confidencialidad.
 - [CI/CD y seguridad de los agentes](docs/ci-cd-ia-agentica.md): permisos de workflows, secretos, pull requests no confiables y validaciones automatizadas.
 - [Gobernanza del uso de IA de terceros e ISO/IEC 42001](docs/gobernanza-uso-ia-terceros-iso-42001.md): evaluación de proveedores, gestión de riesgos, política de uso aceptable y supervisión.
+- [Políticas de privacidad y tratamiento de datos de proveedores IA](docs/privacidad/PROVEEDORES-IA-POLITICAS-DATOS.md): comparativa inicial de modalidades empresariales, entrenamiento, retención, ZDR y fuentes oficiales.
 - [Protección de datos y RGPD en el desarrollo agéntico](docs/proteccion-datos-rgpd-ia-agentica.md): criterios prácticos, anonimización y fuentes oficiales.
 - [AI Act y desarrollo agéntico](docs/ai-act-ia-agentica.md): encaje en la charla, propuesta de diapositiva, notas y fuentes oficiales.
 
