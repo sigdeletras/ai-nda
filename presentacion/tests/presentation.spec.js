@@ -1,16 +1,16 @@
 import { test, expect } from '@playwright/test';
 
 test('navegación por teclado y numeración', async ({ page }) => {
-  await page.goto('/');
-  await expect(page.locator('.slide-number')).toContainText('1 / 14');
+  await page.goto('./');
+  await expect(page.locator('.slide-number')).toContainText(/1\\s*\\/\\s*14/);
   await page.keyboard.press('ArrowRight');
-  await expect(page.locator('.slide-number')).toContainText('2 / 14');
+  await expect(page.locator('.slide-number')).toContainText(/2\\s*\\/\\s*14/);
   await page.keyboard.press('ArrowLeft');
   await expect(page.locator('.slide-number')).toContainText('1 / 14');
 });
 
 test('el ejercicio evalúa permisos sin ejecutar operaciones', async ({ page }) => {
-  await page.goto('/#/10');
+  await page.goto('./#/10');
   await expect(page.locator('#evaluate')).toBeVisible();
   await page.locator('#evaluate').click();
   await expect(page.locator('#feedback')).toContainText('Decisión proporcionada');
@@ -33,7 +33,7 @@ test('las diapositivas no desbordan el área de proyección', async ({ page }) =
   await page.goto('/');
   const overflows = [];
   for (let index = 1; index <= 14; index += 1) {
-    await page.goto(`/#/${index}`);
+    await page.goto(`./#/${index}`);
     await page.waitForTimeout(100);
     const result = await page.locator('.slides > section.present').evaluate((section) => {
       const slide = section.getBoundingClientRect();
