@@ -96,3 +96,6 @@
 
 
 .profile-slide{display:flex!important;flex-direction:column;justify-content:center;min-height:100%}.profile-slide h1{font-size:2.35em;margin-bottom:.28em}.profile-slide .subtitle{font-size:.9em}.profile-slide .rule{margin-top:1.5em}
+
+
+.profile-content{display:flex;align-items:center;gap:2.2em;max-width:1120px;margin:0 auto}.profile-avatar{display:block;width:clamp(130px,19vw,245px);aspect-ratio:1;object-fit:cover;border-radius:50%;border:3px solid rgba(69,210,194,.72);box-shadow:0 12px 38px rgba(0,0,0,.28)}.profile-copy{min-width:0}.profile-copy h1{margin-bottom:.25em}.profile-alias{margin:.8em 0 0;color:var(--teal);font-size:.65em;font-weight:650;letter-spacing:.04em}.profile-copy .rule{margin-top:1.2em}@media(max-width:600px){.profile-content{flex-direction:column;align-items:flex-start;gap:1.2em}.profile-avatar{width:112px}.profile-copy h1{font-size:1.7em}}
