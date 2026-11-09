@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: pages
+  group: presentation-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -48,9 +48,6 @@ jobs:
         run: |
           test -f dist/index.html
           grep -q '/ai-nda/assets/' dist/index.html
-      - name: Install Chromium
-        working-directory: presentacion
-        run: npx playwright install chromium
       - name: Browser checks
         working-directory: presentacion
         env:
