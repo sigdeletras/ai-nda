@@ -50,7 +50,7 @@ jobs:
           grep -q '/ai-nda/assets/' dist/index.html
       - name: Install Chromium
         working-directory: presentacion
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install chromium
       - name: Browser checks
         working-directory: presentacion
         env:
