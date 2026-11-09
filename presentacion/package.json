@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "reveal.js": "5.1.0"
   },
   "devDependencies": {
+    "@playwright/test": "1.56.1",
     "vite": "6.4.5"
   }
 }
