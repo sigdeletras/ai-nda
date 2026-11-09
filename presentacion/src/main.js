@@ -7,12 +7,53 @@ import { slides } from './slides.js';
 
 document.querySelector('#slides').innerHTML = slides.map((slide) => slide.html).join('');
 const deck = new Reveal({
-  hash: true, hashOneBasedIndex: true, slideNumber: 'c/t', progress: true,
+  hash: true, hashOneBasedIndex: true, slideNumber: 'c/t', progress: false,
   controls: true, keyboard: true, overview: true, center: true,
   transition: 'fade', backgroundTransition: 'fade',
   width: 1600, height: 900, margin: 0.06, minScale: 0.35, maxScale: 1.5,
   plugins: [RevealNotes]
 });
+
+// Navegación inferior: un segmento accesible por cada diapositiva.
+const navigation = document.createElement('nav');
+navigation.className = 'slide-progress';
+navigation.setAttribute('aria-label', 'Navegación por diapositivas');
+navigation.setAttribute('aria-roledescription', 'Progreso de la presentación');
+
+const visited = new Set();
+const segments = slides.map((slide, index) => {
+  const template = document.createElement('template');
+  template.innerHTML = slide.html;
+  const heading = template.content.querySelector('h1, h2');
+  const title = (heading?.textContent || `Diapositiva ${index + 1}`)
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const segment = document.createElement('button');
+  segment.type = 'button';
+  segment.className = 'slide-progress__segment';
+  segment.dataset.title = title;
+  segment.setAttribute('aria-label', `Ir a diapositiva ${index + 1}: ${title}`);
+  segment.title = `${index + 1}. ${title}`;
+  segment.addEventListener('click', () => deck.slide(index));
+  navigation.append(segment);
+  return segment;
+});
+document.body.append(navigation);
+
+function updateSlideProgress(index) {
+  visited.add(index);
+  segments.forEach((segment, segmentIndex) => {
+    const active = segmentIndex === index;
+    segment.classList.toggle('is-active', active);
+    segment.classList.toggle('is-visited', visited.has(segmentIndex) && !active);
+    if (active) segment.setAttribute('aria-current', 'step');
+    else segment.removeAttribute('aria-current');
+  });
+}
+
+deck.on('ready', (event) => updateSlideProgress(event.indexh));
+deck.on('slidechanged', (event) => updateSlideProgress(event.indexh));
 void deck.initialize();
 
 document.querySelector('#evaluate')?.addEventListener('click', () => {
