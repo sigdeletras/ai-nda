@@ -6,7 +6,7 @@ test('navegación por teclado y numeración', async ({ page }) => {
   await page.keyboard.press('ArrowRight');
   await expect(page.locator('.slide-number')).toContainText('2/14');
   await page.keyboard.press('ArrowLeft');
-  await expect(page.locator('.slide-number')).toContainText('1 / 14');
+  await expect(page.locator('.slide-number')).toContainText('1/14');
 });
 
 test('el ejercicio evalúa permisos sin ejecutar operaciones', async ({ page }) => {
@@ -21,7 +21,7 @@ test('el ejercicio evalúa permisos sin ejecutar operaciones', async ({ page }) 
 });
 
 test('la vista de ponente muestra las notas', async ({ page, context }) => {
-  await page.goto('/');
+  await page.goto('./');
   const popupPromise = context.waitForEvent('page');
   await page.keyboard.press('s');
   const speaker = await popupPromise;
