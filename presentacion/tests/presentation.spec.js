@@ -56,3 +56,15 @@ test('las diapositivas no desbordan el área de proyección', async ({ page }) =
   }
   expect(overflows).toEqual([]);
 });
+
+test('la navegación inferior muestra un segmento por diapositiva y permite saltar', async ({ page }) => {
+  await page.goto('./');
+  const segments = page.locator('.slide-progress__segment');
+  await expect(segments).toHaveCount(14);
+  await expect(segments.nth(0)).toHaveAttribute('aria-current', 'step');
+  await expect(segments.nth(4)).toHaveAttribute('aria-label', /Ir a diapositiva 5:/);
+  await segments.nth(4).click();
+  await expect(page.locator('.slide-number')).toContainText(/5\s*\/\s*14/);
+  await expect(segments.nth(4)).toHaveAttribute('aria-current', 'step');
+  await expect(segments.nth(0)).toHaveClass(/is-visited/);
+});
