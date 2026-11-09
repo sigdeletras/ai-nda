@@ -13,7 +13,7 @@ const deck = new Reveal({
   width: 1600, height: 900, margin: 0.06, minScale: 0.35, maxScale: 1.5,
   plugins: [RevealNotes]
 });
-await deck.initialize();
+void deck.initialize();
 
 document.querySelector('#evaluate')?.addEventListener('click', () => {
   const selected = [...document.querySelectorAll('.options input:checked')].map((el) => el.value);
