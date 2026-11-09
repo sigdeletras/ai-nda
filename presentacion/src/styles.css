@@ -56,3 +56,40 @@
 @media(prefers-reduced-motion:reduce){
   .slide-progress__segment,.slide-progress__segment::after{transition:none}
 }
+
+
+/* Cabecera y distribución de controles */
+.deck-header{
+  position:fixed;z-index:21;top:29px;left:62px;
+  color:rgba(220,232,240,.72);font-size:10px;font-weight:650;
+  letter-spacing:.11em;line-height:1.2;text-transform:uppercase;
+  pointer-events:none;
+}
+/* El contador deja libre la zona inferior derecha de los controles. */
+.reveal .slide-number{top:27px;right:30px;bottom:auto;left:auto;padding:0;font-size:11px;letter-spacing:.08em}
+.reveal .controls{right:22px;bottom:24px}
+.deck-footer{left:30px;right:auto;bottom:23px;font-size:10px}
+
+@media(max-width:900px){
+  .deck-header{top:25px;left:58px;font-size:9px;letter-spacing:.08em}
+  .brand-mark{top:23px;left:25px;transform:scale(.88) skew(-24deg);transform-origin:top left}
+  .reveal .slide-number{top:24px;right:20px}
+  .reveal .controls{right:14px;bottom:22px}
+  .deck-footer{left:20px;bottom:22px;font-size:9px;letter-spacing:.1em}
+  .reveal .slides section{padding:34px 26px 58px}
+  .grid2,.exercise{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr;gap:10px}
+  .compare>strong{transform:rotate(90deg)}
+  .pipeline{flex-wrap:wrap}
+  .pipeline>div{flex:1 1 42%;min-width:0}
+}
+@media(max-width:600px){
+  .deck-header{max-width:58vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .deck-footer{max-width:48vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .reveal .controls{transform:scale(.82);transform-origin:bottom right}
+  .reveal .slides section{padding:30px 20px 56px}
+  .reveal h1{font-size:1.8em}
+  .reveal h2{font-size:1.3em}
+  .levels>div{grid-template-columns:28px 1fr;padding:12px}
+  .steps{grid-template-columns:1fr 1fr}
+}
