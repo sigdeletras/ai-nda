@@ -17,9 +17,8 @@ npm run build
 npm run preview
 ```
 
-Pruebas de navegador (requieren Chromium):
+Pruebas de navegador (requieren Google Chrome instalado):
 ```powershell
-npx playwright install chromium
 npm run test:e2e
 ```
 
