@@ -22,7 +22,7 @@ Pruebas de navegador (requieren Google Chrome instalado):
 npm run test:e2e
 ```
 
-Las notas del ponente se abren con `S`. Navega con cursores o barra espaciadora; `Esc` muestra el índice.
+Las notas del ponente se abren con `S`. Navega con cursores o barra espaciadora; `Esc` muestra el índice. La barra inferior permite saltar a cualquier diapositiva: cada segmento muestra su título al pasar el cursor.
 
 ## Publicación
 El workflow `../.github/workflows/deploy-presentation.yml` compila, audita dependencias y ejecuta pruebas de navegador. La publicación utiliza GitHub Pages y la base `/ai-nda/`.
