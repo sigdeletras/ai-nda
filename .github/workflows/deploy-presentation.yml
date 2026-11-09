@@ -48,6 +48,14 @@ jobs:
         run: |
           test -f dist/index.html
           grep -q '/ai-nda/assets/' dist/index.html
+      - name: Install Chromium
+        working-directory: presentacion
+        run: npx playwright install --with-deps chromium
+      - name: Browser checks
+        working-directory: presentacion
+        env:
+          CI: true
+        run: npm run test:e2e
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name != 'pull_request'
         with:
