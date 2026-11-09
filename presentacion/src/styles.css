@@ -93,3 +93,6 @@
   .levels>div{grid-template-columns:28px 1fr;padding:12px}
   .steps{grid-template-columns:1fr 1fr}
 }
+
+
+.profile-slide{display:flex!important;flex-direction:column;justify-content:center;min-height:100%}.profile-slide h1{font-size:2.35em;margin-bottom:.28em}.profile-slide .subtitle{font-size:.9em}.profile-slide .rule{margin-top:1.5em}
