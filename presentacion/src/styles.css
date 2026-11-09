@@ -17,3 +17,42 @@
 .reveal .fragment{transition:opacity .35s ease,transform .35s ease}.reveal .fragment:not(.visible){transform:translateY(10px)}
 @media(max-width:900px){.reveal{font-size:22px}.reveal .slides section{padding:30px}.cards,.steps{grid-template-columns:1fr}.panel{min-height:0}.levels>div{grid-template-columns:35px 1fr}.levels label{grid-column:2;text-align:left}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal .fragment:not(.visible){transform:none}}
+
+
+/* Navegación segmentada y contextual de la presentación */
+.slide-progress{
+  position:fixed;z-index:30;left:0;right:0;bottom:0;height:14px;
+  display:flex;align-items:center;gap:4px;padding:0 22px;
+  background:linear-gradient(180deg,transparent,rgba(9,17,27,.72));
+}
+.slide-progress__segment{
+  position:relative;display:block;flex:1 1 0;min-width:0;height:4px;
+  padding:0;border:0;border-radius:8px;background:rgba(189,203,213,.3);
+  cursor:pointer;transition:height .18s ease,background-color .18s ease,box-shadow .18s ease;
+}
+.slide-progress__segment.is-visited{background:var(--green);opacity:.78}
+.slide-progress__segment.is-active{
+  height:7px;background:linear-gradient(90deg,var(--teal),var(--green));
+  box-shadow:0 0 10px rgba(69,210,194,.38);
+}
+.slide-progress__segment:hover,.slide-progress__segment:focus-visible{height:8px;background:var(--blue);outline:none}
+.slide-progress__segment::after{
+  content:attr(data-title);position:absolute;left:50%;bottom:17px;z-index:2;
+  width:max-content;max-width:min(280px,70vw);padding:8px 11px;
+  border:1px solid var(--line);border-radius:7px;background:#1c3042;
+  color:var(--text);font:600 12px/1.35 Inter,ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:0;text-align:center;white-space:normal;pointer-events:none;
+  opacity:0;transform:translate(-50%,4px);transition:opacity .15s ease,transform .15s ease;
+}
+.slide-progress__segment:hover::after,.slide-progress__segment:focus-visible::after{
+  opacity:1;transform:translate(-50%,0);
+}
+@media(max-width:600px){
+  .slide-progress{gap:3px;padding:0 10px;height:12px}
+  .slide-progress__segment{height:4px}
+  .slide-progress__segment.is-active{height:6px}
+  .slide-progress__segment::after{font-size:11px;max-width:65vw}
+}
+@media(prefers-reduced-motion:reduce){
+  .slide-progress__segment,.slide-progress__segment::after{transition:none}
+}
