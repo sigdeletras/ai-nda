@@ -30,7 +30,7 @@ test('la vista de ponente muestra las notas', async ({ page, context }) => {
 });
 
 test('las diapositivas no desbordan el área de proyección', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('./');
   const overflows = [];
   for (let index = 1; index <= 14; index += 1) {
     await page.goto(`./#/${index}`);
