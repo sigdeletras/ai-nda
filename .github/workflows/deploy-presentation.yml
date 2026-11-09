@@ -3,6 +3,8 @@ on:
   push:
     branches: [master]
     paths: ['presentacion/**', '.github/workflows/deploy-presentation.yml']
+  pull_request:
+    paths: ['presentacion/**', '.github/workflows/deploy-presentation.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -31,9 +33,11 @@ jobs:
         working-directory: presentacion
         run: npm run build
       - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
         with:
           path: presentacion/dist
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
