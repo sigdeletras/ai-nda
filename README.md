@@ -31,6 +31,7 @@ Dirigida principalmente a desarrolladores, tech leads, CTOs y responsables de py
 ## Documentación de trabajo
 
 - [Guion inicial](docs/guion-inicial.md): estructura, tiempos, slides previstas y decisiones pendientes.
+- [SDD y factoría de software agéntica](docs/sdd-factoría-software-agéntica.md): especificaciones, orquestación, autonomía lights-on/lights-off y controles para delegar tareas.
 - [Glosario de términos](docs/glosario.md): definiciones breves y distinciones clave.
 - [Entorno de desarrollo seguro con IA agéntica](docs/entorno-desarrollo-seguro-ia-agentica.md): secretos, entornos, accesos, contexto, terminal, revisión y respuesta ante exposiciones. Usa la [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) como referencia principal para estructurar las slides de seguridad.
 - [SAST y SonarQube en la charla](docs/sast-sonarqube-charla.md): papel del análisis estático y encaje con CI, secretos y confidencialidad.
