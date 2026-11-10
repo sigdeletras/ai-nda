@@ -10,7 +10,7 @@ test('navegación por teclado y numeración', async ({ page }) => {
 });
 
 test('el ejercicio evalúa permisos sin ejecutar operaciones', async ({ page }) => {
-  await page.goto('./#/10');
+  await page.goto('./#/12');
   await expect(page.locator('#evaluate')).toBeVisible();
   await page.locator('#evaluate').click();
   await expect(page.locator('#feedback')).toContainText('Decisión proporcionada');
@@ -67,4 +67,25 @@ test('la navegación inferior muestra un segmento por diapositiva y permite salt
   await expect(page.locator('.slide-number')).toContainText(/5\s*\/\s*16/);
   await expect(segments.nth(4)).toHaveAttribute('aria-current', 'step');
   await expect(segments.nth(0)).toHaveClass(/is-visited/);
+});
+
+
+test('el modo móvil vertical adapta el lienzo y evita el desbordamiento horizontal', async ({ page }) => {
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.goto('./');
+  await expect(page.locator('.slide-progress__segment')).toHaveCount(16);
+  const layout = await page.locator('.reveal').evaluate((element) => {
+    const style = getComputedStyle(element);
+    return {
+      width: element.getBoundingClientRect().width,
+      height: element.getBoundingClientRect().height,
+      background: style.backgroundColor,
+      scrollWidth: document.documentElement.scrollWidth,
+      viewportWidth: document.documentElement.clientWidth
+    };
+  });
+  expect(layout.width).toBeCloseTo(393, 0);
+  expect(layout.height).toBeCloseTo(852, 0);
+  expect(layout.scrollWidth).toBeLessThanOrEqual(layout.viewportWidth);
+  await expect(page.locator('.slides > section.present h1, .slides > section.present h2').first()).toBeVisible();
 });
