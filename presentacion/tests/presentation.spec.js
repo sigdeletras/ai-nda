@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test('navegación por teclado y numeración', async ({ page }) => {
   await page.goto('./');
-  await expect(page.locator('.slide-number')).toContainText(/1\s*\/\s*14/);
+  await expect(page.locator('.slide-number')).toContainText(/1\s*\/\s*16/);
   await page.keyboard.press('ArrowRight');
-  await expect(page.locator('.slide-number')).toContainText(/2\s*\/\s*14/);
+  await expect(page.locator('.slide-number')).toContainText(/2\s*\/\s*16/);
   await page.keyboard.press('ArrowLeft');
-  await expect(page.locator('.slide-number')).toContainText(/1\s*\/\s*14/);
+  await expect(page.locator('.slide-number')).toContainText(/1\s*\/\s*16/);
 });
 
 test('el ejercicio evalúa permisos sin ejecutar operaciones', async ({ page }) => {
@@ -32,7 +32,7 @@ test('la vista de ponente muestra las notas', async ({ page, context }) => {
 test('las diapositivas no desbordan el área de proyección', async ({ page }) => {
   await page.goto('./');
   const overflows = [];
-  for (let index = 1; index <= 14; index += 1) {
+  for (let index = 1; index <= 16; index += 1) {
     await page.goto(`./#/${index}`);
     await page.waitForTimeout(100);
     const result = await page.locator('.slides > section.present').evaluate((section) => {
@@ -60,11 +60,11 @@ test('las diapositivas no desbordan el área de proyección', async ({ page }) =
 test('la navegación inferior muestra un segmento por diapositiva y permite saltar', async ({ page }) => {
   await page.goto('./');
   const segments = page.locator('.slide-progress__segment');
-  await expect(segments).toHaveCount(14);
+  await expect(segments).toHaveCount(16);
   await expect(segments.nth(0)).toHaveAttribute('aria-current', 'step');
   await expect(segments.nth(4)).toHaveAttribute('aria-label', /Ir a diapositiva 5:/);
   await segments.nth(4).click();
-  await expect(page.locator('.slide-number')).toContainText(/5\s*\/\s*14/);
+  await expect(page.locator('.slide-number')).toContainText(/5\s*\/\s*16/);
   await expect(segments.nth(4)).toHaveAttribute('aria-current', 'step');
   await expect(segments.nth(0)).toHaveClass(/is-visited/);
 });
