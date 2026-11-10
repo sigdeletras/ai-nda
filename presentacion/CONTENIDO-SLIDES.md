@@ -24,24 +24,19 @@ Este documento recoge el texto visible y las notas del ponente de cada diapositi
 
 Abrir con la pregunta del título. No es una charla sobre cómo usar mejor un asistente, sino sobre qué autorizamos cuando conectamos un agente a nuestro entorno. Presentar el punto de partida como experiencia profesional, sin revelar clientes ni datos sensibles.
 
-## 02. La pregunta
+
+## 02. Perfil del ponente
 
 **Texto visible**
 
-> ¿Qué le damos cuando le damos acceso?
->
-> **01 · Contexto**  
-> Código, documentos y conversaciones.
->
-> **02 · Capacidad**  
-> Leer, modificar, ejecutar y conectarse.
->
-> **03 · Confianza**  
-> Datos propios y compromisos con terceros.
+> PRESENTACIÓN  
+> Patricio Soriano  
+> Responsable del Área de SIG y Desarrollo · Geoinnova  
+> @sigdeletras
 
 **Notas del ponente**
 
-Del chat que responde al agente que opera. El riesgo depende del contexto, las herramientas y los permisos, no solo del modelo.
+Presentación breve: nombre, puesto actual y alias profesional.
 
 ## 03. Capacidades del agente
 
@@ -58,7 +53,40 @@ Del chat que responde al agente que opera. El riesgo depende del contexto, las h
 
 Las capacidades varían según producto, modo, configuración e integraciones. Preguntar qué herramientas están habilitadas y con qué identidad se ejecutan.
 
-## 04. Superficie de exposición
+
+## 04. SDD: de la demanda a una tarea verificable
+
+**Texto visible**
+
+> De la petición a una tarea verificable
+>
+> **Demanda** → **Especificación** → **Plan y tareas** → **Implementación**
+>
+> Issue · alcance · criterios · agentes · pruebas
+
+**Notas del ponente**
+
+Explicar SDD sin convertirlo en una metodología extensa. La demanda se concreta en una especificación versionada; de ella salen plan y tareas verificables. Los agentes implementan y se comprueba la convergencia con los criterios de aceptación. La especificación también necesita revisión: no garantiza por sí sola que los requisitos sean correctos o seguros.
+
+## 05. Factoría y autonomía
+
+**Texto visible**
+
+> ¿Cuánto trabajo delegamos sin supervisión?
+>
+> **LIGHTS-ON**  
+> Supervisión durante el flujo. Revisar requisitos y planes, autorizar acciones e inspeccionar cambios.
+>
+> **LIGHTS-OFF**  
+> Ejecución autónoma acotada. Descomponer tareas, implementar y probar, entregar evidencias.
+>
+> La autonomía depende del riesgo y de la capacidad de verificar el resultado.
+
+**Notas del ponente**
+
+Presentar lights-on y lights-off como metáforas, no como estándares. Lights-off no significa ausencia de responsabilidad ni despliegue automático. La autonomía se decide por tarea: cuanto más verificable y menor sea el impacto, más puede automatizarse. Reservar aprobación humana para decisiones de alto impacto y mantener controles técnicos independientes.
+
+## 06. Superficie de exposición
 
 **Texto visible**
 
@@ -74,7 +102,8 @@ Las capacidades varían según producto, modo, configuración e integraciones. P
 
 El agente decide o propone, la herramienta ejecuta, la identidad aporta permisos y el entorno contiene recursos. No presentar al modelo como único punto de control.
 
-## 05. Instrucciones y controles
+
+## 07. Instrucciones y controles
 
 **Texto visible**
 
@@ -94,7 +123,8 @@ El agente decide o propone, la herramienta ejecuta, la identidad aporta permisos
 
 AGENTS.md y reglas de herramientas orientan, pero no sustituyen permisos del sistema operativo, aislamiento, gestión de secretos ni controles del proveedor.
 
-## 06. Datos y proveedores
+
+## 08. Datos y proveedores
 
 **Texto visible**
 
@@ -110,7 +140,8 @@ AGENTS.md y reglas de herramientas orientan, pero no sustituyen permisos del sis
 
 Son dimensiones distintas. Comprobar producto, modalidad, configuración y condiciones aplicables. No equiparar ausencia de entrenamiento con ausencia de retención, ZDR con procesamiento local ni suscripción de pago con garantía universal.
 
-## 07. Confidencialidad
+
+## 09. Confidencialidad
 
 **Texto visible**
 
@@ -126,7 +157,8 @@ Son dimensiones distintas. Comprobar producto, modalidad, configuración y condi
 
 No dar asesoramiento jurídico. Antes de introducir información de cliente, revisar contrato, compromisos de confidencialidad, instrucciones del cliente y condiciones del proveedor. Si no está claro, no introducir el dato hasta resolverlo.
 
-## 08. Clasificación de la información
+
+## 10. Clasificación de la información
 
 **Texto visible**
 
@@ -148,7 +180,8 @@ No dar asesoramiento jurídico. Antes de introducir información de cliente, rev
 
 Proponer una clasificación sencilla y adaptable. Un repositorio puede mezclar categorías. Los secretos deben quedar fuera del contexto del agente siempre que sea posible.
 
-## 09. Controles prácticos
+
+## 11. Controles prácticos
 
 **Texto visible**
 
@@ -163,7 +196,8 @@ Proponer una clasificación sencilla y adaptable. Un repositorio puede mezclar c
 
 Medidas aplicables sin desplegar modelos locales: credenciales de alcance reducido, variables de entorno controladas, entornos de prueba, datos sintéticos, revisión de diffs y aprobación para operaciones externas.
 
-## 10. Ejercicio: permisos del agente
+
+## 12. Ejercicio: permisos del agente
 
 **Texto visible**
 
@@ -188,7 +222,8 @@ El público selecciona permisos y evalúa la decisión. El ejercicio es local y 
 
 Pedir al público que decida. Criterio esperado: lectura y tests aislados, sí; acceso a .env y push directo a main, no. El ejercicio no invoca herramientas ni modifica ficheros.
 
-## 11. CI/CD y calidad
+
+## 13. CI/CD y calidad
 
 **Texto visible**
 
@@ -205,7 +240,8 @@ Pedir al público que decida. Criterio esperado: lectura y tests aislados, sí; 
 
 El agente no es autoridad final. El pipeline debe usar permisos mínimos y no exponer secretos a workflows de contribuciones no confiables. SAST aporta detección, no garantiza ausencia de vulnerabilidades.
 
-## 12. Respuesta ante una exposición
+
+## 14. Respuesta ante una exposición
 
 **Texto visible**
 
@@ -221,7 +257,8 @@ El agente no es autoridad final. El pipeline debe usar permisos mínimos y no ex
 
 Si se filtra una credencial, revocarla y rotarla. Preservar evidencias, determinar alcance y activar procedimientos internos y obligaciones que correspondan. No improvisar notificaciones ni plazos.
 
-## 13. Ideas para llevarse
+
+## 15. Ideas para llevarse
 
 **Texto visible**
 
@@ -236,7 +273,8 @@ Si se filtra una credencial, revocarla y rotarla. Preservar evidencias, determin
 
 No se trata de prohibir la IA ni de exigir infraestructura propia. Se trata de decidir qué información y capacidades necesita cada tarea, y aplicar controles proporcionados.
 
-## 14. Cierre y preguntas
+
+## 16. Cierre y preguntas
 
 **Texto visible**
 
@@ -254,6 +292,7 @@ Dejar espacio para preguntas. Tener a mano los materiales del repositorio sobre 
 
 ---
 
+
 ## Criterios para revisar cada diapositiva
 
 Al proponer cambios, revisar:
@@ -265,6 +304,7 @@ Al proponer cambios, revisar:
 5. **Coherencia:** mantener el hilo entre capacidades, exposición, obligaciones y controles.
 6. **Confidencialidad:** utilizar ejemplos ficticios o anonimizados.
 
+
 ## Flujo de actualización
 
 1. Revisar y editar el texto en este documento.
@@ -274,3 +314,4 @@ Al proponer cambios, revisar:
 5. Ejecutar las comprobaciones y publicar mediante GitHub Actions.
 
 **Importante:** este Markdown es la referencia editorial, no una fuente que la presentación lea automáticamente. Mantener sincronizados ambos ficheros hasta que se decida automatizar esa relación.
+
