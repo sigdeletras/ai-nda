@@ -11,12 +11,13 @@ Usar IA agéntica para desarrollar software sin convertir la confidencialidad de
 | Bloque | Tiempo | Objetivo |
 |---|---:|---|
 | 1. Apertura: la pregunta incómoda | 3 min | Presentar el dilema: ¿qué significa realmente dar acceso al agente? |
-| 2. Qué puede ver y hacer un agente | 6 min | Explicar contexto, permisos, herramientas, terminal, repositorios y credenciales. |
-| 3. Dónde viajan los datos | 6 min | Distinguir suscripción de pago, uso para entrenamiento, retención y Zero Data Retention. |
-| 4. NDA y obligaciones reales | 5 min | Relacionar confidencialidad, datos personales y compromisos contractuales sin convertir la charla en asesoramiento jurídico. |
-| 5. Controles que sí ayudan | 10 min | Aplicar mínimo privilegio, credenciales fuera del contexto, entornos de prueba, datos sintéticos y revisión de cambios. |
-| 6. Incidentes: prevenir y responder | 4 min | Mostrar una pauta breve ante una exposición accidental: contener, revocar, evaluar y comunicar según el procedimiento. |
-| 7. Cierre: reglas para el equipo | 6 min | Recapitular criterios prácticos y dejar una lista de decisiones aplicables. |
+| 2. Qué puede ver y hacer un agente | 5 min | Explicar contexto, permisos, herramientas, terminal, repositorios y credenciales. |
+| 3. Del agente a la factoría: SDD y autonomía | 4 min | Explicar especificaciones, tareas, orquestación y grados de intervención humana. |
+| 4. Dónde viajan los datos | 5 min | Distinguir suscripción de pago, uso para entrenamiento, retención y Zero Data Retention. |
+| 5. NDA y obligaciones reales | 5 min | Relacionar confidencialidad, datos personales y compromisos contractuales sin convertir la charla en asesoramiento jurídico. |
+| 6. Controles que sí ayudan | 9 min | Aplicar mínimo privilegio, credenciales fuera del contexto, entornos de prueba, datos sintéticos y revisión de cambios. |
+| 7. Incidentes: prevenir y responder | 4 min | Mostrar una pauta breve ante una exposición accidental: contener, revocar, evaluar y comunicar según el procedimiento. |
+| 8. Cierre: reglas para el equipo | 5 min | Recapitular criterios prácticos y dejar una lista de decisiones aplicables. |
 | **Total** | **40 min** | |
 
 ## Desarrollo por bloques
@@ -38,7 +39,22 @@ Usar IA agéntica para desarrollar software sin convertir la confidencialidad de
 1. Asistente frente a agente: contexto, herramientas y acciones.
 2. Mapa de accesos: repositorio, terminal, servicios y secretos.
 
-### 3. Dónde viajan los datos — 6 min
+### 3. Del agente a la factoría: SDD y autonomía — 4 min
+
+- La evolución no es solo disponer de un agente con más herramientas: es organizar el trabajo para delegar tareas y decisiones dentro de un proceso repetible.
+- **SDD:** convertir una demanda en especificación, plan, tareas y criterios de aceptación antes de implementar.
+- **Factoría de software:** coordinar etapas y agentes —análisis, planificación, implementación, pruebas y revisión— con trazabilidad y recuperación.
+- **Lights-on:** supervisión humana durante el flujo. **Lights-off:** ejecución rutinaria sin supervisión continua, dentro de límites y puertas de control.
+- La autonomía debe asignarse por tarea según verificabilidad e impacto. Lights-off no significa ausencia de responsabilidad ni despliegue automático.
+- Mantener controles técnicos independientes: permisos mínimos, aislamiento, CI, pruebas y aprobación para acciones de alto impacto.
+
+**Slides previstas (2):**
+1. Demanda → especificación → plan/tareas → implementación.
+2. Lights-on frente a lights-off: qué decisiones se delegan y cuáles se reservan.
+
+Consultar [SDD y factoría de software agéntica](sdd-factoría-software-agéntica.md).
+
+### 4. Dónde viajan los datos — 5 min
 - El código, los prompts, los archivos seleccionados y los resultados de herramientas pueden enviarse al proveedor para procesar la petición; el detalle depende del producto y de la configuración.
 - Separar cuatro conceptos: suscripción de pago, uso de datos para entrenamiento, retención y Zero Data Retention (ZDR).
 - No asumir que pagar implica ZDR ni que desactivar el entrenamiento significa que no se conservan datos.
@@ -48,7 +64,7 @@ Usar IA agéntica para desarrollar software sin convertir la confidencialidad de
 1. Recorrido simplificado de los datos.
 2. Cuatro conceptos que no deben confundirse.
 
-### 4. NDA y obligaciones reales — 5 min
+### 5. NDA y obligaciones reales — 5 min
 - Un NDA no es una configuración técnica ni una autorización automática para introducir información en cualquier servicio.
 - Revisar qué información está protegida, quién puede tratarla, con qué finalidad y bajo qué condiciones.
 - Si hay datos personales, valorar también RGPD, LOPDGDD y las instrucciones aplicables de la AEPD.
@@ -65,7 +81,7 @@ Usar IA agéntica para desarrollar software sin convertir la confidencialidad de
 
 **Nota del ponente:** presentar las cláusulas como criterios para revisar con asesoría jurídica, no como asesoramiento legal ni como texto contractual definitivo. La empresa debe poder demostrar los controles técnicos que respaldan sus compromisos.
 
-### 5. Controles que sí ayudan — 10 min
+### 6. Controles que sí ayudan — 9 min
 Tomar como referencia principal la [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html), que ofrece un marco específico para agentes. Seleccionar sus principios relevantes para el desarrollo cotidiano, sin intentar resumir toda la guía.
 
 Organizar las recomendaciones en tres grupos:
@@ -96,7 +112,7 @@ Dedicar 3–4 minutos a esta idea dentro de los 10 minutos del bloque, sin ampli
 
 Documentos de apoyo: [Entorno de desarrollo seguro con IA agéntica](entorno-desarrollo-seguro-ia-agentica.md) y [Gobernanza del uso de IA de terceros](gobernanza-uso-ia-terceros-iso-42001.md).
 
-### 6. Incidentes: prevenir y responder — 4 min
+### 7. Incidentes: prevenir y responder — 4 min
 - Ejemplo hipotético y no atribuible: una credencial aparece en el contexto o se envía a un servicio no autorizado.
 - Detener la exposición y revocar o rotar la credencial afectada.
 - Determinar qué información pudo quedar expuesta, dónde y durante cuánto tiempo; conservar la información necesaria para investigar.
@@ -105,7 +121,7 @@ Documentos de apoyo: [Entorno de desarrollo seguro con IA agéntica](entorno-des
 
 **Slide prevista (1):** contener → revocar → evaluar → comunicar.
 
-### 7. Cierre — 6 min
+### 8. Cierre — 5 min
 - Reforzar tres ideas: saber qué puede hacer el agente, conocer las condiciones del servicio y limitar técnicamente los accesos.
 - Proponer una lista breve para equipos: herramienta autorizada, datos permitidos, credenciales, permisos, revisión y respuesta ante incidentes.
 - Cerrar volviendo a la pregunta inicial: no se trata de confiar ciegamente ni de prohibir por defecto, sino de decidir qué acceso se concede y con qué límites.
@@ -113,18 +129,23 @@ Documentos de apoyo: [Entorno de desarrollo seguro con IA agéntica](entorno-des
 **Slide prevista (1):** lista de comprobación y cierre.
 
 ## Presupuesto de diapositivas
-Objetivo inicial: **11 slides aproximadamente**, con margen para reducirlas:
-1. Título y pregunta.
-2. Asistente frente a agente.
-3. Mapa de accesos.
-4. Recorrido de los datos.
-5. Pago, entrenamiento, retención y ZDR.
-6. NDA, protección de datos y controles.
-7. Limita el alcance.
-8. Controla entradas y acciones.
-9. Verifica y responde.
-10. Respuesta ante una exposición.
-11. Lista de comprobación y cierre.
+Objetivo actualizado: **16 diapositivas**, con margen para reducirlas:
+1. Apertura.
+2. Perfil del ponente.
+3. Capacidades del agente.
+4. SDD: demanda, especificación, plan y tareas.
+5. Factoría: lights-on y lights-off.
+6. Superficie de exposición.
+7. Instrucciones frente a controles.
+8. Datos y proveedores.
+9. Confidencialidad.
+10. Clasificación de la información.
+11. Controles prácticos.
+12. Ejercicio de permisos.
+13. CI/CD y calidad.
+14. Respuesta ante una exposición.
+15. Ideas para llevarse.
+16. Cierre y preguntas.
 
 Una slide debe comunicar una idea principal. Preferir esquemas, flujos y listas breves a bloques de texto. Las fuentes y matices técnicos pueden quedar en notas del ponente o en documentos de apoyo.
 
