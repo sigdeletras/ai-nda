@@ -6,13 +6,27 @@ import './styles.css';
 import { slides } from './slides.js';
 
 document.querySelector('#slides').innerHTML = slides.map((slide) => slide.html).join('');
+function getDeckSize() {
+  const portraitPhone = window.matchMedia('(max-width: 600px) and (orientation: portrait)').matches;
+  return portraitPhone
+    ? { width: window.innerWidth, height: window.innerHeight, margin: 0.02, minScale: 0.85 }
+    : { width: 1600, height: 900, margin: 0.06, minScale: 0.35 };
+}
+
 const deck = new Reveal({
   hash: true, hashOneBasedIndex: true, slideNumber: 'c/t', progress: false,
   controls: true, keyboard: true, overview: true, center: true,
   transition: 'fade', backgroundTransition: 'fade',
-  width: 1600, height: 900, margin: 0.06, minScale: 0.35, maxScale: 1.5,
+  ...getDeckSize(), maxScale: 1.5,
   plugins: [RevealNotes]
 });
+
+// Recalcular el lienzo al cambiar orientación o tamaño de ventana.
+let resizeFrame;
+window.addEventListener('resize', () => {
+  cancelAnimationFrame(resizeFrame);
+  resizeFrame = requestAnimationFrame(() => deck.configure(getDeckSize()));
+}, { passive: true });
 
 // Navegación inferior: un segmento accesible por cada diapositiva.
 const navigation = document.createElement('nav');
