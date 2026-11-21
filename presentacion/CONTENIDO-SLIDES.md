@@ -57,7 +57,7 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 
 **Notas del ponente**
 
-- Presentar brevemente el perfil y Geoinnova.
+- Presentar brevemente el perfil (geógrafo y desarrollador) y qué es Geoinnova.
 - Explicar que la charla nace de una revisión interna del uso de herramientas.
 - Contar el caso Jira solo con el nivel de detalle autorizado. No identificar cliente, proyecto, contrato, personas ni circunstancias que permitan reconstruirlo.
 - No atribuir al proveedor un uso concreto de los datos si no está documentado.
@@ -71,9 +71,9 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 > La confidencialidad también se aplica a la IA
 >
 > **Qué protegemos:** NDA · Contratos · Información confidencial  
-> **Qué debemos cumplir:** RGPD · ENS (cuando aplique) · Reglamento europeo de IA
+> **Qué debemos cumplir:** RGPD · ENS (cuando aplique) · Reglamento europeo de IA: alfabetización y gestión de riesgos
 >
-> Cláusulas habituales: no divulgación · notificación de incidentes · devolución o destrucción.
+> Cláusulas habituales: información confidencial · no divulgación · notificación de incidentes · devolución o destrucción.
 >
 > No introducir información confidencial en servicios de terceros sin autorización y garantías adecuadas.
 
@@ -86,6 +86,7 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 - Mostrar cláusulas habituales y presentar la previsión específica para IA como criterio para revisar con asesoría jurídica, no como texto contractual definitivo.
 - La suscripción de pago no modifica automáticamente las obligaciones.
 - No ofrecer asesoramiento jurídico.
+- **Mensaje clave:** el contrato establece obligaciones; no configura técnicamente el agente ni impide por sí mismo una exposición.
 
 ## 3. Agentes de programación — 3:00
 
@@ -139,7 +140,7 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 > - **Ubicación y acceso:** ¿Dónde se procesan y quién puede acceder?
 > - **Contrato:** ¿Qué garantías son exigibles para este producto y plan?
 >
-> Pago ≠ no entrenamiento ≠ ZDR ≠ procesamiento local
+> Pago ≠ no entrenamiento ≠ ZDR ≠ procesamiento local · Comprueba producto, plan y condiciones
 
 **Notas del ponente**
 
@@ -150,6 +151,8 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 - La ubicación y las transferencias internacionales deben revisarse en la documentación contractual y de privacidad aplicable.
 - Cerrar con qué comprobar: producto exacto, plan, entrenamiento, retención, subencargados, ubicación, controles administrativos y contrato.
 - Indicar la fecha de consulta de la comparativa.
+- No clasificar proveedores: lo importante es saber qué condiciones aceptamos.
+- **Mensaje clave:** no basta con conocer la marca ni con pagar; hay que comprobar el producto, el plan y sus condiciones concretas.
 
 ## 6. Configuración segura del software — 3:30
 
@@ -159,8 +162,8 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 >
 > **Secretos:** fuera del repositorio y del contexto del agente.  
 > **Mínimo privilegio:** tokens limitados, permisos mínimos y caducidad.  
-> **Entornos:** desarrollo y pruebas separados de producción.  
-> **Datos:** sintéticos o anonimizados cuando sea posible.
+> **Entornos:** desarrollo y pruebas separados de producción. Datos sintéticos o anonimizados.  
+> **Proyecto:** revisar cambios, dependencias, extensiones y MCP. SAST y detección de secretos ayudan, pero no bloquean accesos.
 >
 > Referencia: OWASP AI Agent Security Cheat Sheet.
 
@@ -173,7 +176,9 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 - Revisar cambios, dependencias, extensiones e integraciones, incluidas herramientas MCP.
 - SAST, análisis de dependencias y detección de secretos ayudan a encontrar problemas, pero no impiden por sí solos que un agente lea o transmita información.
 - Citar SonarQube como ejemplo de SAST y Gitleaks como detector de secretos, sin explicar las herramientas.
-- Utilizar OWASP como marco y seleccionar medidas aplicables, sin resumir toda la guía.
+- Utilizar OWASP como marco y seleccionar medidas aplicables, sin resumir toda la guía (mínimo privilegio, validación de entradas y acciones, aislamiento, supervisión).
+- No solapar con la slide 7: aquí, controles técnicos del entorno.
+- **Mensaje clave:** primero proteger el entorno; después, configurar el agente para que trabaje dentro de esos límites.
 
 ## 7. Configurar los asistentes — 4:00
 
@@ -183,19 +188,21 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 >
 > **Configuración del agente:** harness y reglas · archivos de exclusión · permisos de herramientas · control de comandos.
 >
-> **Política de equipo:** herramientas y datos permitidos · condiciones del proveedor · supervisión y restricciones del cliente.
+> **Anexo de uso de IA:** herramientas y datos permitidos · condiciones del proveedor · supervisión y restricciones del cliente · política interna y procedimiento de respuesta.
 >
 > Los secretos deben quedar fuera de su alcance.
 
 **Notas del ponente**
 
 - Explicar harness como conjunto de instrucciones, herramientas, permisos, contexto y mecanismos de ejecución que rodean al modelo.
-- Mostrar ejemplos no sensibles de reglas, exclusiones, permisos de lectura/escritura y confirmaciones para comandos.
+- Configuración específica según proveedor y herramienta. Mostrar ejemplos reales no sensibles de reglas, exclusiones, permisos de lectura/escritura y confirmaciones para comandos.
 - AGENTS.md y equivalentes establecen pautas, pero no son barreras de seguridad.
 - Diferenciar excluir un archivo del contexto de retirar el permiso real de acceso. Verificar el comportamiento de cada herramienta y aplicar controles en sistema de archivos, entorno o integración.
 - Mantener secretos fuera de las carpetas y servicios accesibles al agente siempre que sea posible; no confiar solo en «no leas .env».
 - Proponer un anexo interno con herramientas autorizadas, información permitida/restringida/prohibida, condiciones del proveedor, permisos, supervisión, respuesta y restricciones del cliente.
-- No hace falta pedir autorización para cada uso rutinario si existe política aprobada y clasificación clara; escalar excepciones.
+- No hace falta pedir autorización para cada uso rutinario si existe política aprobada y clasificación clara; escalar cuando el dato, el proveedor o la acción excedan lo autorizado.
+- Diferenciar política organizativa y controles técnicos: se necesitan ambas capas.
+- **Mensaje clave:** las reglas orientan al agente; los permisos del sistema son los que limitan lo que puede hacer.
 
 ## 8. Conclusiones — 3:30
 
