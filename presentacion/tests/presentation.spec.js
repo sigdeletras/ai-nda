@@ -73,6 +73,9 @@ test('el modo móvil vertical adapta el lienzo y evita el desbordamiento horizon
   await page.setViewportSize({ width: 393, height: 852 });
   await page.goto('./');
   await expect(page.locator('.slide-progress__segment')).toHaveCount(SLIDE_COUNT);
+  // Esperar a que Reveal.js termine de inicializar antes de consultar la diapositiva activa.
+  await expect(page.locator('.slide-number')).toContainText(/1\\s*\\/\\s*11/);
+  await expect(page.locator('.slides > section.present')).toBeVisible();
   const layout = await page.locator('.reveal').evaluate((element) => ({
     width: element.getBoundingClientRect().width,
     height: element.getBoundingClientRect().height,
@@ -82,5 +85,6 @@ test('el modo móvil vertical adapta el lienzo y evita el desbordamiento horizon
   expect(layout.width).toBeCloseTo(393, 0);
   expect(layout.height).toBeCloseTo(852, 0);
   expect(layout.scrollWidth).toBeLessThanOrEqual(layout.viewportWidth);
+  await expect(page.locator('.slides > section.present')).toContainText('¿Le puedo dar');
   await expect(page.locator('.slides > section.present h1, .slides > section.present h2').first()).toBeVisible();
 });
