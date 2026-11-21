@@ -46,7 +46,9 @@ Definiciones breves para mantener un vocabulario coherente en el guion y las dia
 
 **Log o registro.** Registro de eventos de una aplicación, sistema o herramienta. Puede ayudar a diagnosticar problemas e investigar incidentes, pero también contener credenciales, datos personales o información confidencial.
 
-**ISO/IEC 42001.** Norma internacional que especifica requisitos y ofrece orientación para establecer, mantener y mejorar un Sistema de Gestión de Inteligencia Artificial (SGIA) en una organización. Se aplica a organizaciones que proporcionan o utilizan productos o servicios basados en IA; tomarla como referencia no implica implantar la norma completa ni estar certificado. [Página oficial de ISO](https://www.iso.org/es/norma/42001).\n\n**LOPDGDD (Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales).** Ley española que adapta y complementa el marco europeo de protección de datos e incorpora garantías de derechos digitales. Se aplica junto con el RGPD. [Texto consolidado en el BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673).
+**ISO/IEC 42001.** Norma internacional que especifica requisitos y ofrece orientación para establecer, mantener y mejorar un Sistema de Gestión de Inteligencia Artificial (SGIA) en una organización. Se aplica a organizaciones que proporcionan o utilizan productos o servicios basados en IA; tomarla como referencia no implica implantar la norma completa ni estar certificado. [Página oficial de ISO](https://www.iso.org/es/norma/42001).
+
+**LOPDGDD (Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales).** Ley española que adapta y complementa el marco europeo de protección de datos e incorpora garantías de derechos digitales. Se aplica junto con el RGPD. [Texto consolidado en el BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673).
 
 **MFA (Multi-Factor Authentication, autenticación multifactor).** Método que exige dos o más factores distintos para comprobar una identidad, dificultando el acceso indebido si se compromete una contraseña.
 
