@@ -30,7 +30,9 @@ Definiciones breves para mantener un vocabulario coherente en el guion y las dia
 
 **Encargado del tratamiento.** Persona u organización que trata datos personales por cuenta del responsable del tratamiento y siguiendo sus instrucciones, conforme al RGPD.
 
-**Due Diligence (diligencia debida).** Proceso de evaluación previa y periódica de un proveedor, producto o servicio para identificar riesgos y comprobar sus condiciones, garantías y controles. En el uso de IA de terceros puede incluir tratamiento y retención de datos, uso para entrenamiento, condiciones contractuales, subencargados, controles de acceso y respuesta ante incidentes. El alcance debe ser proporcional al riesgo.**\n\n**Entorno de desarrollo, pruebas y producción.** Entornos separados para construir cambios, validarlos y prestar el servicio real. La separación reduce riesgos si se acompaña de permisos, datos y credenciales diferenciados.
+**Due Diligence (diligencia debida).** Proceso de evaluación previa y periódica de un proveedor, producto o servicio para identificar riesgos y comprobar sus condiciones, garantías y controles. En el uso de IA de terceros puede incluir tratamiento y retención de datos, uso para entrenamiento, condiciones contractuales, subencargados, controles de acceso y respuesta ante incidentes. El alcance debe ser proporcional al riesgo.
+
+**Entorno de desarrollo, pruebas y producción.** Entornos separados para construir cambios, validarlos y prestar el servicio real. La separación reduce riesgos si se acompaña de permisos, datos y credenciales diferenciados.
 
 **Exfiltración de datos.** Transferencia no autorizada de información desde un sistema hacia otro destino, ya sea de forma deliberada o accidental.
 
