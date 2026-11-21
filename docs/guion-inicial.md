@@ -1,163 +1,242 @@
-# Guion inicial — ¿Le puedo dar las claves?
-**Charla:** DevFest Córdoba 2026  
-**Duración objetivo:** 40 minutos  
-**Estado:** borrador inicial; actualizar cuando se acepten cambios de enfoque o contenido.
+# Guion — ¿Le puedo dar las claves?
+**Subtítulo:** IA agéntica, código y secretos de cliente  
+**Ponente:** Patricio Soriano · Responsable del Área de GIS y Desarrollo · Geoinnova  
+**Evento:** La previa cordobesa de la DevFest · GDG Córdoba  
+**Fecha:** 27 de noviembre de 2026  
+**Duración:** 25 minutos de charla + 5 minutos de preguntas  
+**Estado:** guion acordado para preparar y ensayar la presentación.
 
 ## Idea central
-Usar IA agéntica para desarrollar software sin convertir la confidencialidad del cliente en una apuesta. El objetivo no es prohibir herramientas ni exigir modelos locales, sino tomar decisiones informadas y aplicar controles proporcionados.
+
+Podemos utilizar herramientas comerciales de IA para desarrollar software sin poner en riesgo la confidencialidad de los clientes, siempre que sepamos qué información compartimos, qué capacidades concedemos a los agentes y qué controles aplicamos.
+
+La charla parte de una experiencia profesional de revisión interna. No pretende exponer información de clientes ni presentar al ponente como especialista en ciberseguridad o asesor jurídico.
 
 ## Estructura y tiempos
 
-| Bloque | Tiempo | Objetivo |
-|---|---:|---|
-| 1. Apertura: la pregunta incómoda | 3 min | Presentar el dilema: ¿qué significa realmente dar acceso al agente? |
-| 2. Qué puede ver y hacer un agente | 5 min | Explicar contexto, permisos, herramientas, terminal, repositorios y credenciales. |
-| 3. Del agente a la factoría: SDD y autonomía | 4 min | Explicar especificaciones, tareas, orquestación y grados de intervención humana. |
-| 4. Dónde viajan los datos | 5 min | Distinguir suscripción de pago, uso para entrenamiento, retención y Zero Data Retention. |
-| 5. NDA y obligaciones reales | 5 min | Relacionar confidencialidad, datos personales y compromisos contractuales sin convertir la charla en asesoramiento jurídico. |
-| 6. Controles que sí ayudan | 9 min | Aplicar mínimo privilegio, credenciales fuera del contexto, entornos de prueba, datos sintéticos y revisión de cambios. |
-| 7. Incidentes: prevenir y responder | 4 min | Mostrar una pauta breve ante una exposición accidental: contener, revocar, evaluar y comunicar según el procedimiento. |
-| 8. Cierre: reglas para el equipo | 5 min | Recapitular criterios prácticos y dejar una lista de decisiones aplicables. |
-| **Total** | **40 min** | |
+| Slide | Contenido | Tiempo |
+|---|---|---:|
+| 1 | El caso Jira | 2:30 |
+| 2 | Qué firmamos: NDA y marco legal | 3:00 |
+| 3 | Qué es un agente y por qué es un riesgo | 3:00 |
+| 4 | Nuestro contexto | 1:30 |
+| 5 | Qué prometen los proveedores | 4:00 |
+| 6 | Configuración segura del software, con o sin IA | 3:30 |
+| 7 | Configurar los asistentes de IA | 4:00 |
+| 8 | Conclusiones | 3:30 |
+| | **Total** | **25:00** |
 
-## Desarrollo por bloques
+La portada, las referencias y la diapositiva final no tienen desarrollo propio: se utilizan para presentar, dejar fuentes disponibles y cerrar. Las preguntas se reservan para los 5 minutos posteriores.
 
-### 1. Apertura — 3 min
-- Partir de la experiencia de una revisión interna de seguridad y uso de herramientas, sin revelar clientes, datos ni resultados confidenciales.
-- Plantear la pregunta: «¿Le puedo dar las claves?» como una decisión sobre acceso, alcance y responsabilidad.
-- Aclarar el enfoque: experiencia práctica de desarrollo y coordinación de equipos, no una auditoría pública ni asesoramiento jurídico.
+---
 
-**Slide:** título y pregunta central. Una idea visual; sin párrafos.
+## Portada
 
-### 2. Qué puede ver y hacer un agente — 6 min
-- Un asistente conversacional y un agente conectado al entorno de desarrollo no tienen el mismo alcance.
-- Según la configuración, un agente puede leer archivos, modificar código, ejecutar comandos y utilizar herramientas o conexiones autorizadas.
-- El alcance efectivo depende de permisos del sistema, configuración del editor, herramientas conectadas y confirmaciones requeridas.
-- Las instrucciones del agente orientan su conducta, pero no sustituyen controles técnicos.
+**Título:** ¿Le puedo dar las claves?  
+**Subtítulo:** IA agéntica, código y secretos de cliente
 
-**Slides previstas (2):**
-1. Asistente frente a agente: contexto, herramientas y acciones.
-2. Mapa de accesos: repositorio, terminal, servicios y secretos.
+Patricio Soriano  
+Responsable del Área de GIS y Desarrollo · Geoinnova
 
-### 3. Del agente a la factoría: SDD y autonomía — 4 min
+La previa cordobesa de la DevFest · GDG Córdoba  
+27 de noviembre de 2026
 
-- La evolución no es solo disponer de un agente con más herramientas: es organizar el trabajo para delegar tareas y decisiones dentro de un proceso repetible.
-- **SDD:** convertir una demanda en especificación, plan, tareas y criterios de aceptación antes de implementar.
-- **Factoría de software:** coordinar etapas y agentes —análisis, planificación, implementación, pruebas y revisión— con trazabilidad y recuperación.
-- **Lights-on:** supervisión humana durante el flujo. **Lights-off:** ejecución rutinaria sin supervisión continua, dentro de límites y puertas de control.
-- La autonomía debe asignarse por tarea según verificabilidad e impacto. Lights-off no significa ausencia de responsabilidad ni despliegue automático.
-- Mantener controles técnicos independientes: permisos mínimos, aislamiento, CI, pruebas y aprobación para acciones de alto impacto.
+**Apoyo para la presentación**
+- Abrir con la pregunta del título.
+- Presentar brevemente el tema: el uso cotidiano de agentes de programación y la responsabilidad sobre la información a la que damos acceso.
 
-**Slides previstas (2):**
-1. Demanda → especificación → plan/tareas → implementación.
-2. Lights-on frente a lights-off: qué decisiones se delegan y cuáles se reservan.
+## 1. El caso Jira — 2:30
 
-Consultar [SDD y factoría de software agéntica](sdd-factoría-software-agéntica.md).
+**Contenido de la slide**
+- Quién soy y qué es Geoinnova.
+- Revisión interna del uso de herramientas de IA en la empresa.
+- Hallazgo: se estaba utilizando la API de Jira en un contexto que suponía un incumplimiento de un compromiso de confidencialidad.
+- Pregunta de transición: **¿Qué información le estamos dando a la IA sin darnos cuenta?**
 
-### 4. Dónde viajan los datos — 5 min
-- El código, los prompts, los archivos seleccionados y los resultados de herramientas pueden enviarse al proveedor para procesar la petición; el detalle depende del producto y de la configuración.
-- Separar cuatro conceptos: suscripción de pago, uso de datos para entrenamiento, retención y Zero Data Retention (ZDR).
-- No asumir que pagar implica ZDR ni que desactivar el entrenamiento significa que no se conservan datos.
-- Revisar condiciones del producto, modalidad individual o empresarial, controles de administración y documentación oficial vigente.
+**Notas para la representación**
+- Presentar brevemente el perfil: geógrafo y desarrollador, responsable del Área de GIS y Desarrollo en Geoinnova.
+- Explicar que la charla nace de una revisión interna del uso de herramientas, no de una investigación sobre un proveedor concreto.
+- Contar el caso Jira únicamente con el nivel de detalle autorizado. No identificar al cliente, proyecto, contrato, personas ni circunstancias que permitan reconstruir el incidente.
+- No atribuir al proveedor un uso concreto de los datos si no está documentado.
+- La idea no es señalar a quien utilizó la herramienta: el problema es que el equipo puede desconocer qué información sale de su entorno y qué compromisos ha asumido la empresa.
+- Transición: antes de hablar de herramientas, hay que recordar qué hemos comprometido con nuestros clientes.
 
-**Slides previstas (2):**
-1. Recorrido simplificado de los datos.
-2. Cuatro conceptos que no deben confundirse.
+## 2. Qué firmamos: NDA y marco legal — 3:00
 
-### 5. NDA y obligaciones reales — 5 min
-- Un NDA no es una configuración técnica ni una autorización automática para introducir información en cualquier servicio.
-- Revisar qué información está protegida, quién puede tratarla, con qué finalidad y bajo qué condiciones.
-- Si hay datos personales, valorar también RGPD, LOPDGDD y las instrucciones aplicables de la AEPD.
-- La responsabilidad concreta depende del contrato, el tratamiento y las circunstancias; derivar las dudas jurídicas al responsable correspondiente.
-- Un NDA no resuelve por sí solo si se puede enviar información a un proveedor: hay que concretar qué información puede tratarse, con qué herramienta y bajo qué garantías.
-- En contratos de desarrollo, acordar el uso autorizado de IA, las condiciones del proveedor (entrenamiento, retención y acceso de terceros), los permisos de agentes, la revisión humana de entregables y la respuesta ante incidentes.
-- No hace falta prohibir toda IA ni pedir autorización para cada prompt. Es más práctico fijar una regla general y exigir aprobación para datos o acciones de mayor riesgo.
-- Distinguir obligaciones contractuales y controles técnicos: una cláusula que prohíba exponer secretos no impide que el agente lea un archivo accesible o ejecute una operación.
-- El AI Act no convierte automáticamente en sistema de alto riesgo un proyecto por usar IA para programar. Analizar su aplicabilidad según la finalidad y el papel de cada parte cuando la IA forme parte del producto.
-- Incluir solo una referencia breve a alfabetización en IA, transparencia cuando sea exigible y asignación de responsabilidades. No existe una obligación general de declarar que se usó IA para escribir código.
-- Si hay datos personales, valorar también RGPD, LOPDGDD y las instrucciones aplicables de la AEPD. Derivar las dudas jurídicas al responsable correspondiente.
+**Contenido de la slide**
+- NDA y compromisos de confidencialidad.
+- RGPD y protección de datos.
+- Esquema Nacional de Seguridad (RD 311/2022), cuando resulte aplicable.
+- Reglamento europeo de IA: alfabetización en IA y gestión de riesgos.
+- Cláusulas habituales y adaptación al uso de herramientas de IA.
 
-**Slide prevista (1):** tres capas: contrato, protección de datos y controles técnicos. Añadir una lista visual breve: uso permitido · datos y proveedor · permisos del agente · validación · incidentes.
+**Notas para la representación**
+- Explicar que un NDA protege información definida como confidencial y establece obligaciones para quien la recibe. También puede haber compromisos equivalentes en contratos de prestación de servicios.
+- No confundir confidencialidad contractual con protección de datos personales: el RGPD añade obligaciones específicas cuando se tratan datos personales.
+- Mencionar el ENS como marco aplicable al sector público y a los sistemas incluidos en su ámbito, también relevante para proveedores que trabajan con Administraciones.
+- Situar el Reglamento europeo de IA sin convertir la slide en un calendario normativo. Destacar la alfabetización en IA y que las obligaciones dependen del papel y del caso de uso. Verificar fechas y alcance antes del ensayo final.
+- Mostrar ejemplos de cláusulas habituales: definición amplia de información confidencial, prohibición de divulgación a terceros, notificación de incidentes y devolución o destrucción de información.
+- Presentar como criterio de revisión —no como cláusula jurídica definitiva— una previsión específica para IA: no introducir información confidencial en herramientas de terceros sin autorización y sin garantías adecuadas sobre tratamiento, entrenamiento, retención y acceso.
+- Aclarar que pagar una suscripción no modifica automáticamente las obligaciones contractuales.
+- No ofrecer asesoramiento jurídico. La interpretación y redacción de cláusulas corresponde a los responsables legales y contractuales.
+- Utilizar las imágenes de NDA y referencias normativas como apoyo visual, sin leer artículos completos.
 
-**Nota del ponente:** presentar las cláusulas como criterios para revisar con asesoría jurídica, no como asesoramiento legal ni como texto contractual definitivo. La empresa debe poder demostrar los controles técnicos que respaldan sus compromisos.
+**Mensaje clave:** el contrato establece obligaciones; no configura técnicamente el agente ni impide por sí mismo una exposición.
 
-### 6. Controles que sí ayudan — 9 min
-Tomar como referencia principal la [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html), que ofrece un marco específico para agentes. Seleccionar sus principios relevantes para el desarrollo cotidiano, sin intentar resumir toda la guía.
+## 3. Qué es un agente y por qué es un riesgo — 3:00
 
-Organizar las recomendaciones en tres grupos:
+**Contenido de la slide**
+- Lee archivos y repositorios.
+- Ejecuta comandos en terminal.
+- Utiliza herramientas y llama a APIs.
+- Accede a servicios y credenciales disponibles en su entorno.
+- Del agente a la factoría de software.
 
-1. **Limita el alcance:** herramientas y permisos mínimos, secretos fuera del repositorio y del contexto, separación de desarrollo/pruebas/producción y acceso de solo lectura cuando sea suficiente.
-2. **Controla entradas y acciones:** tratar archivos y resultados externos como datos no confiables; reducir y sanear contexto y logs; limitar terminal e integraciones; requerir aprobación para acciones de impacto.
-3. **Verifica y responde:** revisar el diff, ejecutar pruebas, registrar acciones relevantes sin secretos y contar con un procedimiento ante exposiciones.
+**Notas para la representación**
+- Diferenciar un chatbot, al que se le proporciona texto, de un agente conectado al entorno de desarrollo y autorizado para realizar acciones.
+- Explicar que sus capacidades dependen de la herramienta, el sistema operativo, los permisos, las integraciones y la configuración.
+- Un agente puede encontrar información en archivos que el desarrollador no ha incluido expresamente en el prompt.
+- Ejemplos de información que puede quedar a su alcance: archivos `.env`, tokens, código propietario, configuraciones y datos de clientes.
+- No afirmar que todo lo que ve se envía necesariamente al proveedor. Explicar que el contexto necesario para procesar una tarea puede transmitirse al servicio, según el producto y su funcionamiento.
+- Introducir la evolución hacia flujos de trabajo más estructurados: especificaciones, tareas, varios agentes, herramientas y validaciones. No desarrollar aquí SDD ni factoría; reservarlo para el contexto y los controles.
+- Transición: el riesgo no depende solo del modelo, sino de cómo lo incorporamos al trabajo diario.
 
-Puntos que conviene verbalizar:
-- Un archivo `.env` no es un gestor de secretos; `.gitignore` no impide que el agente lea un archivo.
-- Una VPN no impide por sí sola que se transmitan datos accesibles desde el equipo.
-- Las instrucciones en `AGENTS.md`, `CLAUDE.md` u otros archivos orientan al agente, pero no sustituyen permisos, aislamiento y controles técnicos.
-- Revisar dependencias, extensiones y servidores MCP antes de concederles acceso.
-- Incorporar análisis estático (SAST) y detección de secretos al pipeline cuando resulte proporcionado. SonarQube puede servir como ejemplo de análisis del código; Bandit cubre patrones de riesgo en Python y Gitleaks busca secretos expuestos.
-- Distinguir estos controles: el SAST busca determinados defectos y vulnerabilidades; no limita lo que el agente puede leer ni evita que envíe información al proveedor. La CI puede bloquear la integración si se configuran condiciones de aceptación.
-- Una confirmación humana debe referirse a la acción concreta; no sustituye la validación de permisos en el componente que la ejecuta.
-- El agente puede desencadenar procesos posteriores: revisar permisos de workflows, secretos disponibles para cada job y separación entre validación y despliegue. Un cambio en el pipeline también debe revisarse.
-- Tratar el código de pull requests como no confiable; evitar que workflows que lo ejecutan dispongan de secretos o permisos de escritura innecesarios. Revisar especialmente el uso de pull_request_target.
-- La CI puede combinar tests, SAST, detección de secretos, análisis de dependencias y escaneo de imágenes. Son controles complementarios y no garantizan por sí solos la seguridad.
-- En la demo del repositorio, el workflow existente ya reúne Gitleaks, Ruff, pip-audit, pytest, Bandit y Trivy. No afirmar que SonarQube está integrado: se mantiene como ejemplo de SAST.
+## 4. Nuestro contexto — 1:30
 
-**Slides previstas (3):**
-1. **Limita el alcance:** permisos, herramientas, secretos y entornos.
-2. **Controla entradas y acciones:** prompt injection, contexto, logs y terminal.
-3. **Verifica y responde:** revisión humana, pruebas y controles automatizados. Mostrar el flujo agente → SAST/detección de secretos/tests → CI y condiciones de aceptación → revisión antes de integrar. SonarQube es un ejemplo, no una garantía de seguridad.
+**Contenido de la slide**
+- Empresas medianas sin infraestructura ni modelos propios.
+- Herramientas de uso diario: Claude Code/CLI, Codex, Cursor y similares.
+- Suscripciones comerciales de pago.
+- Desarrollo real con repositorios, servicios y datos de clientes.
 
-Dedicar 3–4 minutos a esta idea dentro de los 10 minutos del bloque, sin ampliar la duración total. Consultar [SAST y SonarQube en la charla](sast-sonarqube-charla.md) y [CI/CD y seguridad de los agentes](ci-cd-ia-agentica.md) para el alcance, los matices y la relación con el workflow de la demo.
+**Notas para la representación**
+- Describir el escenario habitual de muchas pymes: equipos que utilizan servicios comerciales porque son accesibles y productivos, sin operar modelos ni infraestructura de IA propios.
+- No plantear como requisito el despliegue local ni una infraestructura específica.
+- La charla se centra en herramientas y modalidades empresariales o comerciales adecuadas para un uso profesional; no en cuentas gratuitas o personales.
+- Evitar comparativas de marcas. Los nombres son ejemplos de categorías de herramientas, no recomendaciones ni avales.
+- La cuestión es cómo trabajar con garantías razonables dentro de ese contexto.
 
-Documentos de apoyo: [Entorno de desarrollo seguro con IA agéntica](entorno-desarrollo-seguro-ia-agentica.md) y [Gobernanza del uso de IA de terceros](gobernanza-uso-ia-terceros-iso-42001.md).
+## 5. Qué prometen los proveedores — 4:00
 
-### 7. Incidentes: prevenir y responder — 4 min
-- Ejemplo hipotético y no atribuible: una credencial aparece en el contexto o se envía a un servicio no autorizado.
-- Detener la exposición y revocar o rotar la credencial afectada.
-- Determinar qué información pudo quedar expuesta, dónde y durante cuánto tiempo; conservar la información necesaria para investigar.
-- Notificar al responsable interno y seguir los procedimientos contractuales y de protección de datos aplicables.
-- No prometer que borrar un mensaje elimina todas las copias o registros del proveedor.
+**Contenido de la slide**
+- Uso de la información: entrenamiento, retención y ubicación/procesamiento.
+- Diferencias entre productos, planes y configuraciones empresariales.
+- Qué significa Zero Data Retention (ZDR) y qué no cubre.
+- Qué comprobar antes de contratar.
 
-**Slide prevista (1):** contener → revocar → evaluar → comunicar.
+**Notas para la representación**
+- Utilizar la tabla comparativa y las capturas de páginas oficiales como apoyo. No leer fila por fila.
+- Explicar tres cuestiones distintas:
+  1. **Entrenamiento:** si los datos se utilizan para entrenar o mejorar modelos.
+  2. **Retención:** durante cuánto tiempo se conservan prompts, archivos, resultados, registros o datos de uso.
+  3. **ZDR:** modalidad o garantía específica de no retención de determinados datos, sujeta a alcance, producto y excepciones.
+- Aclarar que una política de no entrenamiento no equivale a no retención.
+- Una suscripción de pago no implica automáticamente ZDR, procesamiento local ni las mismas garantías para todos los productos del proveedor.
+- La ubicación del procesamiento y las condiciones de transferencias internacionales deben revisarse en la documentación contractual y de privacidad aplicable.
+- Indicar que las condiciones cambian y que la tabla representa lo publicado en fuentes oficiales en la fecha de consulta que figure en el documento de investigación.
+- Cerrar con una lista de comprobación: producto exacto, tipo de plan, uso para entrenamiento, retención, subencargados/terceros, ubicación y transferencias, controles administrativos y compromisos contractuales.
+- No convertir la slide en una clasificación de proveedores: lo importante es saber qué condiciones estamos aceptando.
 
-### 8. Cierre — 5 min
-- Reforzar tres ideas: saber qué puede hacer el agente, conocer las condiciones del servicio y limitar técnicamente los accesos.
-- Proponer una lista breve para equipos: herramienta autorizada, datos permitidos, credenciales, permisos, revisión y respuesta ante incidentes.
-- Cerrar volviendo a la pregunta inicial: no se trata de confiar ciegamente ni de prohibir por defecto, sino de decidir qué acceso se concede y con qué límites.
+**Mensaje clave:** no basta con conocer la marca ni con pagar; hay que comprobar el producto, el plan y sus condiciones concretas.
 
-**Slide prevista (1):** lista de comprobación y cierre.
+## 6. Configuración segura del software, con o sin IA — 3:30
 
-## Presupuesto de diapositivas
-Objetivo actualizado: **16 diapositivas**, con margen para reducirlas:
-1. Apertura.
-2. Perfil del ponente.
-3. Capacidades del agente.
-4. SDD: demanda, especificación, plan y tareas.
-5. Factoría: lights-on y lights-off.
-6. Superficie de exposición.
-7. Instrucciones frente a controles.
-8. Datos y proveedores.
-9. Confidencialidad.
-10. Clasificación de la información.
-11. Controles prácticos.
-12. Ejercicio de permisos.
-13. CI/CD y calidad.
-14. Respuesta ante una exposición.
-15. Ideas para llevarse.
-16. Cierre y preguntas.
+**Contenido de la slide**
+- Gestión de secretos y variables de entorno.
+- Mínimo privilegio y tokens con alcance limitado.
+- Separación de entornos.
+- Buenas prácticas de seguridad del proyecto.
+- Referencia: OWASP AI Agent Security Cheat Sheet.
 
-Una slide debe comunicar una idea principal. Preferir esquemas, flujos y listas breves a bloques de texto. Las fuentes y matices técnicos pueden quedar en notas del ponente o en documentos de apoyo.
+**Notas para la representación**
+- Explicar que son medidas de seguridad del desarrollo que ya eran necesarias antes de la IA; los agentes hacen más importante aplicarlas de forma consistente.
+- **Secretos:** no guardar credenciales en el repositorio ni incorporarlas al contexto. Utilizar gestores de secretos o mecanismos seguros de inyección de variables. Un `.env` no es un gestor de secretos y que esté en `.gitignore` no impide que el agente lo lea.
+- **Mínimo privilegio:** tokens separados por finalidad, permisos mínimos, caducidad y alcance limitado. Evitar credenciales personales o de producción en tareas de desarrollo.
+- **Entornos:** separar desarrollo, pruebas y producción; utilizar datos sintéticos o anonimizados cuando sea posible.
+- **Proyecto:** revisar cambios, dependencias, extensiones e integraciones; controlar terminal, herramientas y servicios MCP.
+- Distinguir controles de acceso y ejecución de controles de calidad. SAST, análisis de dependencias y detección de secretos ayudan a encontrar problemas, pero no impiden por sí solos que un agente lea o transmita información.
+- Se puede citar SonarQube como ejemplo de SAST y Gitleaks como detector de secretos, sin dedicar tiempo a explicar herramientas.
+- Utilizar OWASP AI Agent Security Cheat Sheet como referencia para reforzar el mínimo privilegio, la validación de entradas y acciones, el aislamiento y la supervisión.
+- No intentar enumerar toda la guía. Seleccionar solo las medidas que el equipo puede aplicar.
 
-## Criterios para mantener el guion
-- La duración total objetivo es 40 minutos; reservar los 5 minutos restantes del hueco de 45 para transiciones, preguntas o desviaciones.
-- No añadir una slide por cada término o normativa. La ISO/IEC 42001 debe funcionar como marco de referencia, no como un bloque normativo extenso.
-- Contrastar con fuentes oficiales las afirmaciones sobre proveedores, normativa y fechas de aplicación antes de cerrar las diapositivas.
-- Usar ejemplos hipotéticos o debidamente anonimizados; no divulgar información de clientes ni resultados de auditorías.
-- Mantener el enfoque independiente de proveedores y aplicable a equipos con recursos limitados.
-- Actualizar este documento cuando se acepten decisiones de contenido; distinguir propuestas pendientes de cambios acordados.
+**Mensaje clave:** primero hay que proteger el entorno; después, configurar el agente para que trabaje dentro de esos límites.
 
-## Decisiones pendientes
-- Confirmar si habrá demostración en directo. Si se incluye, debe salir del tiempo asignado a los bloques existentes, no añadirse por encima de los 40 minutos.
-- Elegir un único ejemplo práctico que conecte permisos, datos y credenciales.
-- Verificar las fuentes oficiales de los proveedores y la normativa antes de preparar las slides definitivas.
+## 7. Configurar los asistentes de IA — 4:00
+
+**Contenido de la slide**
+- Configuración específica según proveedor y herramienta (*harness*).
+- Archivos de exclusión y reglas del agente.
+- Permisos de acceso a carpetas y control de comandos.
+- Secretos fuera de su alcance.
+- Anexo o política interna de uso de IA.
+
+**Notas para la representación**
+- Explicar *harness* como el conjunto de instrucciones, herramientas, permisos, contexto y mecanismos de ejecución que rodean al modelo.
+- Mostrar ejemplos reales y no sensibles de configuración: reglas del proyecto, exclusiones, permisos de lectura/escritura y confirmaciones para comandos.
+- Los ficheros de instrucciones —por ejemplo, `AGENTS.md` o equivalentes— ayudan a establecer pautas, convenciones y límites de trabajo. No son una barrera de seguridad si el sistema permite al agente realizar la acción.
+- Mostrar la diferencia entre excluir un archivo del contexto y retirar realmente el permiso de acceso. La exclusión debe verificarse en la herramienta concreta; el control efectivo debe aplicarse en el sistema de archivos, el entorno o la integración.
+- Mantener los secretos fuera de las carpetas y servicios accesibles al agente siempre que sea posible. No confiar únicamente en instrucciones del tipo «no leas el archivo .env».
+- Proponer un anexo interno de uso de IA que defina:
+  - herramientas y modalidades autorizadas;
+  - información permitida, restringida y prohibida;
+  - condiciones mínimas del proveedor;
+  - permisos y supervisión humana;
+  - procedimiento de notificación y respuesta;
+  - restricciones específicas que pueda establecer el cliente.
+- No hace falta pedir autorización para cada uso rutinario si existe una política aprobada y una clasificación de información clara. Sí debe escalarse cuando el dato, el proveedor o la acción excedan lo autorizado.
+- Diferenciar la política organizativa de los controles técnicos: ambas capas son necesarias.
+
+**Mensaje clave:** las reglas orientan al agente; los permisos del sistema son los que limitan lo que puede hacer.
+
+## 8. Conclusiones — 3:30
+
+**Contenido de la slide: lista de comprobación**
+1. ¿La herramienta y el plan están autorizados?
+2. ¿Puedo introducir esta información?
+3. ¿Qué permisos y credenciales necesita realmente el agente?
+4. ¿Están separados los entornos y protegidos los secretos?
+5. ¿Revisamos los cambios y las acciones de impacto?
+6. ¿Sabemos cómo actuar si se produce una exposición?
+
+**Frase final**
+
+> La confianza con el cliente se gestiona con contrato, configuración y transparencia.
+
+**Notas para la representación**
+- Recuperar la pregunta inicial: «¿Le puedo dar las claves?». La respuesta no es un sí o un no universal: depende de qué claves, para qué tarea, con qué herramienta y bajo qué controles.
+- Repasar la lista sin desarrollar de nuevo cada bloque.
+- Recordar que no se trata de prohibir la IA ni de exigir infraestructura propia, sino de establecer límites proporcionados al riesgo.
+- Si se produce una exposición: contener, revocar o rotar credenciales, evaluar el alcance y comunicar a los responsables conforme al procedimiento aplicable.
+- Cerrar con la frase final y dejar paso a las preguntas.
+
+## Referencias
+
+Diapositiva de consulta, sin explicación extensa. Incluir enlaces o referencias legibles a:
+- OWASP AI Agent Security Cheat Sheet.
+- Documentación oficial de privacidad y condiciones de los proveedores incluidos en la comparativa.
+- RGPD y normativa española aplicable.
+- Real Decreto 311/2022, Esquema Nacional de Seguridad.
+- Reglamento europeo de IA.
+- Documentación técnica de las herramientas mostradas en los ejemplos.
+
+Las referencias deben corresponder a las afirmaciones efectivamente utilizadas en las slides. Comprobar enlaces, vigencia y fecha de consulta antes de cerrar la presentación.
+
+## Cierre y agradecimientos
+
+Patricio Soriano · Geoinnova  
+GDG Córdoba · La previa cordobesa de la DevFest  
+27 de noviembre de 2026
+
+Dejar visible el título de la charla y los enlaces al material del proyecto, si procede.
+
+---
+
+## Criterios para el ensayo
+
+- Ensayar con cronómetro: 25 minutos de exposición y 5 minutos de preguntas.
+- Mantener el caso Jira anonimizado y limitado a los hechos que se pueden compartir.
+- Priorizar los mensajes clave de cada slide; las notas son ayudas para la representación, no texto para leer literalmente.
+- No añadir una demostración en directo salvo que sustituya contenido y se pueda ensayar dentro del tiempo.
+- Verificar antes del ensayo las fechas y referencias normativas, así como las condiciones vigentes de cada proveedor.
+- Mantener las capturas y la tabla de proveedores alineadas con las fuentes oficiales y la fecha de consulta.
+- Evitar que las slides 6 y 7 se solapen: la 6 explica controles técnicos del entorno; la 7, configuración y gobernanza de los asistentes.
