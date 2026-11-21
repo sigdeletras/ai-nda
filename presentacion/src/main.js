@@ -9,13 +9,13 @@ document.querySelector('#slides').innerHTML = slides.map((slide) => slide.html).
 function getDeckSize() {
   const portraitPhone = window.matchMedia('(max-width: 600px) and (orientation: portrait)').matches;
   return portraitPhone
-    ? { width: window.innerWidth, height: window.innerHeight, margin: 0.02, minScale: 0.85 }
-    : { width: 1600, height: 900, margin: 0.06, minScale: 0.35 };
+    ? { width: window.innerWidth, height: window.innerHeight, margin: 0.02, minScale: 0.85, center: true }
+    : { width: 1920, height: 1080, margin: 0, minScale: 0.2, center: false };
 }
 
 const deck = new Reveal({
   hash: true, hashOneBasedIndex: true, slideNumber: 'c/t', progress: false,
-  controls: true, keyboard: true, overview: true, center: true,
+  controls: true, keyboard: true, overview: true,
   transition: 'fade', backgroundTransition: 'fade',
   ...getDeckSize(), maxScale: 1.5,
   plugins: [RevealNotes]
@@ -57,6 +57,7 @@ document.body.append(navigation);
 
 function updateSlideProgress(index) {
   visited.add(index);
+  document.documentElement.dataset.accent = deck.getSlides()[index]?.dataset.accent || 'blue';
   segments.forEach((segment, segmentIndex) => {
     const active = segmentIndex === index;
     segment.classList.toggle('is-active', active);
