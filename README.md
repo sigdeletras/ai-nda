@@ -1,12 +1,12 @@
 # ¿Le puedo dar las claves? IA agéntica, código y secretos de cliente
 
-Repositorio de trabajo para preparar la charla del **DevFest Córdoba 2026**, con una duración objetivo de **40 minutos** dentro de un espacio de 45.
+Repositorio de preparación de la charla para **La previa cordobesa de la DevFest**, organizada por GDG Córdoba el **27 de noviembre de 2026**. Duración: **25 minutos + 5 minutos de preguntas**.
 
 ## Objetivo
 
 Construir una charla práctica, independiente de proveedores y útil para equipos que desarrollan software con asistentes y agentes de programación basados en IA. La pregunta central es cómo aprovechar estas herramientas sin incumplir compromisos de confidencialidad, exponer credenciales ni tratar como seguro algo que no está protegido por controles efectivos.
 
-La charla parte de la experiencia profesional del ponente y de una auditoría interna sobre seguridad y uso de herramientas. No pretende convertirla en una auditoría pública ni presentar al ponente como especialista en ciberseguridad o asesor jurídico.
+La charla parte de la experiencia profesional del ponente y de una revisión interna sobre seguridad y uso de herramientas. No pretende convertirla en una auditoría pública ni presentar al ponente como especialista en ciberseguridad o asesor jurídico.
 
 ## Público y enfoque
 
@@ -19,18 +19,15 @@ Dirigida principalmente a desarrolladores, tech leads, CTOs y responsables de py
 - No confundir una suscripción de pago, la ausencia de entrenamiento con los datos, la retención cero de datos (*Zero Data Retention*) y el procesamiento local: son garantías distintas.
 - Contrastar con fuentes oficiales las afirmaciones técnicas, comerciales y normativas que puedan cambiar.
 
-## Contenidos que se desarrollarán
+## Guion y presentación
 
-1. **Qué puede hacer un agente de programación:** acceso al repositorio, terminal, archivos, herramientas, servicios y credenciales; permisos y límites reales.
-2. **Qué ocurre con los datos:** tratamiento, retención, uso para entrenamiento, condiciones del proveedor y diferencias entre productos, planes y configuraciones.
-3. **Confidencialidad y obligaciones:** NDA, contratos con clientes, protección de datos y responsabilidades; explicar los límites sin ofrecer asesoramiento jurídico.
-4. **Medidas prácticas:** mínimo privilegio, gestión de secretos, separación de entornos, datos sintéticos, revisión de cambios y reglas de agentes.
-5. **Prevención y respuesta:** reducir la probabilidad de exposición accidental, reconocer un incidente, contenerlo y escalarlo.
-6. **Criterios para el equipo:** una pauta de decisión proporcionada al riesgo, aplicable sin depender de un proveedor concreto.
+- [Guion de la charla](docs/guion-inicial.md): estructura definitiva, tiempos y notas para la representación.
+- [Presentación publicada](https://sigdeletras.github.io/ai-nda/).
+- [Contenido y notas de las diapositivas](presentacion/CONTENIDO-SLIDES.md): referencia editorial sincronizada con la presentación.
+- [Código de la presentación](presentacion/src/slides.js).
 
-## Documentación de trabajo
+## Documentación de apoyo
 
-- [Guion inicial](docs/guion-inicial.md): estructura, tiempos, slides previstas y decisiones pendientes.
 - [SDD y factoría de software agéntica](docs/sdd-factoría-software-agéntica.md): especificaciones, orquestación, autonomía lights-on/lights-off y controles para delegar tareas.
 - [Glosario de términos](docs/glosario.md): definiciones breves y distinciones clave.
 - [Entorno de desarrollo seguro con IA agéntica](docs/entorno-desarrollo-seguro-ia-agentica.md): secretos, entornos, accesos, contexto, terminal, revisión y respuesta ante exposiciones. Usa la [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) como referencia principal para estructurar las slides de seguridad.
@@ -57,27 +54,12 @@ Documentación de la demo:
 
 La CI está definida en [api-rest-agentica.yml](.github/workflows/api-rest-agentica.yml). El despliegue remoto no queda habilitado por defecto: requiere adaptar la infraestructura y configurar secretos y aprobaciones. La demo es educativa y no está certificada para producción.
 
-## Qué se almacenará en este repositorio
-
-- Estructura y guion de la charla, narrativa, tiempos y transiciones.
-- Argumentos, ejemplos genéricos, casos hipotéticos identificados como tales y mensajes clave.
-- Investigación y referencias a documentación oficial de proveedores, normativa y otras fuentes fiables, con fecha de consulta cuando sea relevante.
-- Criterios y listas de comprobación para decidir qué puede compartirse con una herramienta de IA y bajo qué condiciones.
-- Diseño de demostraciones seguras, sin secretos ni datos reales de clientes.
-- Borradores de diapositivas, notas del ponente y materiales para el ensayo.
-- Decisiones editoriales y pendientes de validación.
-
-El trabajo se organizará progresivamente por fases: **estructura → narrativa → contenido → demostración → diapositivas → ensayo**. En cada iteración se abordará la fase o el entregable solicitado, manteniendo las decisiones previas que sigan vigentes.
-
 ## Criterios de rigor y confidencialidad
 
 - No inventar incidentes, resultados de auditorías, capacidades de productos ni garantías contractuales.
 - Separar hechos verificados, interpretación y recomendaciones prácticas.
 - Usar fuentes oficiales para confirmar afirmaciones que dependan del proveedor, el plan, la configuración o la fecha.
 - Formular los ejemplos de forma genérica y anonimizada. No incorporar información que permita identificar a clientes, proyectos o sistemas reales.
-- **No guardar en el repositorio credenciales, tokens, claves, datos personales, código propietario ni documentación confidencial de clientes**, ni detalles sensibles de la auditoría interna.
+- **No guardar en el repositorio credenciales, tokens, claves, datos personales, código propietario ni documentación confidencial de clientes**, ni detalles sensibles de la revisión interna.
 - Si una afirmación no se ha podido verificar, dejar constancia de la incertidumbre en lugar de presentarla como un hecho.
 
-## Estado
-
-Repositorio de preparación en evolución. El guion y los documentos de apoyo se actualizarán conforme se acepten decisiones de contenido.
