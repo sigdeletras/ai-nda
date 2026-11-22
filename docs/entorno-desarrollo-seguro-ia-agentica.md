@@ -92,9 +92,13 @@ No afirmar que un dato se ha eliminado por completo sin conocer las capacidades 
 
 ## Propuesta para las diapositivas
 
-Usar como marco principal la [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html). Es una guía específica para agentes que organiza los controles en torno a herramientas y mínimo privilegio, entradas no confiables y *prompt injection*, seguridad del contexto, aprobación humana, validación, monitorización, privacidad y pruebas.
+Combinar dos referencias complementarias:
 
-Para la charla, sintetizarla en tres slides, seleccionando solo controles aplicables al entorno de desarrollo:
+- La [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) sirve para seleccionar controles: herramientas y mínimo privilegio, entradas no confiables y *prompt injection*, seguridad del contexto, aprobación humana, validación, monitorización, privacidad y pruebas.
+- El [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) aporta una taxonomía para identificar amenazas propias de agentes autónomos. Sus diez categorías (ASI01–ASI10) incluyen secuestro de objetivos, uso indebido de herramientas, abuso de identidad y privilegios, cadena de suministro, ejecución de código inesperada, envenenamiento de memoria, comunicación entre agentes, fallos en cascada, explotación de la confianza humano-agente y agentes rebeldes.
+- Como lectura divulgativa en español, [OWASP Agentic AI Top 10, riesgo a riesgo — NeuralTrust](https://neuraltrust.ai/es/blog/owasp-agentic-ai-top-10). Es una explicación secundaria del marco, no sustituye a la publicación oficial de OWASP.
+
+Para la charla, usar el Top 10 para explicar por qué los agentes amplían la superficie de riesgo y la Cheat Sheet para aterrizar los controles. No desarrollar las diez categorías: seleccionar las que conectan directamente con el desarrollo asistido por IA.
 
 1. **Limita el alcance:** herramientas y permisos mínimos, secretos, entornos separados y acceso de solo lectura cuando sea suficiente.
 2. **Controla entradas y acciones:** contexto y logs saneados, contenidos externos no confiables, terminal limitada y aprobación de operaciones de impacto.
@@ -106,7 +110,9 @@ Mensaje de cierre: **limitar accesos, minimizar datos y controlar acciones**.
 
 ## Fuentes de referencia
 
-- [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) — referencia principal para estructurar las slides sobre seguridad agéntica.
+- [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) — guía de controles para agentes.
+- [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) — taxonomía oficial de amenazas ASI01–ASI10.
+- [OWASP Agentic AI Top 10, riesgo a riesgo — NeuralTrust](https://neuraltrust.ai/es/blog/owasp-agentic-ai-top-10) — explicación divulgativa en español.
 - [OWASP Cheat Sheet Series: Secrets Management](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html)
 - [OWASP Cheat Sheet Series: Logging](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
 - [OWASP Cheat Sheet Series: Authorization](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
