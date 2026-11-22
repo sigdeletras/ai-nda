@@ -173,7 +173,7 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 - Revisar cambios, dependencias, extensiones e integraciones, incluidas herramientas MCP.
 - SAST, análisis de dependencias y detección de secretos ayudan a encontrar problemas, pero no impiden por sí solos que un agente lea o transmita información.
 - Citar SonarQube como ejemplo de SAST y Gitleaks como detector de secretos, sin explicar las herramientas.
-- Utilizar OWASP como marco y seleccionar medidas aplicables, sin resumir toda la guía.
+- Utilizar la Cheat Sheet de OWASP para seleccionar controles y el Top 10 for Agentic Applications para reconocer amenazas. Destacar solo las más vinculadas al desarrollo: inyección indirecta/secuestro de objetivos (ASI01), uso indebido de herramientas (ASI02), abuso de privilegios (ASI03), cadena de suministro (ASI04) y ejecución de código inesperada (ASI05). No convertir la slide en un repaso de las diez categorías.
 
 ## 7. Configurar los asistentes — 4:00
 
@@ -225,6 +225,7 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 **Texto visible**
 
 > OWASP AI Agent Security Cheat Sheet  
+> OWASP Top 10 for Agentic Applications 2026 (ASI01–ASI10)  
 > Documentación oficial de privacidad y condiciones de proveedores  
 > RGPD · LOPDGDD · AEPD  
 > Real Decreto 311/2022 · Esquema Nacional de Seguridad  
@@ -232,7 +233,7 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 
 **Notas del ponente**
 
-Diapositiva de consulta. No desarrollar todas las fuentes. Los enlaces concretos y la fecha de consulta se mantienen en el repositorio y deben comprobarse antes de la presentación.
+Diapositiva de consulta. En el repositorio quedan los enlaces a la Cheat Sheet y al Top 10 oficial. Como lectura complementaria en español, consultar el artículo de NeuralTrust. No desarrollar las diez amenazas durante la charla; utilizar el marco para seleccionar ejemplos relacionados con herramientas, permisos, contexto y ejecución de código.
 
 ## Cierre y agradecimientos
 
