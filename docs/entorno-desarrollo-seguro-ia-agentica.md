@@ -96,9 +96,10 @@ Combinar dos referencias complementarias:
 
 - La [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) sirve para seleccionar controles: herramientas y mínimo privilegio, entradas no confiables y *prompt injection*, seguridad del contexto, aprobación humana, validación, monitorización, privacidad y pruebas.
 - El [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) aporta una taxonomía para identificar amenazas propias de agentes autónomos. Sus diez categorías (ASI01–ASI10) incluyen secuestro de objetivos, uso indebido de herramientas, abuso de identidad y privilegios, cadena de suministro, ejecución de código inesperada, envenenamiento de memoria, comunicación entre agentes, fallos en cascada, explotación de la confianza humano-agente y agentes rebeldes.
+- El [OWASP GenAI LLM Top 10 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) cubre riesgos de aplicaciones basadas en LLM: LLM01 *Prompt Injection*, LLM02 exposición de información sensible, LLM03 agencia excesiva, LLM04 cadena de suministro, LLM05 envenenamiento de datos y modelos, LLM06 consumo no acotado, LLM07 desinformación, LLM08 exposición de contexto oculto, LLM09 debilidades de vectores y embeddings y LLM10 tratamiento inadecuado de salidas.
 - Como lectura divulgativa en español, [OWASP Agentic AI Top 10, riesgo a riesgo — NeuralTrust](https://neuraltrust.ai/es/blog/owasp-agentic-ai-top-10). Es una explicación secundaria del marco, no sustituye a la publicación oficial de OWASP.
 
-Para la charla, usar el Top 10 para explicar por qué los agentes amplían la superficie de riesgo y la Cheat Sheet para aterrizar los controles. No desarrollar las diez categorías: seleccionar las que conectan directamente con el desarrollo asistido por IA.
+Para la charla, usar el GenAI LLM Top 10 para explicar los riesgos del modelo y de las aplicaciones que lo integran; el Agentic Top 10 para los riesgos añadidos por autonomía y herramientas; y la Cheat Sheet para aterrizar controles. No desarrollar las listas completas: seleccionar las categorías conectadas con el desarrollo asistido por IA.
 
 1. **Limita el alcance:** herramientas y permisos mínimos, secretos, entornos separados y acceso de solo lectura cuando sea suficiente.
 2. **Controla entradas y acciones:** contexto y logs saneados, contenidos externos no confiables, terminal limitada y aprobación de operaciones de impacto.
@@ -112,6 +113,7 @@ Mensaje de cierre: **limitar accesos, minimizar datos y controlar acciones**.
 
 - [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) — guía de controles para agentes.
 - [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) — taxonomía oficial de amenazas ASI01–ASI10.
+- [OWASP GenAI LLM Top 10 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) — taxonomía oficial de riesgos LLM01–LLM10.
 - [OWASP Agentic AI Top 10, riesgo a riesgo — NeuralTrust](https://neuraltrust.ai/es/blog/owasp-agentic-ai-top-10) — explicación divulgativa en español.
 - [OWASP Cheat Sheet Series: Secrets Management](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html)
 - [OWASP Cheat Sheet Series: Logging](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
