@@ -173,7 +173,7 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 - Revisar cambios, dependencias, extensiones e integraciones, incluidas herramientas MCP.
 - SAST, análisis de dependencias y detección de secretos ayudan a encontrar problemas, pero no impiden por sí solos que un agente lea o transmita información.
 - Citar SonarQube como ejemplo de SAST y Gitleaks como detector de secretos, sin explicar las herramientas.
-- Utilizar la Cheat Sheet de OWASP para seleccionar controles y el Top 10 for Agentic Applications para reconocer amenazas. Destacar solo las más vinculadas al desarrollo: inyección indirecta/secuestro de objetivos (ASI01), uso indebido de herramientas (ASI02), abuso de privilegios (ASI03), cadena de suministro (ASI04) y ejecución de código inesperada (ASI05). No convertir la slide en un repaso de las diez categorías.
+- Utilizar la Cheat Sheet de OWASP para seleccionar controles y el Top 10 for Agentic Applications para reconocer amenazas. Destacar solo las más vinculadas al desarrollo: inyección indirecta/secuestro de objetivos (ASI01), uso indebido de herramientas (ASI02), abuso de privilegios (ASI03), cadena de suministro (ASI04) y ejecución de código inesperada (ASI05). No convertir la slide en un repaso de las diez categorías. Complementar con el GenAI LLM Top 10: prompt injection (LLM01), exposición de información sensible (LLM02), agencia excesiva (LLM03), cadena de suministro (LLM04) y exposición de contexto oculto (LLM08). El primero aborda riesgos de aplicaciones LLM y el segundo los específicos de sistemas agénticos.
 
 ## 7. Configurar los asistentes — 4:00
 
@@ -226,6 +226,7 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 
 > OWASP AI Agent Security Cheat Sheet  
 > OWASP Top 10 for Agentic Applications 2026 (ASI01–ASI10)  
+> OWASP GenAI LLM Top 10 2026 (LLM01–LLM10)  
 > Documentación oficial de privacidad y condiciones de proveedores  
 > RGPD · LOPDGDD · AEPD  
 > Real Decreto 311/2022 · Esquema Nacional de Seguridad  
@@ -233,7 +234,7 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 
 **Notas del ponente**
 
-Diapositiva de consulta. En el repositorio quedan los enlaces a la Cheat Sheet y al Top 10 oficial. Como lectura complementaria en español, consultar el artículo de NeuralTrust. No desarrollar las diez amenazas durante la charla; utilizar el marco para seleccionar ejemplos relacionados con herramientas, permisos, contexto y ejecución de código.
+Diapositiva de consulta. El repositorio contiene los enlaces a los dos Top 10 oficiales y a la Cheat Sheet. El LLM Top 10 cubre riesgos de aplicaciones basadas en modelos; el Agentic Top 10, riesgos añadidos por autonomía y herramientas. NeuralTrust queda como lectura complementaria en español. No desarrollar las listas completas.
 
 ## Cierre y agradecimientos
 
