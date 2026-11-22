@@ -30,6 +30,46 @@ La etiqueta «de pago» no basta para considerar adecuado un servicio: hay que c
 
 ## 3. Matriz comparativa de proveedores
 
+### 3.1. Versión sintética para diapositiva
+
+**Lectura visual:** ✓ = sí, por defecto; ◐ = depende del plan, modelo o configuración; — = no es una garantía general. Los símbolos no representan una certificación de seguridad.
+
+| Servicio profesional | No entrenamiento | ZDR | Retención / matiz |
+|---|:---:|:---:|---|
+| **ChatGPT Business / Enterprise** | ✓ | — | Según plan y controles |
+| **OpenAI API** | ✓ | ◐ | 30 días; ZDR sujeto a aprobación |
+| **Claude Team / Enterprise** | ✓ | — | Según política organizativa |
+| **Claude API / Code API** | ✓ | ◐ | ZDR contractual; funciones excluidas |
+| **Gemini API (pago)** | ✓ | — | Registros limitados; funciones con estado |
+| **GitHub Copilot Business / Enterprise** | ✓ | ◐ | Depende del modelo y proveedor |
+| **Cursor Teams / Enterprise** | ✓* | ◐ | Privacy Mode; excepciones y agentes cloud |
+| **Azure AI Foundry (modelos Azure)** | ✓ | — | Modelos stateless; funciones opcionales con estado |
+
+<text style="display:none"> </text>
+
+**Nota al pie de la diapositiva:** *✓ no significa retención cero. ZDR solo cuando se contrata o habilita y dentro de su alcance. Verificar producto, modelo, funciones y servicios externos.*
+
+**Mensaje oral recomendado:** «La mayoría ofrece compromisos de no entrenamiento en sus modalidades profesionales. La retención y el ZDR son mucho más variables: dependen del producto y de cómo lo usamos».
+
+**Versión aún más reducida, si falta espacio:**
+
+| Proveedor | No entrenamiento | ZDR |
+|---|:---:|:---:|
+| OpenAI ChatGPT | ✓ | — |
+| OpenAI API | ✓ | ◐ |
+| Claude Team / Enterprise | ✓ | — |
+| Claude API | ✓ | ◐ |
+| Gemini API (pago) | ✓ | — |
+| Copilot Business / Enterprise | ✓ | ◐ |
+| Cursor Teams / Enterprise | ✓* | ◐ |
+| Azure AI Foundry | ✓ | — |
+
+`* Cursor: requiere Privacy Mode; revisar excepciones.`
+
+---
+
+## 3. Matriz comparativa de proveedores
+
 **Consulta de fuentes oficiales: 22 de noviembre de 2026.** La matriz resume compromisos publicados; no acredita qué condiciones se han contratado ni sustituye el DPA, los términos aplicables o la configuración del tenant/proyecto.
 
 | Proveedor / producto | Uso para entrenamiento | Retención y ZDR | Qué debe comprobar el equipo |
