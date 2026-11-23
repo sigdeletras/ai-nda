@@ -2,7 +2,6 @@ from typing import Annotated
 
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 
-
 Username = Annotated[str, StringConstraints(strip_whitespace=True, min_length=3, max_length=80)]
 Password = Annotated[str, StringConstraints(min_length=12, max_length=128)]
 

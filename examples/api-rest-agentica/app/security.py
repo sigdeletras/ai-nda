@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 
 import jwt
 from pwdlib import PasswordHash
@@ -16,7 +16,7 @@ def verify_password(password: str, hashed: str) -> bool:
 
 
 def create_access_token(subject: str, secret_key: str, expires_minutes: int) -> str:
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     payload = {
         "sub": subject,
         "iat": now,
@@ -26,4 +26,6 @@ def create_access_token(subject: str, secret_key: str, expires_minutes: int) -> 
 
 
 def decode_access_token(token: str, secret_key: str) -> dict:
-    return jwt.decode(token, secret_key, algorithms=[ALGORITHM], options={"require": ["sub", "exp"]})
+    return jwt.decode(
+        token, secret_key, algorithms=[ALGORITHM], options={"require": ["sub", "exp"]}
+    )

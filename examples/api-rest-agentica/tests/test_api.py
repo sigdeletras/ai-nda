@@ -65,14 +65,15 @@ def test_crud_and_owner_isolation(client: TestClient):
     assert len(client.get("/projects", headers=auth(token_a)).json()) == 1
     assert client.get("/projects", headers=auth(token_b)).json() == []
     assert client.get("/projects/" + str(project_id), headers=auth(token_b)).status_code == 404
-    assert client.patch(
-        "/projects/" + str(project_id),
-        json={"name": "Acceso indebido"},
-        headers=auth(token_b),
-    ).status_code == 404
-    assert client.delete(
-        "/projects/" + str(project_id), headers=auth(token_b)
-    ).status_code == 404
+    assert (
+        client.patch(
+            "/projects/" + str(project_id),
+            json={"name": "Acceso indebido"},
+            headers=auth(token_b),
+        ).status_code
+        == 404
+    )
+    assert client.delete("/projects/" + str(project_id), headers=auth(token_b)).status_code == 404
 
     updated = client.patch(
         "/projects/" + str(project_id),
@@ -81,9 +82,7 @@ def test_crud_and_owner_isolation(client: TestClient):
     )
     assert updated.status_code == 200
     assert updated.json()["name"] == "Proyecto actualizado"
-    assert client.delete(
-        "/projects/" + str(project_id), headers=auth(token_a)
-    ).status_code == 204
+    assert client.delete("/projects/" + str(project_id), headers=auth(token_a)).status_code == 204
 
 
 def test_invalid_token_is_rejected(client: TestClient):

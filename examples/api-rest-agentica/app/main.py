@@ -12,10 +12,9 @@ from app.models import Project, User
 from app.schemas import ProjectCreate, ProjectRead, ProjectUpdate, UserCreate, UserRead
 from app.security import create_access_token, decode_access_token, hash_password, verify_password
 
+
 def create_app(database_url: str | None = None, secret_key: str | None = None) -> FastAPI:
-    database_url = database_url or os.getenv(
-        "DATABASE_URL", "sqlite:///./api_demo.db"
-    )
+    database_url = database_url or os.getenv("DATABASE_URL", "sqlite:///./api_demo.db")
     secret_key = secret_key or os.getenv("JWT_SECRET_KEY")
     if not secret_key:
         raise RuntimeError("JWT_SECRET_KEY es obligatoria; configura la variable de entorno.")
@@ -40,9 +39,7 @@ def create_app(database_url: str | None = None, secret_key: str | None = None) -
         finally:
             db.close()
 
-    def current_user(
-        token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)
-    ) -> User:
+    def current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)) -> User:
         unauthorized = HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Credenciales no válidas",

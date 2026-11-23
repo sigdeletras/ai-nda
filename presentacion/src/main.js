@@ -15,7 +15,7 @@ function getDeckSize() {
 
 const deck = new Reveal({
   hash: true, hashOneBasedIndex: true, slideNumber: false, progress: false,
-  controls: true, keyboard: true, overview: true,
+  controls: true, keyboard: true, overview: true, scrollActivationWidth: null,
   transition: 'fade', backgroundTransition: 'fade',
   ...getDeckSize(), maxScale: 1.5,
   plugins: [RevealNotes]
