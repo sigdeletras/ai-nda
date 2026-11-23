@@ -14,7 +14,7 @@ function getDeckSize() {
 }
 
 const deck = new Reveal({
-  hash: true, hashOneBasedIndex: true, slideNumber: 'c/t', progress: false,
+  hash: true, hashOneBasedIndex: true, slideNumber: false, progress: false,
   controls: true, keyboard: true, overview: true,
   transition: 'fade', backgroundTransition: 'fade',
   ...getDeckSize(), maxScale: 1.5,
@@ -57,6 +57,7 @@ document.body.append(navigation);
 
 function updateSlideProgress(index) {
   visited.add(index);
+  document.documentElement.dataset.cover = index === 0 ? 'true' : 'false';
   document.documentElement.dataset.accent = deck.getSlides()[index]?.dataset.accent || 'blue';
   segments.forEach((segment, segmentIndex) => {
     const active = segmentIndex === index;

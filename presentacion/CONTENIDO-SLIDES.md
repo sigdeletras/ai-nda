@@ -47,18 +47,19 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 
 > ¿Qué información le estamos dando a la IA sin darnos cuenta?
 >
-> **Patricio Soriano**  
-> Geógrafo y desarrollador. Responsable del Área de GIS y Desarrollo · Geoinnova · @sigdeletras
+> **Punto de partida**  
+> La IA ya está en la empresa
 >
-> **Revisión interna**  
-> Uso de herramientas de IA en el trabajo diario.
+> **Coordinación**  
+> Revisión interna
 >
-> Hallazgo: uso de la API de Jira incompatible con un compromiso de confidencialidad.
+> **Duda**  
+> Conectar con el Jira del cliente
 
 **Notas del ponente**
 
 - Presentar brevemente el perfil (geógrafo y desarrollador) y qué es Geoinnova.
-- Explicar que la charla nace de una revisión interna del uso de herramientas.
+- Explicar que la charla nace de una revisión interna del uso de la IA en el equipo de desarrollo, que coordino. Presentar el caso Jira como una consulta o propuesta surgida de esa revisión, no como algo que se haya hecho.
 - Contar el caso Jira solo con el nivel de detalle autorizado. No identificar cliente, proyecto, contrato, personas ni circunstancias que permitan reconstruirlo.
 - No atribuir al proveedor un uso concreto de los datos si no está documentado.
 - El problema no es señalar a quien utilizó la herramienta, sino reconocer que podemos desconocer qué información sale del entorno y qué compromisos ha asumido la empresa.
@@ -71,11 +72,11 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 > La confidencialidad también se aplica a la IA
 >
 > **Qué protegemos:** NDA · Contratos · Información confidencial  
-> **Qué debemos cumplir:** RGPD · ENS (cuando aplique) · Reglamento europeo de IA: alfabetización y gestión de riesgos
+> **Qué debemos cumplir:** RGPD · ENS (si aplica) · Reglamento de IA
 >
-> Cláusulas habituales: información confidencial · no divulgación · notificación de incidentes · devolución o destrucción.
+> **No introducir información confidencial en servicios de terceros sin autorización y garantías adecuadas.**
 >
-> No introducir información confidencial en servicios de terceros sin autorización y garantías adecuadas.
+> Cláusulas habituales: no divulgación · notificación de incidentes · devolución o destrucción
 
 **Notas del ponente**
 
