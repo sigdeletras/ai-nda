@@ -71,36 +71,78 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 
 > La confidencialidad también se aplica a la IA
 >
-> **Qué protegemos:** NDA · Contratos · Información confidencial  
-> **Qué debemos cumplir:** RGPD · ENS (si aplica) · Reglamento de IA
+> *Bloque de ejemplo (tipografía de código; real, anonimizado):*  
+> 5. PROHIBICIÓN DE HERRAMIENTAS EXTERNAS E INTELIGENCIA ARTIFICIAL  
+> Salvo **(1) autorización previa y escrita** del CLIENTE, la Parte Receptora no cargará la Información Confidencial en servicios públicos o compartidos de […] **(2) inteligencia artificial generativa** o entrenamiento de modelos, ni en plataformas que permitan su **(3) reutilización por terceros**.
 >
-> **No introducir información confidencial en servicios de terceros sin autorización y garantías adecuadas.**
+> 1. Sin permiso previo y por escrito, no.  
+> 2. Nombra la IA generativa y el entrenamiento de modelos.  
+> 3. Tampoco en plataformas que reutilizan los datos.
 >
-> Cláusulas habituales: no divulgación · notificación de incidentes · devolución o destrucción
+> Contrato de confidencialidad (NDA) · cada vez más, con cláusulas expresas sobre la IA
 
 **Notas del ponente**
 
-- Explicar qué protege un NDA y que también existen compromisos en contratos de prestación de servicios.
+- Muchos asistentes no han visto nunca un NDA: es un contrato de confidencialidad que se firma en ciertos proyectos, sobre todo grandes, y condiciona todo el trabajo con el cliente.
+- Algunos NDA ya incluyen cláusulas específicas sobre IA; aunque no lo hagan, otras cláusulas afectan igualmente (no revelar ni ceder a terceros).
+- El ejemplo es una cláusula real, anonimizada, que prohíbe cargar información confidencial en IA generativa sin autorización previa y escrita. Destacar «autorización previa y escrita», «inteligencia artificial generativa» y «reutilización por terceros». Contraste: hay cláusulas genéricas que no nombran la IA («ni directamente ni a través de sus empleados, subcontratistas, agentes o terceros, revelarlos… cederlos…»). Plantear: ¿un proveedor de IA es un «tercero»? No identificar al cliente ni el contrato.
 - Diferenciar confidencialidad contractual de protección de datos personales: el RGPD añade obligaciones específicas.
-- Mencionar el ENS (RD 311/2022) en su ámbito de aplicación y el Reglamento europeo de IA sin convertir la slide en un repaso normativo.
-- Destacar alfabetización en IA y que las obligaciones dependen del papel y del caso de uso. Comprobar fechas y alcance normativo antes del ensayo final.
-- Mostrar cláusulas habituales y presentar la previsión específica para IA como criterio para revisar con asesoría jurídica, no como texto contractual definitivo.
-- La suscripción de pago no modifica automáticamente las obligaciones.
-- No ofrecer asesoramiento jurídico.
+- Mencionar el ENS (RD 311/2022) en su ámbito y el Reglamento europeo de IA sin repaso normativo; destacar la alfabetización en IA. Comprobar fechas y alcance antes del ensayo final.
+- La suscripción de pago no modifica automáticamente las obligaciones. No ofrecer asesoramiento jurídico.
 - **Mensaje clave:** el contrato establece obligaciones; no configura técnicamente el agente ni impide por sí mismo una exposición.
+
+## 2 bis. Aspectos clave de los NDA que afectan a la IA
+
+**Texto visible**
+
+> Aspectos clave de los NDA que afectan a la IA
+>
+> El contrato puede:
+>
+> **Terceros [IA]**  
+> Prohibir comunicar información a terceros.
+>
+> **Subcontratistas [IA]**  
+> Exigir autorización previa.
+>
+> **Ubicación [IA]**  
+> Limitar el alojamiento a la UE.
+>
+> **Datos personales**  
+> Controlar las transferencias fuera de la UE.
+>
+> **Entrenamiento [IA]**  
+> Prohibir usar la información para entrenar.
+>
+> **Seguridad y accesos**  
+> Exigir medidas mínimas y personal autorizado.
+>
+> *[IA] = etiqueta que marca los aspectos que afectan directamente a la IA (sin leyenda en pantalla; la explicas tú).*
+>
+> **Antes de preguntar si entrenan, pregunta si puedes dárselos.**
+
+**Notas del ponente**
+
+- Antes de decidir si se puede usar Cursor, Claude Code, Copilot u otro agente, clasificar contractualmente el proyecto.
+- El NDA o contrato puede establecer, explícita o implícitamente, cada uno de los seis puntos de la slide.
+- Recuperar la pregunta anterior: ¿un proveedor de IA es un tercero? Puede encajar como subcontratista o encargado del tratamiento.
+- Si el contrato prohíbe dar información confidencial a terceros no autorizados, que el proveedor no entrene con ella puede ser irrelevante: se le entrega para que la procese. Depende de la redacción; validar con asesoría jurídica.
+- Con datos personales entra el RGPD: control de las cadenas de tratamiento y de las transferencias internacionales; fuera del EEE, decisiones de adecuación o cláusulas contractuales tipo cuando correspondan.
+- Enlazar con la slide de privacidad y proveedores. Los nombres de herramientas son ejemplos. No ofrecer asesoramiento jurídico.
 
 ## 3. Agentes de programación — 3:00
 
 **Texto visible**
 
-> Un agente no solo genera código
+> Del chatbot a la factoría: cada paso amplía el alcance
 >
-> **Leer y modificar:** repositorio · ficheros · código · configuración  
-> **Ejecutar:** terminal · scripts · herramientas  
-> **Conectarse:** APIs · servicios · repositorios  
-> **Alcance potencial:** .env · tokens · datos de cliente · código propietario
+> **1 · Chatbot** — Tú le pegas el texto. Solo ve lo que pegas.
 >
-> Del agente conectado al entorno a la factoría de software.
+> **2 · Agente** — Lee, ejecuta y se conecta. Ve el proyecto y tu entorno.
+>
+> **3 · Factoría** — Flujos de agentes. Tareas, validaciones y delegación.
+>
+> *Cada paso amplía lo que puede encontrar: .env, tokens, datos de cliente, código propietario…*
 
 **Notas del ponente**
 
@@ -108,19 +150,24 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 - Según herramienta, sistema operativo, permisos e integraciones, puede leer archivos, modificar código, ejecutar comandos y utilizar servicios.
 - Puede encontrar información que el desarrollador no ha incluido expresamente en el prompt.
 - No afirmar que todo lo que ve se envía necesariamente al proveedor: el contexto necesario para procesar una tarea puede transmitirse según el producto.
-- Introducir brevemente que los agentes pueden organizarse en flujos de trabajo o factorías, con especificaciones, tareas, herramientas y validaciones. No desarrollar SDD aquí.
+- Introducir brevemente que los agentes pueden organizarse en flujos de trabajo o factorías, con especificaciones, tareas, herramientas y validaciones. En la factoría se delega de forma automática parte de las decisiones a la IA, para ir reduciendo la carga de trabajo humana: enlace con el concepto de human in the loop. Las especificaciones también valen con un agente individual. No desarrollar SDD aquí.
 - Transición: el riesgo depende de cómo incorporamos estas capacidades al trabajo diario.
 
 ## 4. Nuestro contexto — 1:30
 
 **Texto visible**
 
-> IA comercial en equipos de desarrollo reales
+> Cuatro caminos para usar IA en un equipo de desarrollo
 >
-> **El escenario:** empresa mediana, sin modelos ni infraestructura propios.  
-> **El día a día:** Claude Code · Codex · Cursor. Suscripciones de pago y repositorios de trabajo.
+> **Nuestro camino: suscripción comercial**  
+> Empresa mediana, suscripciones de pago, sin modelos ni infraestructura propios. El proveedor trata los datos.
 >
-> No hace falta operar un modelo propio para aplicar controles.
+> **Otros caminos**  
+> Servicios cloud contratados: modelos en tu propia cuenta cloud.  
+> Infraestructura propia: servidores y modelos propios.  
+> Modelo local: descargado en los equipos; depende de su capacidad.
+>
+> *Aquí nos centramos en el comercial: conocer las condiciones del proveedor.*
 
 **Notas del ponente**
 
@@ -135,13 +182,20 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 
 > ¿Qué prometen los proveedores?
 >
-> - **Entrenamiento:** ¿Se usan los datos para entrenar o mejorar modelos?
-> - **Retención:** ¿Cuánto tiempo se conservan prompts, archivos y registros?
-> - **ZDR:** ¿Qué datos y servicios cubre la no retención?
-> - **Ubicación y acceso:** ¿Dónde se procesan y quién puede acceder?
-> - **Contrato:** ¿Qué garantías son exigibles para este producto y plan?
+> | Servicio profesional | No entrenamiento | ZDR | Matiz |
+> |---|:---:|:---:|---|
+> | ChatGPT Business / Enterprise | ✓ | — | Según plan y controles |
+> | OpenAI API | ✓ | ◐ | 30 días; ZDR con aprobación |
+> | Claude Team / Enterprise | ✓ | — | Según política organizativa |
+> | Claude API / Code API | ✓ | ◐ | ZDR contractual; funciones excluidas |
+> | Gemini API (pago) | ✓ | — | Registros limitados; funciones con estado |
+> | GitHub Copilot Business / Enterprise | ✓ | ◐ | Depende del modelo y proveedor |
+> | Cursor Teams / Enterprise | ✓* | ◐ | Privacy Mode; excepciones y agentes cloud |
+> | Azure AI Foundry | ✓ | — | Modelos stateless; funciones con estado |
 >
-> Pago ≠ no entrenamiento ≠ ZDR ≠ procesamiento local · Comprueba producto, plan y condiciones
+> ✓ sí, por defecto · ◐ depende del plan, modelo o configuración · — no es una garantía general
+>
+> *✓ no significa retención cero. ZDR solo si se contrata o habilita, y dentro de su alcance. * Cursor: requiere Privacy Mode. Fuentes oficiales, consultadas el 22/11/2026.*
 
 **Notas del ponente**
 
