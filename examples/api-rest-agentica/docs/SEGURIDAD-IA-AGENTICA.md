@@ -12,6 +12,30 @@
 | API | Acceso a recursos de otro usuario | Consultas acotadas por propietario | Test de aislamiento entre usuarios |
 | Terminal del agente | Prompt injection en issues, documentación o webs que intenta inducir acciones | Tratar contenido externo como no confiable, permisos mínimos, revisión de comandos y red restringida | Ejercicio reproducible con fixture ficticio; observar y documentar la respuesta |
 
+## Amenazas agénticas de referencia
+
+El [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) ofrece una taxonomía para revisar amenazas específicas de agentes. En esta demo son especialmente relevantes:
+
+- **ASI01 — Secuestro de objetivos:** instrucciones maliciosas en issues, documentación o páginas consultadas por el agente.
+- **ASI02 — Uso indebido de herramientas:** encadenar operaciones permitidas para realizar acciones no previstas.
+- **ASI03 — Abuso de identidad y privilegios:** aprovechar credenciales o permisos más amplios de lo necesario.
+- **ASI04 — Cadena de suministro:** dependencias, extensiones y servidores MCP comprometidos o no confiables.
+- **ASI05 — Ejecución de código inesperada:** comandos o scripts inducidos por contenido no confiable.
+
+La [explicación de NeuralTrust en español](https://neuraltrust.ai/es/blog/owasp-agentic-ai-top-10) puede servir como lectura introductoria. Para diseñar controles, consultar también la [OWASP AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html).
+
+## Riesgos LLM de referencia
+
+El [OWASP GenAI LLM Top 10 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) complementa el marco agéntico. Para esta demo destacan:
+
+- **LLM01 — Prompt Injection:** instrucciones maliciosas en issues, documentación o contenido web.
+- **LLM02 — Sensitive Information Disclosure:** exposición de secretos, código o datos confidenciales en el contexto o las respuestas.
+- **LLM03 — Excessive Agency:** autonomía, herramientas o permisos superiores a los necesarios.
+- **LLM04 — Supply Chain:** dependencias, extensiones, modelos o servicios de terceros comprometidos.
+- **LLM08 — Hidden Context Exposure:** revelación de instrucciones, contexto interno o información añadida al prompt que no debería exponerse.
+
+El LLM Top 10 trata los riesgos de aplicaciones basadas en modelos; el Agentic Top 10 profundiza en los riesgos de sistemas con capacidad de actuar. No son listas intercambiables.
+
 ## Instrucciones frente a controles efectivos
 
 CLAUDE.md define convenciones y límites esperados. No es un mecanismo de aislamiento. Los permisos del agente pueden restringir operaciones conocidas, pero no deben considerarse sustituto de los permisos del sistema operativo, un contenedor de desarrollo aislado o la ausencia de secretos accesibles.
@@ -40,6 +64,9 @@ La demo implementa JWT firmado, expiración, hash de contraseñas y autorizació
 ## Fuentes de referencia
 
 - OWASP AI Agent Security Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html
+- OWASP Top 10 for Agentic Applications 2026: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+- OWASP GenAI LLM Top 10 2026: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/
+- NeuralTrust, OWASP Agentic AI Top 10 (explicación en español): https://neuraltrust.ai/es/blog/owasp-agentic-ai-top-10
 - Claude Code, permisos: https://docs.anthropic.com/en/docs/claude-code/iam
 - GitHub Actions, seguridad: https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions
 - FastAPI, OAuth2 con JWT: https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/

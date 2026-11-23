@@ -1,7 +1,7 @@
 # Políticas de privacidad y tratamiento de datos de proveedores de IA
 
 **Estado:** documento inicial de investigación.  
-**Última revisión:** 7 de noviembre de 2026.  
+**Última revisión:** 22 de noviembre de 2026.  
 **Finalidad:** apoyar la evaluación de servicios de IA utilizados por equipos de desarrollo que trabajan con código, información interna o datos sujetos a compromisos de confidencialidad.
 
 > Este documento resume información publicada por los propios proveedores. No sustituye la revisión de las condiciones contractuales, el DPA, la configuración efectiva ni una evaluación jurídica o de seguridad del servicio contratado.
@@ -28,56 +28,103 @@ La etiqueta «de pago» no basta para considerar adecuado un servicio: hay que c
 | DPA | Acuerdo de tratamiento de datos personales entre responsable y encargado, cuando corresponda. | Que todos los datos confidenciales estén cubiertos o que el uso sea automáticamente lícito. |
 | Procesamiento en entorno cloud empresarial | El servicio se presta bajo condiciones y controles empresariales. | Procesamiento local ni ausencia de transferencias internacionales. |
 
-## 3. Matriz inicial de proveedores
+## 3. Matriz comparativa de proveedores
 
-La matriz es orientativa. «No entrenamiento por defecto» y «ZDR» solo deben darse por confirmados dentro del producto, configuración, contrato y alcance descritos por la fuente oficial.
+### 3.1. Versión sintética para diapositiva
 
-| Proveedor / servicio | Modalidad incluida | Entrenamiento | Retención y ZDR | Observaciones |
-|---|---|---|---|---|
-| OpenAI – ChatGPT | Business / Enterprise | No se usan entradas ni salidas para entrenamiento por defecto. | Business y Enterprise mantienen conversaciones para prestar el servicio; Enterprise dispone de controles de retención. No asumir ZDR en la interfaz ChatGPT. | Revisar diferencias de administración y retención entre Business y Enterprise. |
-| OpenAI – API | API comercial | No se usan datos para entrenamiento por defecto. | Logs de monitorización de abuso: hasta 30 días por defecto. ZDR o Modified Abuse Monitoring requieren aprobación y tienen límites por endpoint y función. | La persistencia de estado de ciertas funciones puede quedar fuera de ZDR. Revisar también herramientas y servidores MCP externos. |
-| Anthropic – Claude | Claude Team / Enterprise | Los datos comerciales no se utilizan para entrenar modelos sin permiso expreso. | Conversaciones y sesiones se conservan para prestar el producto; Enterprise permite controles de retención personalizados. Las interfaces Team y Enterprise no quedan cubiertas por el ZDR general de API. | Claude Code Enterprise tiene condiciones ZDR específicas que deben habilitarse y verificarse. |
-| Anthropic – Claude API | API comercial | No se utilizan datos retenidos para entrenamiento sin permiso expreso. | Retención estándar de entradas y salidas: hasta 30 días, con excepciones. ZDR disponible bajo acuerdo, sujeto a elegibilidad por función y modelo. | Algunas funciones con estado, modelos cubiertos, registros y contenidos marcados quedan fuera o tienen retención específica. |
-| Google – Workspace con Gemini | Ediciones empresariales elegibles de Workspace | Google declara que no utiliza los datos de Workspace para entrenar modelos generativos sin permiso. | Aplican los controles y condiciones de Workspace; no equiparar esta garantía a ZDR. | Comprobar edición, región, DPA, controles de residencia y funcionalidades concretas. |
-| Google – Gemini API | Servicio de pago asociado a Cloud Billing | Los prompts y respuestas de Paid Services no se usan para mejorar productos. | Puede existir registro limitado para supervisión de abuso. Google documenta medidas adicionales y requisitos para alcanzar ZDR. | Distinguir cuota de pago y cuota gratuita; esta última queda fuera de este documento. |
-| GitHub – Copilot | Business / Enterprise | GitHub declara que no utiliza datos de clientes Business o Enterprise para entrenar modelos. | No presentar como ZDR general. El tratamiento puede variar según el modelo y su alojamiento. | Revisar modelos habilitados, hosting, políticas de organización, extensiones y funciones agénticas. |
-| Cursor | Teams / Enterprise | Privacy Mode evita el entrenamiento con datos del cliente por Cursor y proveedores de modelos, según sus compromisos publicados. | Cursor declara acuerdos ZDR con proveedores de inferencia, pero existen excepciones: modelos con retención, clasificadores de abuso, Cloud Agents y BYOK. | En BYOK se aplican las condiciones del proveedor de la clave. Cloud Agents requieren almacenamiento temporal del repositorio. |
-| Microsoft – Azure AI Foundry | Servicios empresariales de Azure | Microsoft declara que prompts y completions de modelos vendidos por Azure no se utilizan para entrenar o mejorar modelos sin permiso o instrucción. | Los modelos son stateless; revisar registros de monitorización, filtros, despliegue y configuración del recurso. | Diferenciar modelos vendidos por Azure de modelos o servicios desplegados por terceros. La región depende del tipo de despliegue. |
+**Lectura visual:** ✓ = sí, por defecto; ◐ = depende del plan, modelo o configuración; — = no es una garantía general. Los símbolos no representan una certificación de seguridad.
+
+| Servicio profesional | No entrenamiento | ZDR | Retención / matiz |
+|---|:---:|:---:|---|
+| **ChatGPT Business / Enterprise** | ✓ | — | Según plan y controles |
+| **OpenAI API** | ✓ | ◐ | 30 días; ZDR sujeto a aprobación |
+| **Claude Team / Enterprise** | ✓ | — | Según política organizativa |
+| **Claude API / Code API** | ✓ | ◐ | ZDR contractual; funciones excluidas |
+| **Gemini API (pago)** | ✓ | — | Registros limitados; funciones con estado |
+| **GitHub Copilot Business / Enterprise** | ✓ | ◐ | Depende del modelo y proveedor |
+| **Cursor Teams / Enterprise** | ✓* | ◐ | Privacy Mode; excepciones y agentes cloud |
+| **Azure AI Foundry (modelos Azure)** | ✓ | — | Modelos stateless; funciones opcionales con estado |
+
+<text style="display:none"> </text>
+
+**Nota al pie de la diapositiva:** *✓ no significa retención cero. ZDR solo cuando se contrata o habilita y dentro de su alcance. Verificar producto, modelo, funciones y servicios externos.*
+
+**Mensaje oral recomendado:** «La mayoría ofrece compromisos de no entrenamiento en sus modalidades profesionales. La retención y el ZDR son mucho más variables: dependen del producto y de cómo lo usamos».
+
+**Versión aún más reducida, si falta espacio:**
+
+| Proveedor | No entrenamiento | ZDR |
+|---|:---:|:---:|
+| OpenAI ChatGPT | ✓ | — |
+| OpenAI API | ✓ | ◐ |
+| Claude Team / Enterprise | ✓ | — |
+| Claude API | ✓ | ◐ |
+| Gemini API (pago) | ✓ | — |
+| Copilot Business / Enterprise | ✓ | ◐ |
+| Cursor Teams / Enterprise | ✓* | ◐ |
+| Azure AI Foundry | ✓ | — |
+
+`* Cursor: requiere Privacy Mode; revisar excepciones.`
+
+---
+
+## 3. Matriz comparativa de proveedores
+
+**Consulta de fuentes oficiales: 22 de noviembre de 2026.** La matriz resume compromisos publicados; no acredita qué condiciones se han contratado ni sustituye el DPA, los términos aplicables o la configuración del tenant/proyecto.
+
+| Proveedor / producto | Uso para entrenamiento | Retención y ZDR | Qué debe comprobar el equipo |
+|---|---|---|---|
+| **OpenAI – ChatGPT Business / Enterprise** | Los datos del espacio de trabajo no se utilizan para entrenar por defecto. | El historial de conversaciones se conserva según el producto y la política del espacio de trabajo. Enterprise ofrece controles de retención; Business dispone de residencia de datos en determinadas condiciones, pero esto no equivale a residencia de inferencia ni a ZDR. | No trasladar a ChatGPT las condiciones de la API. Revisar configuración de retención, residencia, conectores, enlaces compartidos y funciones de Codex/Work. |
+| **OpenAI – API** | Entradas y salidas excluidas del entrenamiento por defecto. | Los registros de supervisión de abuso pueden conservar contenido hasta 30 días. ZDR y Modified Abuse Monitoring requieren aprobación. ZDR no cubre todos los endpoints ni el estado persistente de todas las funciones. | Revisar endpoint, parámetro `store`, archivos, conversaciones, agentes, contenedores y servidores MCP. Los datos enviados a MCP u otros servicios se rigen por sus propias políticas. |
+| **Anthropic – Claude Team / Enterprise** | Los datos comerciales no se usan para entrenar modelos sin permiso expreso. | Las interfaces de Claude Team y Enterprise no están cubiertas por el acuerdo ZDR general de la API. Se aplican las políticas de retención de la organización. Claude Code en Enterprise tiene una oferta ZDR independiente, sujeta a elegibilidad y habilitación expresa. | No asumir que el plan Enterprise implica ZDR. Verificar controles de retención de la organización y, para Claude Code, confirmación contractual y activación específica. |
+| **Anthropic – Claude API / Claude Code con API key comercial** | Los datos retenidos no se usan para entrenamiento sin permiso expreso. | ZDR puede contratarse por organización y cubre solo endpoints y funciones elegibles. Algunas funciones con estado, archivos, ejecución de código, lotes o modelos sujetos a retención quedan excluidos o tienen TTL propio. | Revisar la tabla de elegibilidad por función/modelo. Claude Code con clave API comercial puede estar cubierto; el registro de métricas y otras funciones pueden quedar fuera. |
+| **Google – Gemini Developer API** | En Paid Services, prompts y respuestas no se usan para mejorar productos. El nivel gratuito tiene condiciones distintas. | No equivale a ZDR general: existen registros limitados para supervisión de abuso. Grounding con Search o Maps conserva datos 30 días; Interactions API, Files API y caché explícita pueden mantener estado. Google recomienda Vertex AI si se requiere ZDR garantizado o acuerdos empresariales de tratamiento. | Distinguir Paid Services del nivel gratuito y Gemini Developer API de Vertex AI / Gemini Enterprise Agent Platform. Revisar herramientas de grounding, estado, archivos y caché. |
+| **GitHub – Copilot Business / Enterprise** | GitHub declara que no utiliza datos de clientes Business o Enterprise para entrenar modelos. | La cobertura de retención depende del modelo y de dónde se aloje. GitHub declara acuerdos ZDR con proveedores para determinados modelos, pero existen excepciones por modelos o funciones beta/preview. | Revisar el modelo seleccionado, su proveedor y alojamiento. No extrapolar la garantía de un modelo a todo Copilot ni a extensiones, agentes o integraciones externas. |
+| **Cursor – Teams / Enterprise** | Con Privacy Mode activado, el código no se usa para entrenamiento por Cursor ni por proveedores de modelos. En Enterprise está activado por defecto. | Cursor declara acuerdos ZDR para la mayoría de modelos, con excepciones. Cloud Agents almacenan copias cifradas del repositorio temporalmente mientras trabajan; ciertos modelos pueden requerir retención del proveedor. | Verificar Privacy Mode, lista de subencargados y modelos con retención. Evaluar por separado Cloud Agents, BYOK, MCP e integraciones. |
+| **Microsoft – Azure AI Foundry (modelos vendidos por Azure)** | Prompts, respuestas y embeddings no se utilizan para entrenar o mejorar modelos sin permiso/instrucción. | Los modelos son stateless, pero las funciones opcionales con estado (por ejemplo, Responses, Threads, archivos o vector stores) pueden persistir datos según configuración. Los filtros de contenido y registros operativos tienen tratamiento propio. | Distinguir modelos vendidos por Azure de modelos de terceros. Revisar tipo de despliegue, región/geografía, funciones con estado, filtros y DPA de Microsoft. |
+
+### Lectura rápida para la charla
+
+- **ChatGPT Business/Enterprise no es lo mismo que la API de OpenAI.** La garantía de no entrenamiento es común, pero los controles de retención y ZDR son diferentes.
+- **Claude Team/Enterprise no tiene ZDR general.** La API puede tener ZDR bajo acuerdo y con exclusiones; Claude Code Enterprise dispone de una vía específica.
+- **Gemini Developer API de pago no equivale a Vertex AI.** La API de pago excluye el entrenamiento, pero conserva registros y algunas funciones almacenan estado.
+- **Las herramientas de programación añaden su propia cadena de tratamiento.** Cursor, Copilot y otras herramientas pueden enviar contexto a varios proveedores y ejecutar agentes cloud.
+- **ZDR no significa ausencia absoluta de datos:** puede excluir prompts y respuestas de determinados registros, pero dejar fuera metadatos, archivos, estado persistente, funciones auxiliares o servicios de terceros.
 
 ## 4. Fuentes oficiales
 
-### OpenAI
+Consultar preferentemente documentación técnica y de privacidad, no solo páginas comerciales. Enlaces revisados el 22 de noviembre de 2026.
 
-- [Privacidad empresarial](https://openai.com/es-ES/enterprise-privacy/)
-- [Seguridad, cumplimiento y privacidad de datos empresariales](https://openai.com/es-ES/business-data/)
-- [Gestión de datos y privacidad en ChatGPT Business](https://help.openai.com/es-es/articles/8798634-managing-data-sharing-and-privacy-in-chatgpt-business)
-- [Controles de datos de la API](https://developers.openai.com/api/docs/guides/your-data)
+### OpenAI
+- [Privacidad y tratamiento de datos empresariales](https://openai.com/business-data/)
+- [Privacidad empresarial y compromisos](https://openai.com/enterprise-privacy/)
+- [ChatGPT Business: tratamiento, historial y uso de Codex](https://help.openai.com/en/articles/8798634-managing-data-sharing-and-privacy-in-chatgpt-business)
+- [ChatGPT Business: ubicación de almacenamiento y residencia](https://help.openai.com/es-es/articles/20001418-where-your-chatgpt-business-content-is-stored)
+- [Controles de datos de la API: retención por endpoint, ZDR y excepciones](https://developers.openai.com/api/docs/guides/your-data)
 
 ### Anthropic
-
-- [Retención de datos de la API y ZDR](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention)
-- [Retención de datos de organizaciones comerciales](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
+- [API y retención de datos: ZDR y elegibilidad por función](https://platform.claude.com/docs/en/manage-claude/api-and-data-retention)
+- [Centro legal de Anthropic: términos comerciales y políticas vigentes](https://www.anthropic.com/legal)
+- [Retención de datos comerciales](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
 - [Controles de retención personalizados de Claude Enterprise](https://support.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans)
 
 ### Google
-
-- [Privacidad y seguridad de IA generativa en Workspace](https://workspace.google.com/intl/es/security/ai-privacy/)
-- [Condiciones adicionales de Gemini API](https://ai.google.dev/gemini-api/terms)
-- [ZDR en Gemini Developer API](https://ai.google.dev/gemini-api/docs/zdr)
+- [Gemini API: términos de servicio y Paid Services](https://ai.google.dev/gemini-api/terms)
+- [Gemini Developer API: Zero Data Retention y exclusiones](https://ai.google.dev/gemini-api/docs/zdr)
+- [Vertex AI: privacidad y tratamiento de datos](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance)
 
 ### GitHub
-
-- [Alojamiento de modelos en GitHub Copilot](https://docs.github.com/en/copilot/reference/ai-models/model-hosting)
+- [Alojamiento de modelos en GitHub Copilot: proveedores, entrenamiento y ZDR](https://docs.github.com/en/copilot/reference/ai-models/model-hosting)
 
 ### Cursor
-
-- [Resumen de uso de datos y privacidad](https://cursor.com/es/data-use)
-- [Privacidad y gobernanza de datos para Enterprise](https://cursor.com/docs/enterprise/privacy-and-data-governance)
-- [Seguridad de Cursor](https://cursor.com/es/security)
+- [Privacidad y gobernanza de datos: flujos LLM y Cloud Agents](https://cursor.com/docs/enterprise/privacy-and-data-governance)
+- [Uso de datos y Privacy Mode](https://cursor.com/data-use)
+- [Seguridad de Cursor](https://cursor.com/security)
 
 ### Microsoft
+- [Privacidad y seguridad de modelos vendidos por Azure en Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy)
+- [Microsoft Products and Services Data Protection Addendum](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA)
 
-- [Privacidad y seguridad de datos para modelos de Azure AI Foundry](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy)
 
 ## 5. Criterios para interpretar y contratar
 
@@ -122,8 +169,8 @@ Un equipo puede tener Privacy Mode activado en un editor, pero utilizar una clav
 
 ## 8. Pendiente de completar
 
-- Confirmar las condiciones contractuales y de retención específicas de cada modalidad.
-- Revisar los subencargados y modelos disponibles en cada herramienta.
-- Completar Windsurf cuando se contraste su documentación empresarial vigente.
-- Añadir una ficha por producto con evidencias y fecha de verificación.
-- Revisar si las garantías descritas cubren el uso de agentes de programación y no solo el chat o la API básica.
+- Confirmar con cada proveedor las condiciones contractuales concretas de la cuenta/organización contratada; las páginas públicas no acreditan la configuración de un cliente.
+- Revisar los subencargados, regiones y modelos habilitados en la herramienta realmente utilizada.
+- Completar Windsurf si se incorpora a la comparativa.
+- Revalidar la matriz antes del ensayo y anotar cambios relevantes de producto o plan.
+- Revisar por separado agentes cloud, MCP, conectores, extensiones, archivos y funciones con estado.
