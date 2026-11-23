@@ -167,7 +167,7 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 > Infraestructura propia: servidores y modelos propios.  
 > Modelo local: descargado en los equipos; depende de su capacidad.
 >
-> *Aquí nos centramos en el comercial: conocer las condiciones del proveedor.*
+> *Aquí nos centramos en el comercial: conocer sus condiciones.*
 
 **Notas del ponente**
 
@@ -195,7 +195,7 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 >
 > ✓ sí, por defecto · ◐ depende del plan, modelo o configuración · — no es una garantía general
 >
-> *✓ no significa retención cero. ZDR solo si se contrata o habilita, y dentro de su alcance. * Cursor: requiere Privacy Mode. Fuentes oficiales, consultadas el 22/11/2026.*
+> *✓ no es retención cero. ZDR solo si se contrata. * Cursor: requiere Privacy Mode. Fuentes: 22/11/2026.*
 
 **Notas del ponente**
 
@@ -270,7 +270,7 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 > 5. **Supervisión:** ¿Revisamos cambios y acciones de impacto?
 > 6. **Respuesta:** ¿Sabemos actuar ante una exposición?
 >
-> La confianza con el cliente se gestiona con contrato, configuración y transparencia.
+> La confianza con el cliente: contrato, configuración y transparencia.
 
 **Notas del ponente**
 

@@ -500,3 +500,87 @@ html[data-cover=true] .brand-mark,html[data-cover=true] .deck-header{display:non
   .prv-legend .sym{font-size:16px;margin-right:10px}
   .reveal p.prv-foot{margin-top:14px;font-size:19px;max-width:1500px}
 }
+
+/* === SISTEMA DE DISEÑO (piloto): escala tipográfica y espaciado, aplicado con .sys === */
+:root{
+  --t-meta:24px;--t-body:30px;--t-block:38px;--t-close:48px;--t-title:64px;
+  --s-gap:32px;--s-pad:40px;--s-title:48px;--s-close:64px;
+}
+@media (min-width:601px){
+  .reveal .sys h2{font-size:var(--t-title);line-height:1.1;min-height:0;margin:0 0 var(--s-title)}
+  .reveal .sys .item b{font-size:var(--t-block)}
+  .reveal .sys .item p{font-size:var(--t-body)}
+  .reveal .sys .item small{font-size:var(--t-meta)}
+  .reveal .sys .grid2,.reveal .sys .grid3{gap:var(--s-gap)}
+  .reveal .sys .grid3 .item,.reveal .sys .grid2 .item{padding:28px var(--s-pad)}
+  .reveal .sys p.legal-line{font-size:var(--t-meta);margin:0 0 24px}
+  .reveal .sys .levels.checklist{gap:var(--s-gap)}
+  .reveal .sys .levels>div{padding:28px var(--s-pad)}
+  .reveal .sys .levels b{font-size:var(--t-block)}
+  .reveal .sys .levels strong{font-size:var(--t-block)}
+  .reveal .sys .levels small{font-size:var(--t-body)}
+  .reveal .sys .closing p{font-size:var(--t-close)}
+  .reveal .sys>.closing{margin:var(--s-close) 0 auto}
+  .reveal p.src{font:400 var(--t-meta)/1.4 var(--mono);color:var(--muted);margin:var(--s-gap) 0 0}
+}
+@media (min-width:601px){
+  .reveal .sys>.grid2:first-of-type{margin-top:auto}
+  .reveal .sys>p.src{margin-bottom:auto}
+}
+
+/* === Sistema: componentes con composición propia === */
+@media (min-width:601px){
+  /* Jira (tres pasos) */
+  .reveal .sys .trio label{font-size:var(--t-meta)}
+  .reveal .sys .trio h3{font-size:var(--t-block)}
+  .reveal .sys>.trio{margin:auto 0}
+  /* NDA anotada */
+  .reveal .sys .example-head{font-size:var(--t-meta)}
+  .reveal .sys .example-block blockquote{font-size:var(--t-body);line-height:1.55}
+  .reveal .sys .anno-row{gap:var(--s-gap);margin-top:var(--s-gap)}
+  .reveal .sys .anno-row p{font-size:var(--t-body)}
+  .reveal .sys>.example-block{margin-top:auto}
+  .reveal .sys>.anno-row+p.legal-line{margin-bottom:auto}
+  /* Agentes (línea de tiempo) */
+  .reveal .sys .rail label{font-size:var(--t-meta)}
+  .reveal .sys .rail b{font-size:var(--t-block)}
+  .reveal .sys .rail p{font-size:var(--t-body)}
+  /* Contexto */
+  .reveal .sys .ctx-main b{font-size:var(--t-close);}
+  .reveal .sys .ctx-main p{font-size:var(--t-body)}
+  .reveal .sys .ctx-others b{font-size:var(--t-block)}
+  .reveal .sys .ctx-others p{font-size:var(--t-body)}
+  .reveal .sys .ctx-main label,.reveal .sys .ctx-others label{font-size:var(--t-meta)}
+  .reveal .sys.ctx>.ctx-split{gap:var(--s-pad)}
+  /* Tabla de proveedores */
+  .reveal .sys .prv-head span{font-size:var(--t-meta)}
+  .reveal .sys .prv-table .prv-row{padding:9px 0}
+  .reveal .sys .prv-row b{font-size:var(--t-body)}
+  .reveal .sys .prv-row .m{font-size:var(--t-meta)}
+  .reveal .sys p.prv-legend{font-size:var(--t-meta);margin-top:var(--s-gap)}
+  .reveal .sys p.prv-foot{font-size:var(--t-meta);max-width:none;margin-top:16px}
+  /* Asistentes (comparación) */
+  .reveal .sys .compare label{font-size:var(--t-meta)}
+  .reveal .sys .compare h3{font-size:var(--t-block)}
+  .reveal .sys .compare p{font-size:var(--t-body);line-height:1.4}
+  .reveal .sys .compare small{font-size:var(--t-meta)}
+  .reveal .sys>.compare{margin-top:auto}
+  /* Referencias */
+  .reveal .sys .matrix{gap:var(--s-gap)}
+  .reveal .sys .matrix b{font-size:var(--t-block)}
+  .reveal .sys .matrix span{font-size:var(--t-body)}
+  .reveal .sys .matrix>div{padding:28px var(--s-pad)}
+}
+@media (min-width:601px){
+  .reveal .sys .prv-table .prv-row{grid-template-columns:1.35fr .95fr .4fr 1.4fr}
+  .reveal .sys .item b .ia{font-size:22px;padding:4px 12px}
+  .reveal .sys.ctx>.ctx-split{margin:auto 0 var(--s-close)}
+}
+@media (min-width:601px){
+  .reveal .sys>.anno-row{margin-top:var(--s-gap)}
+  .reveal .sys>.anno-row+p.legal-line{margin-top:var(--s-gap)}
+  .reveal .sys .trio>div{min-height:300px}
+  .reveal .sys>.matrix{margin-top:auto}
+  .reveal .sys>.matrix+*{margin-bottom:0}
+  .reveal .sys .matrix>div b::before{margin-bottom:16px}
+}
