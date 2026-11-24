@@ -38,6 +38,18 @@ Pruebas de navegador (requieren Google Chrome instalado):
 npm run test:e2e
 ```
 
+## PDF
+
+Dos versiones, según el uso. Las slides interactivas (las que avanzan con →) son la 9 (controles) y la 10 (harness).
+
+| Comando | Archivo | Contenido |
+|---|---|---|
+| `npm run pdf:lectura` | `ai-nda-slides.pdf` | Una página por slide. En las interactivas, solo el **último estado** (todo construido). 13 páginas. |
+| `npm run pdf:proyeccion` | `ai-nda-slides-proyeccion.pdf` | Una página por **paso**: estado inicial y uno por cada →, para recrear el proceso al proyectar. 21 páginas. |
+| `npm run pdf` | los dos | Genera ambos. |
+
+Requieren Google Chrome instalado. Si cambias el número de pasos de una slide, el PDF de proyección se ajusta solo.
+
 ## Publicación
 
 El workflow `../.github/workflows/deploy-presentation.yml` compila, audita dependencias y ejecuta pruebas de navegador. La publicación utiliza GitHub Pages y la base `/ai-nda/`.

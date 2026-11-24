@@ -8,7 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "test:e2e": "playwright test",
-    "pdf": "vite build && node scripts/export-pdf.mjs"
+    "pdf": "vite build && node scripts/export-pdf.mjs ambos",
+    "pdf:lectura": "vite build && node scripts/export-pdf.mjs lectura",
+    "pdf:proyeccion": "vite build && node scripts/export-pdf.mjs proyeccion"
   },
   "dependencies": {
     "reveal.js": "5.1.0"
