@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const SLIDE_COUNT = 12;
+const SLIDE_COUNT = 14;
 
 test('navegación por teclado y numeración', async ({ page }) => {
   await page.goto('./');
@@ -12,7 +12,7 @@ test('navegación por teclado y numeración', async ({ page }) => {
   await expect(segments.nth(0)).toHaveAttribute('aria-current', 'step');
 });
 
-test('la presentación contiene las 12 diapositivas del guion actualizado', async ({ page }) => {
+test('la presentación contiene las 14 diapositivas del guion actualizado', async ({ page }) => {
   await page.goto('./');
   await expect(page.locator('.slides > section')).toHaveCount(SLIDE_COUNT);
   await expect(page.locator('.slides')).toContainText('EL CASO JIRA');

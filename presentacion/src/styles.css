@@ -584,3 +584,21 @@ html[data-cover=true] .brand-mark,html[data-cover=true] .deck-header{display:non
   .reveal .sys>.matrix+*{margin-bottom:0}
   .reveal .sys .matrix>div b::before{margin-bottom:16px}
 }
+
+/* Slide 05A/05B: conceptos y alcance */
+.prv-concepts{display:grid;gap:12px;margin-top:16px}
+.prv-concepts>div{padding:20px;background:#1e1e1e;border:1px solid var(--line);border-radius:16px}
+.prv-concepts label{display:block;font:500 14px/1 var(--mono);letter-spacing:.14em;color:var(--accent)}
+.prv-concepts h3{margin:12px 0 8px}.prv-concepts p{margin:0;color:var(--muted)}
+.prv-b .prv-table .prv-row{grid-template-columns:.6fr 1.4fr}
+@media (min-width:601px){
+  .prv-concepts{grid-template-columns:repeat(3,1fr);gap:32px;margin:auto 0}
+  .prv-concepts>div{padding:44px 40px;border-radius:28px;min-height:300px}
+  .prv-concepts label{font-size:22px}
+  .prv-concepts h3{font:500 40px/1.2 var(--sans);margin:30px 0 0}
+  .prv-concepts p{font-size:30px;line-height:1.35;margin-top:20px}
+  .prv-b .prv-table .prv-row{grid-template-columns:.7fr 1.6fr;padding:18px 0}
+  .prv-b .prv-row b{font-size:34px}.prv-b .prv-row .m{font-size:32px}
+  .prv-b .prv-head span{font-size:19px}
+  .reveal .prv-b p.prv-foot{font-size:22px;margin-top:28px}
+}

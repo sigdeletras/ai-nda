@@ -18,7 +18,7 @@ Este documento recoge el texto visible y las notas del ponente. Mantenerlo sincr
 | 2 | NDA y marco legal | 3:00 |
 | 3 | Agentes de programación | 3:00 |
 | 4 | Nuestro contexto | 1:30 |
-| 5 | Proveedores y privacidad | 4:00 |
+| 5 | Privacidad y proveedores (5A conceptos 1:00 · 5B alcance 0:30 · 5C garantías 2:30) | 4:00 |
 | 6 | Configuración segura del software | 3:30 |
 | 7 | Configurar los asistentes | 4:00 |
 | 8 | Conclusiones | 3:30 |
@@ -224,9 +224,50 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 
 ## 5. Privacidad y proveedores — 4:00
 
+Bloque de tres diapositivas consecutivas (5A, 5B, 5C). Fuente: `docs/privacidad/PROVEEDORES-IA-POLITICAS-DATOS.md`, apartado 6.
+
+### 5A. Tres conceptos que no debemos confundir — 1:00
+
 **Texto visible**
 
-> ¿Qué prometen los proveedores?
+> Tres conceptos que no debemos confundir
+>
+> - **No entrenamiento:** ¿Entrenan con mis datos?
+> - **Retención:** ¿Cuánto tiempo lo conservan?
+> - **ZDR:** ¿Lo conservan tras procesarlo? Solo en el alcance cubierto.
+>
+> Que no entrenen con tus datos no significa que no los almacenen.
+
+**Notas del ponente**
+
+- Ejemplo: un proveedor excluye los prompts del entrenamiento, pero conserva registros de contenido un periodo limitado para supervisión de abuso.
+- ZDR se refiere al contenido y a los sistemas cubiertos; pueden seguir existiendo metadatos y funciones con estado fuera de ese alcance.
+
+### 5B. Servicios y modalidades revisadas — 0:30
+
+**Texto visible**
+
+> | Proveedor | Productos o modalidades revisadas |
+> |---|---|
+> | OpenAI | ChatGPT Business / Enterprise · API |
+> | Anthropic | Claude Team / Enterprise · API / Claude Code |
+> | Google | Gemini Developer API (Paid Services) |
+> | GitHub | Copilot Business / Enterprise |
+> | Cursor | Teams / Enterprise |
+> | Microsoft | Azure AI Foundry (modelos vendidos por Azure) |
+>
+> *Modalidades profesionales y servicios de pago revisados documentalmente. No equivale a una auditoría de la configuración de cada organización.*
+
+**Notas del ponente**
+
+- Una API comercial o un servicio cloud no son planes equivalentes a Business o Team; se incluyen por ser alternativas reales de un equipo de desarrollo.
+- No presentar los nombres como recomendaciones.
+
+### 5C. ¿Qué garantías ofrecen? — 2:30
+
+**Texto visible**
+
+> ¿Qué garantías ofrecen?
 >
 > | Servicio profesional | No entrenamiento | ZDR | Matiz |
 > |---|:---:|:---:|---|
@@ -252,6 +293,11 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 - La ubicación y las transferencias internacionales deben revisarse en la documentación contractual y de privacidad aplicable.
 - Cerrar con qué comprobar: producto exacto, plan, entrenamiento, retención, subencargados, ubicación, controles administrativos y contrato.
 - Indicar la fecha de consulta de la comparativa.
+- Un guion en ZDR no significa que el proveedor carezca de opciones específicas; ◐ indica condiciones que comprobar.
+- No trasladar garantías de una API a una suscripción, ni de un modelo a todas las funciones. Cursor: Privacy Mode; agentes cloud aparte.
+- La matriz resume documentación pública; no acredita contrato ni configuración.
+- Transición: «Conocer las condiciones del proveedor es necesario, pero no suficiente. También tenemos que controlar qué información y qué permisos ponemos a disposición del agente».
+- Ejemplo: Privacy Mode activado, pero clave API propia, agente cloud o servidor MCP; cada componente añade condiciones y flujos de datos.
 - No clasificar proveedores: lo importante es saber qué condiciones aceptamos.
 - **Mensaje clave:** no basta con conocer la marca ni con pagar; hay que comprobar el producto, el plan y sus condiciones concretas.
 
