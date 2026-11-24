@@ -20,13 +20,24 @@ La etiqueta «de pago» no basta para considerar adecuado un servicio: hay que c
 
 ## 2. Conceptos que no deben confundirse
 
+Estos tres conceptos responden a preguntas distintas y deben evaluarse por separado:
+
+| Concepto | Pregunta que responde | Qué significa | Qué no garantiza |
+|---|---|---|---|
+| **No entrenamiento** | ¿Utiliza el proveedor mis datos para entrenar o mejorar modelos? | El proveedor se compromete a no utilizar el contenido del cliente para ese fin, salvo excepciones o autorización. | Que no almacene prompts, respuestas, archivos o metadatos. |
+| **Retención limitada** | ¿Durante cuánto tiempo conserva el contenido? | El proveedor puede conservar prompts, respuestas o archivos durante un periodo definido y para finalidades concretas, por ejemplo supervisión de abuso o prestación del servicio. | Que el contenido no se utilice para entrenamiento, ni que se elimine inmediatamente. |
+| **Zero Data Retention (ZDR)** | ¿Conserva el proveedor el contenido después de procesarlo? | Bajo un acuerdo y alcance determinados, el proveedor no conserva el contenido de solicitudes y respuestas en los sistemas de registro cubiertos una vez procesado. | Que no exista ningún registro técnico ni que se cubran todas las funciones, endpoints, modelos, archivos, estados persistentes o terceros. |
+
+Otros conceptos relacionados:
+
 | Concepto | Qué significa | Qué no garantiza por sí solo |
 |---|---|---|
-| No entrenamiento | El proveedor declara que no utiliza los datos del cliente para entrenar o mejorar modelos, salvo excepciones o consentimiento. | Que no almacene prompts, respuestas, archivos o metadatos. |
-| Retención limitada | Los datos se conservan durante un periodo o para finalidades determinadas. | Que el contenido no se utilice para entrenamiento, ni que se elimine inmediatamente. |
-| Zero Data Retention (ZDR) | Bajo un acuerdo y alcance determinados, no se conservan prompts y respuestas en reposo tras el procesamiento. | Que cubra todas las funciones, endpoints, modelos, registros de seguridad o terceros. |
-| DPA | Acuerdo de tratamiento de datos personales entre responsable y encargado, cuando corresponda. | Que todos los datos confidenciales estén cubiertos o que el uso sea automáticamente lícito. |
-| Procesamiento en entorno cloud empresarial | El servicio se presta bajo condiciones y controles empresariales. | Procesamiento local ni ausencia de transferencias internacionales. |
+| **DPA** | Acuerdo de tratamiento de datos personales entre responsable y encargado, cuando corresponda. | Que todos los datos confidenciales estén cubiertos o que el uso sea automáticamente lícito. |
+| **Procesamiento en entorno cloud empresarial** | El servicio se presta bajo condiciones y controles empresariales. | Procesamiento local, ausencia de transferencias internacionales ni ZDR. |
+
+**Ejemplo sencillo:** un proveedor puede no utilizar los prompts para entrenar modelos y, aun así, conservarlos durante 30 días para supervisión de abuso. Una modalidad ZDR puede excluir ese contenido de los registros cubiertos, pero mantener metadatos técnicos o dejar fuera funciones que almacenan estado.
+
+**Mensaje para la charla:** «Que no entrenen con tus datos no significa que no los almacenen. Y ZDR no significa que no exista ningún registro ni que todo el flujo esté cubierto».
 
 ## 3. Matriz comparativa de proveedores
 
@@ -148,11 +159,69 @@ La evaluación debe realizarse sobre el flujo completo de datos, no únicamente 
 
 **Una licencia empresarial reduce determinados riesgos, pero no convierte cualquier uso en aceptable ni elimina las obligaciones de confidencialidad.**
 
-### Propuesta de diapositivas
+### Propuesta editorial: tres diapositivas consecutivas
 
-1. **Comparativa de garantías:** proveedor y producto empresarial; entrenamiento, retención y ZDR.
-2. **Tres conceptos distintos:** no entrenamiento, retención y ZDR, con ejemplos de OpenAI, Anthropic y Google.
-3. **El proveedor no es toda la cadena:** IDE/agente → backend de la herramienta → proveedor de inferencia → MCP e integraciones.
+El bloque de privacidad y proveedores se organizará en tres diapositivas. La secuencia permite explicar primero los conceptos, delimitar después el alcance de la investigación y, por último, interpretar la comparativa.
+
+#### Diapositiva 5A. Tres conceptos que no debemos confundir
+
+**Objetivo:** distinguir no entrenamiento, retención limitada y ZDR antes de ver la matriz.
+
+**Contenido visible:**
+- **No entrenamiento:** ¿utilizan mis datos para entrenar modelos?
+- **Retención:** ¿durante cuánto tiempo conservan el contenido?
+- **ZDR:** ¿conservan el contenido después de procesarlo, dentro del alcance cubierto?
+
+**Idea visual:** tres bloques o columnas, cada uno con una pregunta y una explicación de una línea.
+
+**Mensaje destacado:** «Que no entrenen con tus datos no significa que no los almacenen».
+
+**Nota oral:** utilizar el ejemplo de un proveedor que excluye los prompts del entrenamiento, pero conserva registros de contenido durante un periodo limitado para supervisión de abuso. ZDR se refiere al contenido y a los sistemas cubiertos; pueden seguir existiendo metadatos y funciones con estado fuera de ese alcance.
+
+**Tiempo orientativo:** 1 minuto.
+
+#### Diapositiva 5B. Servicios y modalidades revisadas
+
+**Objetivo:** delimitar qué se ha comparado y evitar que se interprete como una evaluación de todos los productos de cada empresa.
+
+| Proveedor | Productos o modalidades revisadas |
+|---|---|
+| OpenAI | ChatGPT Business / Enterprise · API |
+| Anthropic | Claude Team / Enterprise · API / Claude Code |
+| Google | Gemini Developer API (Paid Services) |
+| GitHub | Copilot Business / Enterprise |
+| Cursor | Teams / Enterprise |
+| Microsoft | Azure AI Foundry (modelos vendidos por Azure) |
+
+**Nota al pie:** «Modalidades profesionales y servicios de pago revisados documentalmente. No equivale a una auditoría de la configuración de cada organización».
+
+**Nota oral:** una API comercial o un servicio cloud no son planes de suscripción equivalentes a Business o Team. Se incluyen porque forman parte de las alternativas que puede utilizar un equipo de desarrollo. No presentar los nombres como recomendaciones.
+
+**Tiempo orientativo:** 30 segundos.
+
+#### Diapositiva 5C. ¿Qué garantías ofrecen?
+
+**Objetivo:** comparar los compromisos publicados para las modalidades concretas incluidas en el alcance.
+
+**Contenido visible:** utilizar la tabla sintética del apartado 3.1, con las columnas servicio profesional, no entrenamiento, ZDR y retención/matiz. Mantener la leyenda y la nota que aclara que no entrenamiento no significa retención cero. No añadir otra columna: los matices ya aparecen en la última y la tabla debe seguir siendo legible.
+
+**Mensaje oral:** «La mayoría ofrece compromisos de no entrenamiento en sus modalidades profesionales. La retención y el ZDR son mucho más variables: dependen del producto y de cómo lo usamos».
+
+**Precauciones:**
+- Un ✓ en no entrenamiento no implica que no se almacenen datos.
+- Un guion en ZDR indica que no existe una garantía general para esa modalidad; no significa necesariamente que el proveedor carezca de opciones específicas.
+- Un ◐ indica que hay condiciones, excepciones o requisitos que deben comprobarse.
+- No trasladar garantías de una API a una suscripción, ni de un modelo a todas las funciones de una herramienta.
+- Cursor requiere Privacy Mode para el compromiso indicado; revisar por separado los agentes cloud.
+- La matriz resume documentación pública. No acredita el contrato, la configuración ni las funciones activadas por una organización.
+
+**Tiempo orientativo:** 2 minutos y 30 segundos.
+
+**Duración total del bloque:** 4 minutos.
+
+### Transición al bloque de controles técnicos
+
+«Conocer las condiciones del proveedor es necesario, pero no suficiente. También tenemos que controlar qué información y qué permisos ponemos a disposición del agente».
 
 ### Ejemplo para explicar
 
