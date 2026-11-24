@@ -30,12 +30,15 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 
 ## Portada
 
+![Captura de la diapositiva 1](capturas/slide-01.png)
+
 **Texto visible**
 
 > LA PREVIA CORDOBESA · DEVFEST 2026  
 > ¿Le puedo dar las claves?  
 > IA agéntica, código y secretos de cliente  
-> Patricio Soriano · Geoinnova
+> Patricio Soriano · Geoinnova  
+> 27 de noviembre de 2026 · laZona Coworking
 
 **Notas del ponente**
 
@@ -50,6 +53,8 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 - La portada no tiene desarrollo adicional. 25 min + 5 de preguntas.
 
 ## 1. El caso Jira — 2:30
+
+![Captura de la diapositiva 2](capturas/slide-02.png)
 
 **Texto visible**
 
@@ -68,16 +73,16 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 
 **GUION · 01 · El caso Jira · 2:30**
 
-- Quién soy: qué es Geoinnova (una frase).
+- Quién soy: geógrafo y desarrollador; qué es Geoinnova (una frase).
 - Origen: revisión interna del uso de IA en el equipo de desarrollo que coordino.
 - El caso: surgió la duda de conectar la IA con el Jira de un cliente. Fue una consulta, no algo que se hiciera.
 - Idea: no se trata de señalar a nadie, sino de reconocer que podemos desconocer qué información sale del entorno y qué hemos comprometido.
 - Transición: antes de hablar de herramientas, qué hemos comprometido con los clientes.
 
-**REFERENCIA Y LÍMITES**
-
 
 ## 2. NDA y marco legal — 3:00
+
+![Captura de la diapositiva 3](capturas/slide-03.png)
 
 **Texto visible**
 
@@ -108,10 +113,10 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 - Algunos NDA ya incluyen cláusulas específicas sobre IA; aunque no, otras (no revelar, no ceder a terceros) afectan igualmente.
 - Confidencialidad contractual no es protección de datos personales: el RGPD añade obligaciones específicas.
 - Mencionar el ENS (RD 311/2022) en su ámbito y el Reglamento europeo de IA sin repaso normativo; destacar la alfabetización en IA. Comprobar fechas y alcance antes del ensayo final.
-- La suscripción de pago no modifica automáticamente las obligaciones.
-- No identificar al cliente ni el contrato. No ofrecer asesoramiento jurídico.
 
 ## 2 bis. Aspectos clave de los NDA que afectan a la IA
+
+![Captura de la diapositiva 4](capturas/slide-04.png)
 
 **Texto visible**
 
@@ -161,6 +166,8 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 
 ## 3. Agentes de programación — 3:00
 
+![Captura de la diapositiva 5](capturas/slide-05.png)
+
 **Texto visible**
 
 > Del chatbot a la factoría: cada paso amplía el alcance
@@ -171,7 +178,7 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 >
 > **3 · Factoría** — Flujos de agentes. Tareas, validaciones y delegación.
 >
-> *Cada paso amplía lo que puede encontrar: .env, tokens, datos de cliente, código propietario…*
+> *Cada paso amplía lo que puede encontrar: .env, tokens de acceso, datos de cliente, código propietario…*
 
 **Notas del ponente**
 
@@ -186,11 +193,13 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 **REFERENCIA Y LÍMITES**
 
 - El alcance real depende de herramienta, sistema operativo, permisos e integraciones.
-- Puede encontrar información que el desarrollador no incluyó en el prompt (.env, tokens, código propietario, configuraciones, datos de clientes).
+- Puede encontrar información que el desarrollador no incluyó en el prompt (.env, tokens de acceso (no los del modelo), código propietario, configuraciones, datos de clientes).
 - No afirmar que todo lo que ve se envía al proveedor: el contexto necesario para procesar una tarea puede transmitirse según el producto.
 - Las especificaciones también valen con un agente individual. No desarrollar SDD aquí.
 
 ## 4. Nuestro contexto — 1:30
+
+![Captura de la diapositiva 6](capturas/slide-06.png)
 
 **Texto visible**
 
@@ -228,6 +237,8 @@ Bloque de dos diapositivas consecutivas (5A, 5B). La antigua 5B (modalidades rev
 
 ### 5A. Tres conceptos que no debemos confundir — 1:00
 
+![Captura de la diapositiva 7](capturas/slide-07.png)
+
 **Texto visible**
 
 > Tres conceptos que no debemos confundir
@@ -240,10 +251,15 @@ Bloque de dos diapositivas consecutivas (5A, 5B). La antigua 5B (modalidades rev
 
 **Notas del ponente**
 
+- Mensaje central: «No entrenar ≠ no almacenar». Tres preguntas distintas: entrenamiento, retención y ZDR.
+- Cierre oral: «Que no entrenen con tus datos no significa que no los almacenen».
+- Transición: qué hemos comparado.
 - Ejemplo: un proveedor excluye los prompts del entrenamiento, pero conserva registros de contenido un periodo limitado para supervisión de abuso.
 - ZDR se refiere al contenido y a los sistemas cubiertos; pueden seguir existiendo metadatos y funciones con estado fuera de ese alcance.
 
 ### 5B. ¿Qué garantías ofrecen? — 3:00 (fusiona la antigua 5B de 0:30 y la 5C de 2:30)
+
+![Captura de la diapositiva 8](capturas/slide-08.png)
 
 **Texto visible**
 
@@ -280,9 +296,13 @@ Bloque de dos diapositivas consecutivas (5A, 5B). La antigua 5B (modalidades rev
 - Transición: «Conocer las condiciones del proveedor es necesario, pero no suficiente. También tenemos que controlar qué información y qué permisos ponemos a disposición del agente».
 - Ejemplo: Privacy Mode activado, pero clave API propia, agente cloud o servidor MCP; cada componente añade condiciones y flujos de datos.
 - No clasificar proveedores: lo importante es saber qué condiciones aceptamos.
+- Mensaje oral: «La mayoría ofrece compromisos de no entrenamiento en sus modalidades profesionales. La retención y el ZDR son mucho más variables: dependen del producto y de cómo lo usamos».
+- ChatGPT Business/Enterprise no es lo mismo que la API de OpenAI. Claude Team/Enterprise no tiene ZDR general. Gemini API de pago no equivale a Vertex AI.
 - **Mensaje clave:** no basta con conocer la marca ni con pagar; hay que comprobar el producto, el plan y sus condiciones concretas.
 
 ## 6. Configuración segura del software — 3:30
+
+![Captura de la diapositiva 9](capturas/slide-09.png)
 
 **Texto visible**
 
@@ -301,6 +321,7 @@ Bloque de dos diapositivas consecutivas (5A, 5B). La antigua 5B (modalidades rev
 
 **Guion (3:30)**
 
+- Construcción: avanza con la tecla → (cuatro pasos). Estado inicial: terminal con «cuatro controles de siempre / con agentes importan más». Cada paso ilumina un control y muestra solo su fragmento.
 - Apertura (0:20): «Esto no es nuevo ni es cosa de la IA: son controles de siempre. Con agentes importan más, porque hay otro actor leyendo y ejecutando en nuestro entorno».
 - Cuatro tarjetas, unos 30 s cada una (2:00). Etiquetas del pie, 0:45. Cierre, 0:25.
 - Cada proyecto y cada asistente tendrá su propia configuración: lo que se enseña es un caso (proyecto Python, API web y base de datos en contenedor), no un estándar.
@@ -396,12 +417,14 @@ Bloque de dos diapositivas consecutivas (5A, 5B). La antigua 5B (modalidades rev
 **REFERENCIA Y LÍMITES**
 
 - OWASP: la AI Agent Security Cheat Sheet sirve para seleccionar controles (mínimo privilegio, validación de entradas y acciones, aislamiento, supervisión); la Secrets Management Cheat Sheet respalda la tarjeta de secretos. Ambas están en la slide de Referencias.
-- Para reconocer amenazas: OWASP Top 10 for Agentic Applications 2026 (ASI01–ASI10) y GenAI LLM Top 10 2026 (LLM01–LLM10), sin repasar las listas. Comprobar la numeración en la publicación oficial antes del ensayo.
+- Si preguntan por catálogos de amenazas: OWASP Top 10 for Agentic Applications y GenAI LLM Top 10 (no están en la slide de Referencias; comprobar numeración y vigencia en la publicación oficial si se citan).
 - La lista de etiquetas es una selección propia, sin fuente citable; no presentarla como estándar. Los fragmentos de código son ilustrativos: la versión de gitleaks y el rol SQL son de ejemplo y no se han ejecutado para esta charla.
 - No solapar con la slide 07: aquí, controles técnicos del entorno. Mensaje clave: primero proteger el entorno; después, configurar el agente para que trabaje dentro de esos límites.
 - Texto de la slide anterior (conservado): «Controles que protegen con o sin IA. Secretos: fuera del repositorio y del contexto del agente. Mínimo privilegio: tokens limitados, permisos mínimos y caducidad. Entornos: desarrollo y pruebas separados de producción; datos sintéticos o anonimizados. Proyecto: revisar cambios, dependencias, extensiones y MCP; SAST y detección de secretos ayudan, pero no bloquean accesos».
 
 ## 7. Configurar el harness del asistente — 4:00
+
+![Captura de la diapositiva 10](capturas/slide-10.png)
 
 **Texto visible**
 
@@ -421,6 +444,7 @@ Bloque de dos diapositivas consecutivas (5A, 5B). La antigua 5B (modalidades rev
 
 **Guion (4:00)**
 
+- Construcción: avanza con la tecla → (cinco estados). Parte del agente solo y añade una capa por pulsación, de dentro hacia fuera; a la derecha aparece el detalle. La fila «ESQUIVA» enseña la fragilidad de los permisos por patrón.
 - Primera vez que se dice «harness», definirlo en una frase: todo lo que rodea al modelo (instrucciones, herramientas, permisos, contexto y mecanismos de ejecución). Las capas 01–03 son harness (el aislamiento solo en parte); la 04, política de equipo, es organizativa y queda fuera.
 - Mensaje: las reglas orientan, los permisos limitan, el aislamiento protege y la política decide qué entra. Ninguna capa basta sola: defensa en capas.
 - Cada asistente y cada proyecto tendrá su propia configuración: lo que se enseña es un ejemplo con Claude Code (los nombres de ficheros y claves cambian en Cursor, Copilot u otros), no un estándar.
@@ -450,7 +474,7 @@ Bloque de dos diapositivas consecutivas (5A, 5B). La antigua 5B (modalidades rev
 
 - Idea: no confiar en que el asistente se porte bien, sino limitar lo que puede alcanzar. Si el secreto no está donde el agente puede llegar, no puede leerlo ni filtrarlo.
 - Opciones: sandbox del asistente (restringe a nivel de sistema operativo qué ficheros y qué red puede usar un comando), contenedor o máquina virtual de desarrollo, red restringida a una lista de dominios, secretos que no se montan en el entorno del agente.
-- Ojo: en Claude Code el sandbox viene desactivado por defecto y no cubre todo (p. ej. herramientas integradas de ficheros, servidores MCP o hooks). En Windows nativo no se aplica: requiere WSL2. En Windows nativo los permisos son la protección principal, por lo que conviene no depender solo de ellos.
+- Ojo: en Claude Code el sandbox viene desactivado por defecto y no cubre todo (p. ej. herramientas integradas de ficheros, servidores MCP o hooks). En Windows nativo no se aplica: requiere WSL2. En Windows nativo los permisos son la protección principal y, como son frágiles, conviene reforzarlos con un contenedor o WSL2.
 - Enlaza con la slide 06: contenedor sin root, solo lectura, puertos en local.
 
 **04 · POLÍTICA DE EQUIPO · «Decide qué entra»**
@@ -468,6 +492,8 @@ Bloque de dos diapositivas consecutivas (5A, 5B). La antigua 5B (modalidades rev
 - Texto de la slide anterior (conservado): «Las reglas orientan. Los permisos limitan. Configuración del agente: harness y reglas · archivos de exclusión · permisos de herramientas · control de comandos (AGENTS.md · reglas del proveedor). Anexo de uso de IA: herramientas y datos permitidos · condiciones del proveedor · supervisión y restricciones del cliente · política interna y procedimiento de respuesta. Los secretos deben quedar fuera de su alcance».
 
 ## 8. Conclusiones — 2:30
+
+![Captura de la diapositiva 11](capturas/slide-11.png)
 
 **Texto visible**
 
@@ -498,21 +524,28 @@ Bloque de dos diapositivas consecutivas (5A, 5B). La antigua 5B (modalidades rev
 
 ## Referencias
 
+![Captura de la diapositiva 12](capturas/slide-12.png)
+
 **Texto visible**
 
-> OWASP AI Agent Security Cheat Sheet · OWASP Secrets Management Cheat Sheet  
-> OWASP Top 10 for Agentic Applications 2026 (ASI01–ASI10)  
-> OWASP GenAI LLM Top 10 2026 (LLM01–LLM10)  
-> Documentación oficial de privacidad y condiciones de proveedores  
-> RGPD · LOPDGDD · AEPD  
-> Real Decreto 311/2022 · Esquema Nacional de Seguridad  
-> Reglamento europeo de IA (AI Act)
+> Fuentes para profundizar (todas con enlace):  
+> OWASP · AI Agent Security Cheat Sheet  
+> OWASP · Secrets Management Cheat Sheet  
+> Anthropic · API y retención de datos  
+> OpenAI · Privacidad empresarial  
+> RGPD · Reglamento (UE) 2016/679  
+> LOPDGDD · Ley Orgánica 3/2018  
+> AEPD · Adecuación al RGPD de tratamientos que incorporan IA  
+> ENS · Real Decreto 311/2022  
+> AI Act · Reglamento (UE) 2024/1689
 
 **Notas del ponente**
 
-Diapositiva de consulta. El repositorio contiene los enlaces a los dos Top 10 oficiales y a la Cheat Sheet. El LLM Top 10 cubre riesgos de aplicaciones basadas en modelos; el Agentic Top 10, riesgos añadidos por autonomía y herramientas. NeuralTrust queda como lectura complementaria en español. No desarrollar las listas completas.
+Diapositiva de consulta. No desarrollar todas las fuentes. Comprobar que los enlaces siguen vigentes antes de la presentación.
 
 ## Cierre y agradecimientos
+
+![Captura de la diapositiva 13](capturas/slide-13.png)
 
 **Texto visible**
 
