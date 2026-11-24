@@ -602,3 +602,21 @@ html[data-cover=true] .brand-mark,html[data-cover=true] .deck-header{display:non
   .prv-b .prv-head span{font-size:19px}
   .reveal .prv-b p.prv-foot{font-size:22px;margin-top:28px}
 }
+
+/* Bloque 06: tarjetas con código */
+.code{white-space:pre;overflow:hidden;background:#101010;border:1px solid var(--line);border-radius:20px;color:#e9e9e9;font:400 25px/1.5 var(--mono);padding:26px 32px}
+.code .c{color:#8a8a8a}.code .k{color:var(--accent)}.code .hl{color:var(--accent);font-weight:500}
+.cx-grid{display:grid;gap:20px}
+.cx-card label{display:block;font:500 22px/1 var(--mono);letter-spacing:.14em;color:var(--accent);margin-bottom:8px}
+.cx-card>p{color:var(--muted);margin:0 0 14px}
+.cx-more{margin-top:16px}.cx-more-h{display:block;font:500 22px/1 var(--mono);letter-spacing:.08em;color:var(--muted);margin-bottom:12px}
+.cx-more ul{display:flex;flex-wrap:wrap;gap:10px 8px;list-style:none;margin:0;padding:0}
+.cx-more li{padding:8px 16px;border:1px solid var(--line);border-radius:30px;background:#1e1e1e;color:var(--text);font:400 22px/1.2 var(--mono);white-space:nowrap}
+.cx-more li.more{border-color:var(--accent);color:var(--accent);font-weight:700;font-size:30px;line-height:1;padding:6px 18px 10px}
+@media (min-width:601px){
+  .cx-grid{grid-template-columns:1fr 1fr;gap:26px 32px}
+  .cx-card>p{font-size:28px}
+  .reveal .cx h2{min-height:0;margin-bottom:30px}
+  .cx-card .code{min-height:0;font-size:25px;line-height:1.45;padding:22px 30px}
+}
+@media (max-width:600px){.cx-grid{grid-template-columns:1fr}.code{font-size:13px;padding:14px;overflow-x:auto}}

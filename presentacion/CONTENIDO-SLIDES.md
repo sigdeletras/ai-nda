@@ -307,37 +307,141 @@ Bloque de tres diapositivas consecutivas (5A, 5B, 5C). Fuente: `docs/privacidad/
 
 > Controles que protegen con o sin IA
 >
-> **Secretos:** fuera del repositorio y del contexto del agente.  
-> **Mínimo privilegio:** tokens limitados, permisos mínimos y caducidad.  
-> **Entornos:** desarrollo y pruebas separados de producción. Datos sintéticos o anonimizados.  
-> **Proyecto:** revisar cambios, dependencias, extensiones y MCP. SAST y detección de secretos ayudan, pero no bloquean accesos.
+> **Secretos:** fuera del repositorio y del agente. · `.gitignore` (`.env`, `.env.*`, `!.env.example`)  
+> **Mínimo privilegio:** solo lo necesario: rol de solo lectura. · SQL `CREATE ROLE app_ro LOGIN; GRANT SELECT ON ALL TABLES IN SCHEMA public TO app_ro;`  
+> **Entornos:** separados de producción y con datos sintéticos. · `ports: ["127.0.0.1:8000:8000"]`, `env_file: .env.dev`  
+> **Proyecto:** detección de secretos antes del commit. · `.pre-commit-config.yaml` con gitleaks (`rev: v8.18.4`)
 >
-> Referencia: OWASP AI Agent Security Cheat Sheet.
+> Y además... SAST · Dependencias y SBOM · Contenedores · Cabeceras y cookies · TLS y copias · CI/CD · Registros y auditoría · …
 
 **Notas del ponente**
 
-- Son medidas de seguridad del desarrollo que ya eran necesarias; los agentes hacen más importante aplicarlas.
-- No guardar secretos en el repositorio ni incorporarlos al contexto. Un .env no es un gestor de secretos y .gitignore no impide que el agente lea un archivo.
-- Utilizar tokens separados por finalidad, alcance limitado y caducidad; evitar credenciales personales o de producción.
-- Separar desarrollo, pruebas y producción. Utilizar datos sintéticos o anonimizados.
-- Revisar cambios, dependencias, extensiones e integraciones, incluidas herramientas MCP.
-- SAST, análisis de dependencias y detección de secretos ayudan a encontrar problemas, pero no impiden por sí solos que un agente lea o transmita información.
-- Citar SonarQube como ejemplo de SAST y Gitleaks como detector de secretos, sin explicar las herramientas.
-- Utilizar la Cheat Sheet de OWASP para seleccionar controles y el Top 10 for Agentic Applications para reconocer amenazas. Destacar solo las más vinculadas al desarrollo: inyección indirecta/secuestro de objetivos (ASI01), uso indebido de herramientas (ASI02), abuso de privilegios (ASI03), cadena de suministro (ASI04) y ejecución de código inesperada (ASI05). No convertir la slide en un repaso de las diez categorías. Complementar con el GenAI LLM Top 10: prompt injection (LLM01), exposición de información sensible (LLM02), agencia excesiva (LLM03), cadena de suministro (LLM04) y exposición de contexto oculto (LLM08). El primero aborda riesgos de aplicaciones LLM y el segundo los específicos de sistemas agénticos.
+**Guion (3:30)**
 
-## 7. Configurar los asistentes — 4:00
+- Apertura (0:20): «Esto no es nuevo ni es cosa de la IA: son controles de siempre. Con agentes importan más, porque hay otro actor leyendo y ejecutando en nuestro entorno».
+- Cuatro tarjetas, unos 30 s cada una (2:00). Etiquetas del pie, 0:45. Cierre, 0:25.
+- Cada proyecto y cada asistente tendrá su propia configuración: lo que se enseña es un caso (proyecto Python, API web y base de datos en contenedor), no un estándar.
+- Transición: «Con el entorno protegido, toca configurar al propio agente».
+
+**LAS CUATRO TARJETAS**
+
+**1 · SECRETOS · «Fuera del repositorio y del agente»**
+
+- Qué decir: las claves no deben vivir en el código ni en el repositorio. El fichero .env guarda valores locales; .gitignore evita subirlo a git.
+- Detalle: el patrón !.env.example es una excepción para que SÍ se suba el fichero de ejemplo, con nombres de variables y valores falsos. Así el equipo sabe qué variables hacen falta sin ver ningún secreto.
+- Ojo (clave para la charla): .gitignore solo evita subir el fichero; no impide que un agente lo lea. Un .env no es un gestor de secretos. En producción, usar variables de entorno inyectadas o un gestor de secretos, con rotación.
+- Si una clave se filtra: se rota. Borrarla del historial de git no basta, porque ya pudo copiarse.
+- Con IA: lo que el agente lee entra en el contexto y puede salir hacia el proveedor. Enlaza con la slide 07: reglas de denegación para que no lea .env.
+
+**2 · MÍNIMO PRIVILEGIO · «Solo lo necesario»**
+
+- Qué decir: cada persona, proceso o agente tiene solo los permisos que necesita. Si algo falla o lo comprometen, el daño es menor.
+- El ejemplo: un rol de base de datos app_ro que solo puede leer (SELECT). Si el producto solo consulta datos, no necesita escribir ni borrar. Si alguien (o un agente) usa esa conexión por error, no puede borrar tablas.
+- Detalle técnico: GRANT SELECT ON ALL TABLES cubre las tablas que existen en ese momento; las nuevas requieren ALTER DEFAULT PRIVILEGES. La contraseña del rol va por variable de entorno, no en el script.
+- Mismo principio en tokens y credenciales: separados por finalidad, con alcance limitado y caducidad; evitar credenciales personales o de producción.
+- Con IA: no darle al agente una cuenta con más permisos de los que necesita la tarea.
+
+**3 · ENTORNOS · «Separados de producción y con datos sintéticos»**
+
+- Qué decir: desarrollo y pruebas no deben tocar producción ni datos reales de clientes.
+- El ejemplo: ports "127.0.0.1:8000:8000" publica el puerto solo en la propia máquina. Con 0.0.0.0 cualquiera en la misma red podría acceder. env_file apunta a un fichero de entorno de desarrollo, distinto del de producción.
+- Datos sintéticos o anonimizados: inventados o transformados de forma que no identifiquen a nadie. Enlaza con el NDA: el dato real de cliente no debe entrar en el contexto del agente.
+- Con IA: un agente que trabaja en un entorno separado no puede, por accidente, borrar o filtrar producción.
+
+**4 · PROYECTO · «Detección de secretos antes del commit»**
+
+- Qué decir: automatizar la revisión para no depender de la memoria de nadie.
+- El ejemplo: pre-commit es un gestor de «ganchos» de git que se ejecutan antes de cada commit. Aquí lanza gitleaks, que busca patrones de claves y tokens en lo que se va a subir y bloquea el commit si encuentra alguno. rev fija la versión (la que se ve es de ejemplo: revisarla).
+- Límite: un hook local se puede saltar (git commit --no-verify). Por eso se repite el mismo análisis en la integración continua (CI/CD), donde no se puede omitir.
+- Gitleaks es un ejemplo de detector de secretos; SonarQube, de SAST. No explicar las herramientas.
+- SAST y detección de secretos ayudan a encontrar problemas, pero no impiden por sí solos que un agente lea o transmita información.
+
+**LAS ETIQUETAS DEL PIE · «Y además...»**
+
+- Mensaje: son solo una muestra. La seguridad clásica del desarrollo tiene muchos más temas y algunos son avanzados. Se nombran, no se explican. Si preguntan, usar la definición corta de abajo.
+
+**SAST (Static Application Security Testing)**
+
+- Definición corta: análisis automático del código fuente, sin ejecutarlo, para encontrar patrones inseguros.
+- Qué detecta: inyección SQL, uso de funciones peligrosas (eval), contraseñas escritas en el código, validación de entrada deficiente.
+- Herramientas de ejemplo: SonarQube; en Python, las reglas de seguridad (S) de Ruff o Bandit; Semgrep.
+- Límites: falsos positivos y no ve problemas que solo aparecen al ejecutar. Su contrario es DAST, que prueba la aplicación en ejecución.
+- Con IA: el código generado por un agente pasa por el mismo análisis que el de una persona.
+
+**Dependencias y SBOM**
+
+- Dependencias: tu software usa librerías de terceros, y estas usan otras (dependencias transitivas). Una vulnerabilidad en cualquiera te afecta. La auditoría de dependencias (pip-audit, npm audit, Dependabot) compara las versiones que usas con vulnerabilidades conocidas (CVE).
+- SBOM (Software Bill of Materials): inventario de todos los componentes y versiones que forman un software, como la lista de ingredientes. Formatos habituales: CycloneDX y SPDX. Sirve para responder rápido «¿nos afecta la vulnerabilidad nueva?» (caso típico: Log4Shell).
+- Relacionado: cadena de suministro y fijar versiones (lockfile con hashes).
+- Con IA: los asistentes pueden sugerir paquetes inexistentes o poco fiables; se ha descrito que atacantes registran esos nombres. Revisar cada dependencia nueva que proponga un agente.
+
+**Contenedores**
+
+- Definición corta: empaquetar la aplicación con lo que necesita para ejecutarse aislada del resto del sistema (Docker).
+- Buenas prácticas: usuario no root, sistema de ficheros de solo lectura (read_only), quitar capacidades (cap_drop: [ALL]), no-new-privileges, imágenes mínimas fijadas por versión o digest, escaneo de imágenes (p. ej. Trivy).
+- Aislado no significa seguro: un contenedor mal configurado (root, puertos abiertos) da poca protección.
+- Con IA: un contenedor puede ser el aislamiento donde trabaja el agente. Enlaza con la capa de aislamiento de la slide 07.
+
+**Cabeceras y cookies (aplicaciones web)**
+
+- Cabeceras HTTP de seguridad que el servidor envía al navegador: Content-Security-Policy (qué recursos puede cargar la página), X-Content-Type-Options: nosniff, Referrer-Policy, frame-ancestors (quién puede incrustar la página) y HSTS (obliga a usar HTTPS; solo tras tener TLS).
+- Cookies de sesión: HttpOnly (JavaScript no puede leerla), Secure (solo viaja por HTTPS) y SameSite (reduce el riesgo de CSRF, peticiones forzadas desde otro sitio).
+- Solo aplica si hay aplicación web. No entrar en detalle.
+
+**TLS y copias**
+
+- TLS (Transport Layer Security): cifra la comunicación entre dos extremos; es lo que hay detrás del https y sucesor de SSL. Evita que alguien en la red lea o altere los datos. Se usa también en conexiones a bases de datos remotas. Suele terminarse en un proxy inverso con un certificado (p. ej. Let’s Encrypt).
+- Copias de seguridad: cifradas, fuera del mismo sistema y con prueba de restauración («una copia no probada no es una copia»).
+- Con IA: un agente con permisos amplios puede borrar datos por error (p. ej. docker compose down -v elimina los volúmenes); las copias son la red de seguridad.
+
+**CI/CD**
+
+- Integración continua / entrega continua: un proceso automático que, en cada cambio, ejecuta pruebas, análisis (SAST), auditoría de dependencias, escaneo de secretos y de imágenes, y despliega si todo pasa.
+- Ramas protegidas con revisión: nadie sube directamente a la rama principal.
+- Con IA: es la red que no depende de que el agente ni nosotros recordemos hacerlo. El código generado por IA pasa por los mismos controles.
+
+**Registros y auditoría**
+
+- Registros (logs): qué ocurrió, cuándo y quién. Permiten detectar e investigar incidentes. Deben ser útiles sin contener secretos ni datos personales: nunca registrar contraseñas o tokens.
+- Auditoría: registro de acciones administrativas y de lo que hacen los usuarios con privilegios.
+- Con IA: conviene también registrar lo que hace el agente (comandos, accesos a servicios). Enlaza con los hooks de la slide 07.
+
+**… (lo que no cabe)**
+
+- Validación de entradas, autenticación y sesiones, límite de intentos de acceso y de peticiones (rate limiting), RGPD, licencias de dependencias, modelado de amenazas, política de seguridad (SECURITY.md) y plan de respuesta a incidentes.
+
+**REFERENCIA Y LÍMITES**
+
+- OWASP: la AI Agent Security Cheat Sheet sirve para seleccionar controles (mínimo privilegio, validación de entradas y acciones, aislamiento, supervisión); la Secrets Management Cheat Sheet respalda la tarjeta de secretos. Ambas están en la slide de Referencias.
+- Para reconocer amenazas: OWASP Top 10 for Agentic Applications 2026 (ASI01–ASI10) y GenAI LLM Top 10 2026 (LLM01–LLM10), sin repasar las listas. Comprobar la numeración en la publicación oficial antes del ensayo.
+- La lista de etiquetas es una selección propia, sin fuente citable; no presentarla como estándar. Los fragmentos de código son ilustrativos: la versión de gitleaks y el rol SQL son de ejemplo y no se han ejecutado para esta charla.
+- No solapar con la slide 07: aquí, controles técnicos del entorno. Mensaje clave: primero proteger el entorno; después, configurar el agente para que trabaje dentro de esos límites.
+- Texto de la slide anterior (conservado): «Controles que protegen con o sin IA. Secretos: fuera del repositorio y del contexto del agente. Mínimo privilegio: tokens limitados, permisos mínimos y caducidad. Entornos: desarrollo y pruebas separados de producción; datos sintéticos o anonimizados. Proyecto: revisar cambios, dependencias, extensiones y MCP; SAST y detección de secretos ayudan, pero no bloquean accesos».
+
+## 7. Configurar los asistentes — 2:00 (07) + 2:00 (07B caso)
 
 **Texto visible**
 
 > Las reglas orientan. Los permisos limitan.
 >
-> **Configuración del agente:** harness y reglas · archivos de exclusión · permisos de herramientas · control de comandos.
+> 1. **Reglas:** AGENTS.md y reglas del proveedor. Orientan, no bloquean.
+> 2. **Permisos y hooks:** deny, confirmaciones y revisión de comandos. Limitan, pero son frágiles.
+> 3. **Aislamiento:** sandbox, contenedor, red y secretos fuera de su alcance.
+> 4. **Política de equipo:** anexo de uso de IA: herramientas, datos, supervisión y respuesta.
 >
-> **Anexo de uso de IA:** herramientas y datos permitidos · condiciones del proveedor · supervisión y restricciones del cliente · política interna y procedimiento de respuesta.
->
-> Los secretos deben quedar fuera de su alcance.
+> Ninguna capa basta sola: defensa en capas.
 
-**Notas del ponente**
+**Notas del ponente (07)**
+
+- Cada asistente y cada proyecto tendrá su propia configuración; lo que sigue son ejemplos, no un estándar.
+- Precedencia: organización > usuario > proyecto; una denegación gana a una autorización.
+- Frágiles: una denegación de lectura cubre `cat` o `sed` sobre un fichero, pero no un intérprete (`python -c`) ni un script.
+- Aislamiento: sandbox del asistente (en Claude Code, desactivado por defecto; en Windows nativo requiere WSL2), contenedor, red restringida, secretos fuera de las carpetas accesibles.
+- Política de equipo: clasificación público / interno / cliente / secreto; el dato de cliente solo con cuenta comercial y permiso contractual; el secreto nunca entra en el contexto.
+- Texto externo (web, issues, PDF, salida de MCP) es dato, nunca instrucción: prompt injection.
+- **Mensaje clave:** las reglas orientan, los permisos limitan, el aislamiento protege.
+
+**Notas anteriores (07, conservadas)**
 
 - Explicar harness como conjunto de instrucciones, herramientas, permisos, contexto y mecanismos de ejecución que rodean al modelo.
 - Configuración específica según proveedor y herramienta. Mostrar ejemplos reales no sensibles de reglas, exclusiones, permisos de lectura/escritura y confirmaciones para comandos.
@@ -348,6 +452,27 @@ Bloque de tres diapositivas consecutivas (5A, 5B, 5C). Fuente: `docs/privacidad/
 - No hace falta pedir autorización para cada uso rutinario si existe política aprobada y clasificación clara; escalar cuando el dato, el proveedor o la acción excedan lo autorizado.
 - Diferenciar política organizativa y controles técnicos: se necesitan ambas capas.
 - **Mensaje clave:** las reglas orientan al agente; los permisos del sistema son los que limitan lo que puede hacer.
+
+## 7B. Caso: revisar los permisos acumulados — 2:00
+
+**Texto visible**
+
+> Un caso: revisar los permisos acumulados
+>
+> **Antes:** 36 reglas de permiso · credenciales en claro en 4 reglas · ejecución arbitraria y acceso a contenedores abiertos · directorios de otros clientes en todas las sesiones.
+>
+> **Después:** 6 reglas · solo lectura básica y dominios generales · directorios ajenos fuera de la sesión · credenciales por rotar. Copia previa, reversible.
+>
+> Los permisos se acumulan: revísalos como revisas el código.
+
+**Notas del ponente**
+
+- Caso real anonimizado (proyecto en Python, Claude Code). No identificar cliente ni proyecto. Es un ejemplo, no un estándar.
+- Las autorizaciones a nivel de usuario valen en todos los proyectos y se acumulan.
+- Credenciales dentro de las reglas: hay que rotarlas; borrar la regla no basta. `python -c` se salta cualquier denegación. Directorios de dos clientes en todas las sesiones: riesgo de mezclar información (enlaza con el NDA).
+- Procedimiento: copia previa, limpieza, validar el JSON, reiniciar la sesión; reponer en la configuración local del proyecto lo que haga falta.
+- Revocar una autorización solo hace que se pida confirmación; reversible. Revisión trimestral y al cambiar de cliente.
+- **Límite:** solo un proyecto; confirmar la rotación de credenciales antes de presentarlo como cerrado.
 
 ## 8. Conclusiones — 3:30
 
@@ -376,7 +501,7 @@ Bloque de tres diapositivas consecutivas (5A, 5B, 5C). Fuente: `docs/privacidad/
 
 **Texto visible**
 
-> OWASP AI Agent Security Cheat Sheet  
+> OWASP AI Agent Security Cheat Sheet · OWASP Secrets Management Cheat Sheet  
 > OWASP Top 10 for Agentic Applications 2026 (ASI01–ASI10)  
 > OWASP GenAI LLM Top 10 2026 (LLM01–LLM10)  
 > Documentación oficial de privacidad y condiciones de proveedores  
