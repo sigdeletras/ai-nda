@@ -454,7 +454,7 @@ Bloque de tres diapositivas consecutivas (5A, 5B, 5C). Fuente: `docs/privacidad/
 
 **02 · PERMISOS Y HOOKS · «Limitan, pero son frágiles»**
 
-- Permisos: lo que el asistente puede hacer sin preguntar. Tres niveles: permitir (allow), preguntar (ask) y denegar (deny). Una denegación gana a una autorización. Precedencia: organización > usuario > proyecto, y una capa inferior no puede relajar una superior.
+- Permisos: lo que el asistente puede hacer sin preguntar. Tres niveles: permitir (allow), preguntar (ask) y denegar (deny). Una denegación gana a una autorización. Precedencia, de mayor a menor: organización > línea de comandos > proyecto local > proyecto compartido > usuario. Una denegación de cualquier capa gana a una autorización de cualquier capa.
 - Ejemplo de la slide: "deny": ["Read(./.env)", "Read(~/.ssh/**)"] impide que lea esos ficheros.
 - Hooks: pequeños programas que el asistente ejecuta en momentos concretos (antes de usar una herramienta, al enviar un prompt…) y que pueden bloquear la acción. Ejemplo: un hook que revisa el prompt buscando claves antes de enviarlo.
 - Por qué son frágiles: una denegación de lectura cubre comandos como cat, head o sed sobre ese fichero, pero no un intérprete (python -c), sh -c ni un script que lo lea. Los patrones de comandos por prefijo se pueden esquivar. Refuerzan, no sustituyen, al aislamiento.
