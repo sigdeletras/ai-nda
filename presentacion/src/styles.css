@@ -620,3 +620,14 @@ html[data-cover=true] .brand-mark,html[data-cover=true] .deck-header{display:non
   .cx-card .code{min-height:0;font-size:25px;line-height:1.45;padding:22px 30px}
 }
 @media (max-width:600px){.cx-grid{grid-template-columns:1fr}.code{font-size:13px;padding:14px;overflow-x:auto}}
+
+/* Bloque 07: pila de capas con código */
+.st{display:grid;gap:16px}
+.st-h b{font:500 30px/1 var(--mono);color:var(--accent)}.st-h strong{display:block;font:500 32px/1.15 var(--sans)}.st-h small{display:block;font:400 24px/1.3 var(--mono);color:var(--muted)}
+@media (min-width:601px){
+  .st-row{display:grid;grid-template-columns:440px 1fr;gap:28px;align-items:stretch}
+  .st-h{display:flex;flex-direction:column;justify-content:center;gap:4px;padding-left:8px}
+  .st .code{font-size:24px;line-height:1.4;padding:18px 28px}
+  .cx .closing{margin-top:26px}
+}
+@media (max-width:600px){.st-row{display:grid;gap:8px}.st .code{font-size:13px;padding:14px;overflow-x:auto}}
