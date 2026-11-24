@@ -8,7 +8,7 @@ Documento editorial de la presentación **«¿Le puedo dar las claves? IA agént
 - **Presentación:** https://sigdeletras.github.io/ai-nda/
 - **Implementación:** `src/slides.js`
 
-Este documento recoge el texto visible y las notas del ponente. Mantenerlo sincronizado con `slides.js`. Las notas son ayudas para la representación, no un texto para leer literalmente.
+Este documento recoge el texto visible y las notas del ponente. Mantenerlo sincronizado con `slides.js`. Las notas son ayudas para la representación, no un texto para leer literalmente. En la vista de ponente (tecla S) cada nota tiene dos bloques: **Guion** (qué decir, en orden, con transición) y **Referencia y límites** (avisos, matices y trasfondo que no se dicen en voz alta).
 
 ## Distribución temporal
 
@@ -39,7 +39,15 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 
 **Notas del ponente**
 
-Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos agentes de programación a nuestro entorno y qué compromisos tenemos con los clientes.
+**GUION · portada**
+
+- Abrir con la pregunta del título: «¿Le puedo dar las claves?».
+- Qué veremos: qué autorizamos al conectar agentes de programación a nuestro entorno y qué hemos prometido a los clientes.
+- Transición: empiezo por un caso de mi equipo.
+
+**REFERENCIA Y LÍMITES**
+
+- La portada no tiene desarrollo adicional. 25 min + 5 de preguntas.
 
 ## 1. El caso Jira — 2:30
 
@@ -58,12 +66,16 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 
 **Notas del ponente**
 
-- Presentar brevemente el perfil (geógrafo y desarrollador) y qué es Geoinnova.
-- Explicar que la charla nace de una revisión interna del uso de la IA en el equipo de desarrollo, que coordino. Presentar el caso Jira como una consulta o propuesta surgida de esa revisión, no como algo que se haya hecho.
-- Contar el caso Jira solo con el nivel de detalle autorizado. No identificar cliente, proyecto, contrato, personas ni circunstancias que permitan reconstruirlo.
-- No atribuir al proveedor un uso concreto de los datos si no está documentado.
-- El problema no es señalar a quien utilizó la herramienta, sino reconocer que podemos desconocer qué información sale del entorno y qué compromisos ha asumido la empresa.
-- Transición: antes de hablar de herramientas, recordar qué hemos comprometido con los clientes.
+**GUION · 01 · El caso Jira · 2:30**
+
+- Quién soy: qué es Geoinnova (una frase).
+- Origen: revisión interna del uso de IA en el equipo de desarrollo que coordino.
+- El caso: surgió la duda de conectar la IA con el Jira de un cliente. Fue una consulta, no algo que se hiciera.
+- Idea: no se trata de señalar a nadie, sino de reconocer que podemos desconocer qué información sale del entorno y qué hemos comprometido.
+- Transición: antes de hablar de herramientas, qué hemos comprometido con los clientes.
+
+**REFERENCIA Y LÍMITES**
+
 
 ## 2. NDA y marco legal — 3:00
 
@@ -83,13 +95,21 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 
 **Notas del ponente**
 
-- Muchos asistentes no han visto nunca un NDA: es un contrato de confidencialidad que se firma en ciertos proyectos, sobre todo grandes, y condiciona todo el trabajo con el cliente.
-- Algunos NDA ya incluyen cláusulas específicas sobre IA; aunque no lo hagan, otras cláusulas afectan igualmente (no revelar ni ceder a terceros).
-- El ejemplo es una cláusula real, anonimizada, que prohíbe cargar información confidencial en IA generativa sin autorización previa y escrita. Destacar «autorización previa y escrita», «inteligencia artificial generativa» y «reutilización por terceros». Contraste: hay cláusulas genéricas que no nombran la IA («ni directamente ni a través de sus empleados, subcontratistas, agentes o terceros, revelarlos… cederlos…»). Plantear: ¿un proveedor de IA es un «tercero»? No identificar al cliente ni el contrato.
-- Diferenciar confidencialidad contractual de protección de datos personales: el RGPD añade obligaciones específicas.
+**GUION · 02 · NDA y marco legal · 3:00 junto con 02 bis**
+
+- Pregunta a la sala: ¿quién ha visto un NDA? Contrato de confidencialidad de ciertos proyectos, sobre todo grandes; condiciona todo el trabajo con el cliente.
+- Cláusula real anonimizada. Señalar: 1 «autorización previa y escrita», 2 «inteligencia artificial generativa», 3 «reutilización por terceros».
+- Contraste: hay cláusulas genéricas que no nombran la IA («ni directamente ni a través de sus empleados, subcontratistas, agentes o terceros, revelarlos… cederlos…»). ¿Un proveedor de IA es un «tercero»?
+- **Mensaje clave:** el contrato establece obligaciones; no configura el agente ni impide por sí mismo una exposición.
+- Transición: qué suele recoger un NDA que afecte a la IA.
+
+**REFERENCIA Y LÍMITES**
+
+- Algunos NDA ya incluyen cláusulas específicas sobre IA; aunque no, otras (no revelar, no ceder a terceros) afectan igualmente.
+- Confidencialidad contractual no es protección de datos personales: el RGPD añade obligaciones específicas.
 - Mencionar el ENS (RD 311/2022) en su ámbito y el Reglamento europeo de IA sin repaso normativo; destacar la alfabetización en IA. Comprobar fechas y alcance antes del ensayo final.
-- La suscripción de pago no modifica automáticamente las obligaciones. No ofrecer asesoramiento jurídico.
-- **Mensaje clave:** el contrato establece obligaciones; no configura técnicamente el agente ni impide por sí mismo una exposición.
+- La suscripción de pago no modifica automáticamente las obligaciones.
+- No identificar al cliente ni el contrato. No ofrecer asesoramiento jurídico.
 
 ## 2 bis. Aspectos clave de los NDA que afectan a la IA
 
@@ -123,12 +143,21 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 
 **Notas del ponente**
 
+**GUION · 02 bis · Aspectos clave de los NDA · 3:00 junto con 02**
+
 - Antes de decidir si se puede usar Cursor, Claude Code, Copilot u otro agente, clasificar contractualmente el proyecto.
-- El NDA o contrato puede establecer, explícita o implícitamente, cada uno de los seis puntos de la slide.
-- Recuperar la pregunta anterior: ¿un proveedor de IA es un tercero? Puede encajar como subcontratista o encargado del tratamiento.
-- Si el contrato prohíbe dar información confidencial a terceros no autorizados, que el proveedor no entrene con ella puede ser irrelevante: se le entrega para que la procese. Depende de la redacción; validar con asesoría jurídica.
-- Con datos personales entra el RGPD: control de las cadenas de tratamiento y de las transferencias internacionales; fuera del EEE, decisiones de adecuación o cláusulas contractuales tipo cuando correspondan.
-- Enlazar con la slide de privacidad y proveedores. Los nombres de herramientas son ejemplos. No ofrecer asesoramiento jurídico.
+- Seis puntos. La etiqueta IA marca los que afectan directamente: terceros, subcontratistas, ubicación y entrenamiento. No hay leyenda en pantalla: la explico yo.
+- Recuperar la pregunta: ¿un proveedor de IA es un tercero? Puede encajar como subcontratista o encargado del tratamiento.
+- Si el contrato prohíbe dar información a terceros no autorizados, que el proveedor no entrene puede ser irrelevante: se la damos para que la procese.
+- Cierre en pantalla: «Antes de preguntar si entrenan, pregunta si puedes dárselos».
+- Transición: qué hace realmente un agente en nuestro entorno.
+
+**REFERENCIA Y LÍMITES**
+
+- Depende de la redacción de la cláusula; validar con asesoría jurídica. No ofrecer asesoramiento jurídico.
+- Terceros: el proveedor lo es. Subcontratistas: puede serlo. Ubicación: dónde se procesan los datos. Entrenamiento: solo aplica a modelos. Datos personales y Seguridad y accesos son generales (sin etiqueta).
+- Con datos personales entra el RGPD: control de cadenas de tratamiento y transferencias internacionales; fuera del EEE, decisiones de adecuación o cláusulas contractuales tipo cuando correspondan.
+- Enlazar después con la slide de proveedores. Los nombres de herramientas son ejemplos, no recomendaciones.
 
 ## 3. Agentes de programación — 3:00
 
@@ -146,12 +175,20 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 
 **Notas del ponente**
 
-- Diferenciar un chatbot de un agente conectado al entorno de desarrollo.
-- Según herramienta, sistema operativo, permisos e integraciones, puede leer archivos, modificar código, ejecutar comandos y utilizar servicios.
-- Puede encontrar información que el desarrollador no ha incluido expresamente en el prompt.
-- No afirmar que todo lo que ve se envía necesariamente al proveedor: el contexto necesario para procesar una tarea puede transmitirse según el producto.
-- Introducir brevemente que los agentes pueden organizarse en flujos de trabajo o factorías, con especificaciones, tareas, herramientas y validaciones. En la factoría se delega de forma automática parte de las decisiones a la IA, para ir reduciendo la carga de trabajo humana: enlace con el concepto de human in the loop. Las especificaciones también valen con un agente individual. No desarrollar SDD aquí.
+**GUION · 03 · Agentes de programación · 3:00**
+
+- Chatbot: tú le pegas el texto; solo ve lo que pegas.
+- Agente: conectado al entorno de desarrollo; lee archivos, modifica código, ejecuta comandos y usa servicios.
+- Factoría: flujos de agentes con especificaciones, tareas y validaciones. Se delega parte de las decisiones a la IA para reducir carga humana: enlace con *human in the loop* (qué decisiones siguen necesitando a una persona).
+- Cierre en pantalla: cada paso amplía lo que puede encontrar. Los puntos suspensivos: la lista es la de hoy y puede crecer.
 - Transición: el riesgo depende de cómo incorporamos estas capacidades al trabajo diario.
+
+**REFERENCIA Y LÍMITES**
+
+- El alcance real depende de herramienta, sistema operativo, permisos e integraciones.
+- Puede encontrar información que el desarrollador no incluyó en el prompt (.env, tokens, código propietario, configuraciones, datos de clientes).
+- No afirmar que todo lo que ve se envía al proveedor: el contexto necesario para procesar una tarea puede transmitirse según el producto.
+- Las especificaciones también valen con un agente individual. No desarrollar SDD aquí.
 
 ## 4. Nuestro contexto — 1:30
 
@@ -171,10 +208,19 @@ Abrir con la pregunta del título. Presentar qué autorizamos cuando conectamos 
 
 **Notas del ponente**
 
-- Describir el escenario de muchas pymes: equipos que utilizan servicios comerciales porque son accesibles y productivos.
-- La charla no exige despliegue local. Se centra en modalidades comerciales adecuadas para uso profesional, no en cuentas gratuitas o personales.
-- Los nombres son ejemplos, no recomendaciones ni avales.
-- La cuestión es cómo trabajar con garantías razonables en este contexto.
+**GUION · 04 · Nuestro contexto · 1:30**
+
+- Escenario de muchas pymes: equipo mediano, suscripciones de pago, sin modelos ni infraestructura propios.
+- Otros caminos, una frase cada uno: cloud contratado, infraestructura propia, modelo local.
+- Nos centramos en el comercial: conocer cómo trata el proveedor los datos y bajo qué condiciones.
+- Transición: qué prometen los proveedores.
+
+**REFERENCIA Y LÍMITES**
+
+- Modelo local: los datos se quedan en el equipo, pero exige capacidad (memoria gráfica, RAM, rendimiento) y limita la calidad del modelo. No dar cifras: cambian rápido.
+- Local no es automáticamente seguro: quita al proveedor de la cadena, pero siguen aplicando secretos, permisos, extensiones e integraciones.
+- Servicios cloud contratados pueden solaparse con alguna fila de la tabla (p. ej. Azure AI Foundry).
+- Foco en modalidades comerciales de uso profesional, no cuentas gratuitas o personales. No desarrollar los otros caminos. Nombres = ejemplos.
 
 ## 5. Privacidad y proveedores — 4:00
 
