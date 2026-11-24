@@ -17,7 +17,7 @@ test('la presentación contiene las 14 diapositivas del guion actualizado', asyn
   await expect(page.locator('.slides > section')).toHaveCount(SLIDE_COUNT);
   await expect(page.locator('.slides')).toContainText('EL CASO JIRA');
   await expect(page.locator('.slides')).toContainText('CONFIGURAR EL HARNESS DEL ASISTENTE');
-  await expect(page.locator('.slides')).toContainText('La confianza con el cliente se gestiona');
+  await expect(page.locator('.slides')).toContainText('¿Y el Jira del cliente?');
 });
 
 test('la vista de ponente muestra las notas', async ({ page, context }) => {

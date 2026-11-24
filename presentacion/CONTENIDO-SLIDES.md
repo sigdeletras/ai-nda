@@ -21,8 +21,8 @@ Este documento recoge el texto visible y las notas del ponente. Mantenerlo sincr
 | 5 | Privacidad y proveedores (5A conceptos 1:00 · 5B alcance 0:30 · 5C garantías 2:30) | 4:00 |
 | 6 | Configuración segura del software | 3:30 |
 | 7 | Configurar el harness del asistente | 4:00 |
-| 8 | Conclusiones | 3:30 |
-| | **Total** | **25:00** |
+| 8 | Conclusiones | 2:30 |
+| | **Total** | **24:00** (1:00 de margen) |
 
 La portada, las referencias y el cierre no tienen desarrollo adicional. Las preguntas ocupan los cinco minutos posteriores.
 
@@ -481,28 +481,34 @@ Bloque de tres diapositivas consecutivas (5A, 5B, 5C). Fuente: `docs/privacidad/
 - Diferenciar excluir un fichero del contexto de retirar el permiso real de acceso: verificar el comportamiento de cada herramienta y aplicar controles en sistema de archivos, entorno o integración.
 - Texto de la slide anterior (conservado): «Las reglas orientan. Los permisos limitan. Configuración del agente: harness y reglas · archivos de exclusión · permisos de herramientas · control de comandos (AGENTS.md · reglas del proveedor). Anexo de uso de IA: herramientas y datos permitidos · condiciones del proveedor · supervisión y restricciones del cliente · política interna y procedimiento de respuesta. Los secretos deben quedar fuera de su alcance».
 
-## 8. Conclusiones — 3:30
+## 8. Conclusiones — 2:30
 
 **Texto visible**
 
-> La confianza se gestiona con decisiones concretas
+> No «¿le doy las claves?» sino «¿qué dejo a su alcance?»
 >
-> 1. **Herramienta:** ¿Está autorizada y el plan es adecuado?
-> 2. **Información:** ¿Puedo compartir estos datos?
-> 3. **Accesos:** ¿Qué permisos y credenciales necesita?
-> 4. **Entornos:** ¿Están separados y protegidos los secretos?
-> 5. **Supervisión:** ¿Revisamos cambios y acciones de impacto?
-> 6. **Respuesta:** ¿Sabemos actuar ante una exposición?
+> 1. **Lee el NDA:** ¿Nombra la IA? ¿Subcontratistas? ¿Ubicación?
+> 2. **Revisa los permisos del asistente:** deny de .env y claves · sandbox o contenedor
+> 3. **Escribe una página de política:** Qué datos entran, cuáles no y con qué cuenta
 >
-> La confianza con el cliente: contrato, configuración y transparencia.
+> El contrato promete. La configuración cumple.  
+> ¿Y el Jira del cliente? Primero se pregunta.
 
 **Notas del ponente**
 
-- Recuperar la pregunta inicial: «¿Le puedo dar las claves?». No hay un sí o no universal: depende de qué claves, para qué tarea, con qué herramienta y bajo qué controles.
-- Recorrer la lista sin desarrollar de nuevo cada bloque.
-- No se trata de prohibir la IA ni de exigir infraestructura propia, sino de establecer límites proporcionados al riesgo.
-- Si se produce una exposición: contener, revocar o rotar credenciales, evaluar el alcance y comunicar conforme al procedimiento aplicable.
-- Cerrar con la frase final.
+**GUION · 08 · Conclusiones · 2:30**
+
+- Reformular la pregunta de la portada: el problema no son las claves, sino qué dejamos al alcance del agente.
+- Tres acciones para esta semana, una hora cada una: NDA (slide 2), permisos y aislamiento (slide 7), política de equipo (slide 7, capa 04).
+- Frase puente: el contrato promete (slide 2), la configuración cumple (slides 6 y 7).
+- Cerrar el bucle con el caso Jira (slide 1): antes de conectarlo se pregunta al cliente; luego cuenta comercial y entorno separado.
+
+**REFERENCIA Y LÍMITES**
+
+- Comprobar que las tres acciones son realistas para el público. No ofrecer asesoramiento jurídico sobre el NDA.
+- «Respuesta ante exposición» no está en pantalla; para preguntas: contener, revocar o rotar credenciales, evaluar el alcance y comunicar conforme al procedimiento aplicable.
+- No se trata de prohibir la IA ni de exigir infraestructura propia, sino de límites proporcionados al riesgo.
+- Versión anterior (checklist de seis preguntas: herramienta, información, accesos, entornos, supervisión, respuesta) conservada en git.
 
 ## Referencias
 

@@ -631,3 +631,8 @@ html[data-cover=true] .brand-mark,html[data-cover=true] .deck-header{display:non
   .cx .closing{margin-top:26px}
 }
 @media (max-width:600px){.st-row{display:grid;gap:8px}.st .code{font-size:13px;padding:14px;overflow-x:auto}}
+
+/* Referencias: lista de enlaces */
+.refs{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:10px}
+.refs a{color:var(--text);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:6px;font-size:18px}
+@media (min-width:601px){.refs{margin:auto 0;gap:18px}.refs a{font-size:34px}}
