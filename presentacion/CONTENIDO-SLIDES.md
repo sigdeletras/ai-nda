@@ -203,7 +203,7 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 
 **Texto visible**
 
-> Cuatro caminos para usar IA en un equipo de desarrollo
+> Algunos caminos para usar IA en un equipo de desarrollo
 >
 > **Nuestro camino: suscripción comercial**  
 > Empresa mediana, suscripciones de pago, sin modelos ni infraestructura propios. El proveedor trata los datos.
@@ -213,14 +213,17 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 > Infraestructura propia: servidores y modelos propios.  
 > Modelo local: descargado en los equipos; depende de su capacidad.
 >
-> *Aquí nos centramos en el comercial: conocer sus condiciones.*
+> *Aquí nos centramos en el comercial: conocer sus condiciones.  
+> La cuenta personal o gratuita no es un camino: es el que hay que evitar.*
 
 **Notas del ponente**
 
 **GUION · 04 · Nuestro contexto · 1:30**
 
+- Criterio: los caminos se distinguen por dónde corre el modelo y quién lo contrata. Son algunos de los frecuentes, no una lista cerrada.
 - Escenario de muchas pymes: equipo mediano, suscripciones de pago, sin modelos ni infraestructura propios.
 - Otros caminos, una frase cada uno: cloud contratado, infraestructura propia, modelo local.
+- Cierre en pantalla: la cuenta personal o gratuita (shadow AI) no es un camino válido para información de cliente; es la que más se cuela y encaja con el caso Jira y el NDA.
 - Nos centramos en el comercial: conocer cómo trata el proveedor los datos y bajo qué condiciones.
 - Transición: qué prometen los proveedores.
 
@@ -229,6 +232,7 @@ La portada, las referencias y el cierre no tienen desarrollo adicional. Las preg
 - Modelo local: los datos se quedan en el equipo, pero exige capacidad (memoria gráfica, RAM, rendimiento) y limita la calidad del modelo. No dar cifras: cambian rápido.
 - Local no es automáticamente seguro: quita al proveedor de la cadena, pero siguen aplicando secretos, permisos, extensiones e integraciones.
 - Servicios cloud contratados pueden solaparse con alguna fila de la tabla (p. ej. Azure AI Foundry).
+- Variantes fuera de pantalla, por si preguntan: API directa de pago por uso (no es una suscripción de producto); clave API propia (BYOK) en un IDE o extensión, que añade a la herramienta como actor extra en la cadena; modelos abiertos alojados por terceros (ni local ni infraestructura propia: otro tercero trata los datos); pasarela o proxy corporativo entre el equipo y los proveedores (registro, filtrado de secretos, control de cuentas), que es un control más que un camino.
 - Foco en modalidades comerciales de uso profesional, no cuentas gratuitas o personales. No desarrollar los otros caminos. Nombres = ejemplos.
 
 ## 5. Privacidad y proveedores — 4:00
