@@ -18,7 +18,7 @@ const deck = new Reveal({
   controls: true, keyboard: true, overview: true, scrollActivationWidth: null,
   transition: 'fade', backgroundTransition: 'fade',
   ...getDeckSize(), maxScale: 1.5,
-  plugins: [RevealNotes]
+  plugins: __KEEP_NOTES__ ? [RevealNotes] : []
 });
 
 // Recalcular el lienzo al cambiar orientación o tamaño de ventana.

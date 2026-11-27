@@ -14,7 +14,7 @@ Portada, 8 diapositivas de contenido, referencias y cierre. El texto visible y l
 - [Contenido y notas de las slides](CONTENIDO-SLIDES.md)
 - Implementación: `src/slides.js`
 
-Las notas del ponente se abren con `S`. Navega con cursores o barra espaciadora; `Esc` muestra el índice. La barra inferior permite saltar a cualquier diapositiva y muestra el título al pasar el cursor.
+Las notas del ponente se abren con `S` solo en desarrollo (`npm run dev`). El build web (`npm run build`) las elimina; para ensayar con notas en un build usa `KEEP_NOTES=1 npm run build`. Navega con cursores o barra espaciadora; `Esc` muestra el índice. La barra inferior permite saltar a cualquier diapositiva y muestra el título al pasar el cursor.
 
 ## Desarrollo
 
